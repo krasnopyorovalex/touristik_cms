@@ -1,5 +1,7 @@
 <?php
 
+Carbon\Carbon::setLocale(config('app.locale'));
+
 return [
 
     /*

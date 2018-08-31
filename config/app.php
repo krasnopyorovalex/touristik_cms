@@ -162,6 +162,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\UploadCkeditorImageServiceProvider::class,
         App\Providers\UploadGalleryImagesServiceProvider::class,
+        App\Providers\LinkGeneratorServiceProvider::class,
 
     ],
 

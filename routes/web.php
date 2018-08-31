@@ -13,13 +13,13 @@
 
 Route::pattern('alias', '[a-z]+');
 
+Auth::routes();
+
 Route::get('/{alias?}', 'PageController@show')->name('page.show');
 Route::get('articles/{alias}', 'ArticleController@show')->name('article.show');
 Route::get('services/{alias}', 'ServiceController@show')->name('service.show');
 Route::get('informations/{alias}', 'InformationController@show')->name('information.show');
 Route::get('services/{alias}', 'ServiceController@show')->name('service.show');
-
-Auth::routes();
 
 Route::group(['prefix' => '_root', 'middleware' => 'auth', 'namespace' => 'Admin', 'as' => 'admin.'], function () {
 

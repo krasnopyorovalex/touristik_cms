@@ -1,25 +1,6 @@
 <?php
 
 /**
- * @todo: переименовать с префиксом date
- *
- * @param $value
- * @return string
- */
-function iso8601_date($value)
-{
-    if (is_null($value) || strlen($value) < 1) {
-        return null;
-    }
-
-    if ($value instanceof \Carbon\Carbon) {
-        return $value->toIso8601String();
-    }
-
-    return \Carbon\Carbon::parse($value)->toIso8601String();
-}
-
-/**
  *
  * @param string $string
  * @param array $params
@@ -34,56 +15,45 @@ function str_template(string $string, array $params = [])
 }
 
 /**
- * Unpack 1,2,3,4,5 comma list to simple array.
- *
- * @param string $value
- * @return array
+ * @param $collection
+ * @param null $selected
+ * @return string
  */
-function array_comma($value) : array
+function build_root_child_select($collection, $selected = null)
 {
-    $string = (string) $value;
-    if (strlen(trim($string)) < 1) {
-        return [];
+    $returnedArray = [];
+
+    foreach ($collection as $item) {
+        if ( ! $item['parent_id']) {
+            $returnedArray[] = $item;
+            continue;
+        }
+        $returnedArray['child_' . $item['parent_id']][] = $item;
     }
 
-    return array_map('trim', array_filter(
-        (array)explode(',', $string)
-    ));
+    return build_options($returnedArray, $selected);
 }
 
 /**
- * @todo: переименовать с префиксом array
- *
- * @param array $subarray
  * @param array $array
- * @return bool
+ * @param $selected
+ * @param string $html
+ * @param string $step
+ * @param array $helpArray
+ * @return string
  */
-function search_subarray(array $subarray, array $array) : bool
+function build_options(array $array, $selected, $html = '', $step = '', $helpArray = [])
 {
-    foreach ($subarray as $value) {
-        if (! in_array($value, $array)) {
-            return false;
+    $originArray = count($helpArray) ? $helpArray : $array;
+    foreach ($array as $item) {
+        if ( ! is_array($item)) {
+
+            $html .= '<option value="'.$item->id.'"' . ($selected == $item->id ? 'selected=""' : '').'>'. $step . $item->name .'</option>' . PHP_EOL;
+
+            if(isset($originArray['child_' . $item->id])) {
+                $html = build_options($originArray['child_' . $item->id], $selected, $html, $step . '**', $array);
+            }
         }
     }
-
-    return true;
-}
-
-/**
- * @todo: переименовать с префиксом array
- *
- * @param $value
- * @param string $key
- * @param array $array
- * @return int|null
- */
-function search_array_index($value, string $key, array $array)
-{
-    for ($i = 0; $i < count($array); $i++) {
-        if ($array[$i][$key] == $value) {
-            return $i;
-        }
-    }
-
-    return null;
+    return $html;
 }

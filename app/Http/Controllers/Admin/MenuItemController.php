@@ -16,30 +16,30 @@ use Illuminate\Http\Request;
 class MenuItemController extends Controller
 {
     /**
-     * @param int $parent
+     * @param int $menu
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index(int $parent)
+    public function index(int $menu)
     {
-        $menuItems = $this->dispatch(new GetAllMenuItemsQuery($parent, null));
+        $menuItems = $this->dispatch(new GetAllMenuItemsQuery($menu, null));
 
         return view('admin.menu_items.index', [
             'menuItems' => $menuItems,
-            'parent' => $parent
+            'menu' => $menu
         ]);
     }
 
     /**
-     * @param int $parent
+     * @param int $menu
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function create(int $parent)
+    public function create(int $menu)
     {
-        $menuItems = $this->dispatch(new GetAllMenuItemsQuery($parent, null));
+        $menuItems = $this->dispatch(new GetAllMenuItemsQuery($menu, null));
 
         return view('admin.menu_items.create', [
             'menuItems' => $menuItems,
-            'parent' => $parent
+            'menu' => $menu
         ]);
     }
 
@@ -54,7 +54,7 @@ class MenuItemController extends Controller
         $this->dispatch(new CreateMenuItemCommand($request));
 
         return redirect(route('admin.menu_items.index', [
-            'parent' => intval($request->get('menu_id'))
+            'menu' => intval($request->get('menu_id'))
         ]));
     }
 
@@ -86,22 +86,21 @@ class MenuItemController extends Controller
         $menuItem = $this->dispatch(new GetMenuItemByIdQuery($id));
 
         return redirect(route('admin.menu_items.index', [
-            'parent' => $menuItem->menu_id
+            'menu' => $menuItem->menu_id
         ]));
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function destroy(int $id)
+    public function destroy(int $id, Request $request)
     {
         $this->dispatch(new DeleteMenuItemCommand($id));
 
         return redirect(route('admin.menu_items.index', [
-            'parent' => intval($request->get('menu_id'))
+            'menu' => intval($request->post('menu_id'))
         ]));
     }
 

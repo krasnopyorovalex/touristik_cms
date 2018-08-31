@@ -34,7 +34,7 @@
                 </div>
 
                 @input(['name' => 'name', 'entity' => $menuItem, 'label' => 'Название'])
-                @select(['name' => 'link', 'entity' => $menuItem, 'label' => 'Ссылка'])
+                @selectLink(['name' => 'link', 'entity' => $menuItem, 'label' => 'Ссылка'])
                 @submit_btn()
 
             </form>

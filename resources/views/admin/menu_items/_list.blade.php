@@ -6,10 +6,11 @@
                 <div class="center-block ">{{ $menuItem->link }}</div>
                 <div class="actions">
                     <a href="{{ route('admin.menu_items.edit', $menuItem) }}"><i class="icon-pencil7"></i></a>
-                    <form action="{{ route('admin.menu_items.destroy', $menuItem) }}" class="form__delete">
+                    <form action="{{ route('admin.menu_items.destroy', $menuItem) }}" class="form__delete" method="post">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
-                        <button type="submit" class="last__btn">
+                        <input type="hidden" value="{{ $menuItem->menu_id }}" name="menu_id">
+                        <button type="submit" class="destroy__btn">
                             <i class="icon-trash"></i>
                         </button>
                     </form>

@@ -31,47 +31,8 @@ $(function() {
     table.on('click', '.last__btn', function (e) {
         e.preventDefault();
         var _this = $(this),
-            alias = _this.attr('data-alias'),
-            notice = new PNotify({
-            title: 'Предупреждение',
-            text: '<p>Вы действительно хотите удалить?</p>',
-            hide: false,
-            type: 'info',
-            icon: 'icon-info22',
-            confirm: {
-                confirm: true,
-                buttons: [
-                    {
-                        text: 'Да',
-                        addClass: 'btn btn-sm btn-primary'
-                    },
-                    {
-                        text: 'Нет',
-                        addClass: 'btn btn-sm btn-link'
-                    }
-                ]
-            },
-            buttons: {
-                closer: false,
-                sticker: false
-            },
-            history: {
-                history: false
-            }
-        });
-
-        // On confirm
-        notice.get().on('pnotify.confirm', function() {
-            if(alias == 'index'){
-                return new PNotify({
-                    title: 'Осторожно',
-                    text: 'Нельзя удалить главную страницу',
-                    icon: 'icon-blocked',
-                    type: 'error'
-                });
-            }
-            return _this.closest('form').trigger('submit');
-        });
+            alias = _this.data('data-alias');
+        return sendDestroyRequest(_this, alias);
     });
 
     var checkBox = $(".control-primary"),
@@ -226,3 +187,46 @@ $(function() {
     });
 
 });
+
+function sendDestroyRequest(_this, alias = '') {
+    var notice = new PNotify({
+        title: 'Предупреждение',
+        text: '<p>Вы действительно хотите удалить?</p>',
+        hide: false,
+        type: 'info',
+        icon: 'icon-info22',
+        confirm: {
+            confirm: true,
+            buttons: [
+                {
+                    text: 'Да',
+                    addClass: 'btn btn-sm btn-primary'
+                },
+                {
+                    text: 'Нет',
+                    addClass: 'btn btn-sm btn-link'
+                }
+            ]
+        },
+        buttons: {
+            closer: false,
+            sticker: false
+        },
+        history: {
+            history: false
+        }
+    });
+
+    // On confirm
+    notice.get().on('pnotify.confirm', function() {
+        if(alias == 'index'){
+            return new PNotify({
+                title: 'Осторожно',
+                text: 'Нельзя удалить главную страницу',
+                icon: 'icon-blocked',
+                type: 'error'
+            });
+        }
+        return _this.closest('form').trigger('submit');
+    });
+}

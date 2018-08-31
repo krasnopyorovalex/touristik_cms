@@ -11,7 +11,7 @@
 
             <form action="{{ route('admin.menu_items.store') }}" method="post">
                 @csrf
-                <input type="hidden" name="menu_id" value="{{ $parent }}">
+                <input type="hidden" name="menu_id" value="{{ $menu }}">
 
                 <div class="form-group">
                     <label for="parent_id">Выберите родительский пункт меню</label>
@@ -34,7 +34,7 @@
                 </div>
 
                 @input(['name' => 'name', 'label' => 'Название'])
-                @input(['name' => 'link', 'label' => 'Ссылка'])
+                @selectLink(['name' => 'link', 'label' => 'Ссылка'])
 
                 @submit_btn()
             </form>

@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <a href="{{ route('admin.menu_items.create', ['parent' => $parent]) }}" type="button" class="btn bg-primary">
+    <a href="{{ route('admin.menu_items.create', ['menu' => $menu]) }}" type="button" class="btn bg-primary">
         Добавить
         <i class="icon-stack-plus position-right"></i>
     </a>

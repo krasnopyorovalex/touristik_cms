@@ -72,9 +72,12 @@ class CatalogProductController extends Controller
         $catalogProduct = $this->dispatch(new GetCatalogProductByIdQuery($id));
         $catalogProducts = $this->dispatch(new GetAllCatalogProductsQuery($catalogProduct->catalog_id, $catalogProduct->id));
 
+        $catalogProductRelatives = get_ids_from_array($catalogProduct->relativeProducts->toArray());
+
         return view('admin.catalog_products.edit', [
             'catalogProduct' => $catalogProduct,
-            'catalogProducts' => $catalogProducts
+            'catalogProducts' => $catalogProducts,
+            'catalogProductRelatives' => $catalogProductRelatives
         ]);
     }
 

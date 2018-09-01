@@ -38,7 +38,7 @@
                                 <label for="products">Выберите сопутствующие товары</label>
                                 <select class="form-control border-blue border-xs select-search" multiple="multiple" id="products" name="products[]" data-width="100%">
                                     @foreach($catalogProducts as $catalogProductOption)
-                                        <option value="{{ $catalogProductOption->id }}">{{ $catalogProductOption->name }}</option>
+                                        <option value="{{ $catalogProductOption->id }}" {{ in_array($catalogProductOption->id, $catalogProductRelatives) ? 'selected' : '' }}>{{ $catalogProductOption->name }}</option>
                                     @endforeach
                                 </select>
                             </div>

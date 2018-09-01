@@ -35,7 +35,7 @@ class GetAllCatalogProductsQuery
      */
     public function handle()
     {
-        $query = CatalogProduct::where('catalog_id', $this->catalog)->orderBy('pos');
+        $query = CatalogProduct::with(['catalog'])->where('catalog_id', $this->catalog)->orderBy('pos');
 
         if ($this->excludedId) {
             $query->where('id', '<>', $this->excludedId);

@@ -11,6 +11,10 @@ use App\Http\Controllers\Controller;
 use Domain\Page\Requests\CreatePageRequest;
 use Domain\Page\Requests\UpdatePageRequest;
 
+/**
+ * Class PageController
+ * @package App\Http\Controllers\Admin
+ */
 class PageController extends Controller
 {
     /**

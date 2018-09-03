@@ -1,9 +1,14 @@
 @extends('layouts.admin')
 
+@section('breadcrumb')
+    <li><a href="{{ route('admin.services.index') }}">Услуги</a></li>
+    <li class="active">Форма добавления услуги</li>
+@endsection
+
 @section('content')
 
     <div class="panel panel-default">
-        <div class="panel-heading">Форма добавления раздела услуги</div>
+        <div class="panel-heading">Форма добавления услуги</div>
 
         <div class="panel-body">
 

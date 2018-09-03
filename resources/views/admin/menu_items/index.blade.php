@@ -1,5 +1,10 @@
 @extends('layouts.admin')
 
+@section('breadcrumb')
+    <li><a href="{{ route('admin.menus.index') }}">Навигация</a></li>
+    <li class="active">Форма пункта меню</li>
+@endsection
+
 @section('content')
 
     <a href="{{ route('admin.menu_items.create', ['menu' => $menu]) }}" type="button" class="btn bg-primary">

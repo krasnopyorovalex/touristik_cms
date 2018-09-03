@@ -1,5 +1,10 @@
 @extends('layouts.admin')
 
+@section('breadcrumb')
+    <li><a href="{{ route('admin.redirects.index') }}">Редиректы</a></li>
+    <li class="active">Форма редактирования редиректа</li>
+@endsection
+
 @section('content')
 
     <div class="panel panel-default">

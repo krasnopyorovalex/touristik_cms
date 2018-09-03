@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('breadcrumb')
+    <li class="active">Категории каталога</li>
+@endsection
+
 @section('content')
 
     <a href="{{ route('admin.catalogs.create') }}" type="button" class="btn bg-primary">

@@ -1,5 +1,11 @@
 @extends('layouts.admin')
 
+@section('breadcrumb')
+    <li><a href="{{ route('admin.menus.index') }}">Навигация</a></li>
+    <li><a href="{{ route('admin.menu_items.index', $menu) }}">Список пунктов меню</a></li>
+    <li class="active">Форма добавления пункта меню</li>
+@endsection
+
 @section('content')
 
     <div class="panel panel-default">

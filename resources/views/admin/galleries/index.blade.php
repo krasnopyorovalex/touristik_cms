@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('breadcrumb')
+    <li class="active">Фотогалерея</li>
+@endsection
+
 @section('content')
 
     <a href="{{ route('admin.galleries.create') }}" type="button" class="btn bg-primary">

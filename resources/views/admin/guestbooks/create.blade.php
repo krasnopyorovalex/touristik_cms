@@ -1,5 +1,10 @@
 @extends('layouts.admin')
 
+@section('breadcrumb')
+    <li><a href="{{ route('admin.guestbooks.index') }}">Отзывы</a></li>
+    <li class="active">Форма добавления отзыва</li>
+@endsection
+
 @section('content')
 
     <div class="panel panel-default">

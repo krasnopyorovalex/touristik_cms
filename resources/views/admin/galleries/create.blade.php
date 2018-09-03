@@ -1,5 +1,10 @@
 @extends('layouts.admin')
 
+@section('breadcrumb')
+    <li><a href="{{ route('admin.galleries.index') }}">Фотогалерея</a></li>
+    <li class="active">Форма добавления галереи</li>
+@endsection
+
 @section('content')
 
     <div class="panel panel-default">

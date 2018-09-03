@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('breadcrumb')
+    <li class="active">Отзывы</li>
+@endsection
+
 @section('content')
 
     <a href="{{ route('admin.guestbooks.create') }}" type="button" class="btn bg-primary">
@@ -24,7 +28,7 @@
                 <tr>
                     <td><span class="label label-primary">{{ $loop->iteration }}</span></td>
                     <td>{{ $guestbook->name }}</td>
-                    <td><img src="{{ asset($guestbook->image->path) }}" alt="" class="icon_small"></td>
+                    <td>@if ($guestbook->image)<img src="{{ asset($guestbook->image->path) }}" alt="" class="icon_small">@endif</td>
                     <td>{{ $guestbook->city }}</td>
                     <td><span class="label label-primary">{{ Illuminate\Support\Carbon::parse($guestbook->published_at)->format('d M Y') }}</span></td>
                     <td>

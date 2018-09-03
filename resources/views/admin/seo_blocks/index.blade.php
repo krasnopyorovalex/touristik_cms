@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('breadcrumb')
+    <li class="active">SEO-блоки</li>
+@endsection
+
 @section('content')
 
     <a href="{{ route('admin.seo_blocks.create') }}" type="button" class="btn bg-primary">

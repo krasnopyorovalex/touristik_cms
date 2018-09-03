@@ -1,5 +1,10 @@
 @extends('layouts.admin')
 
+@section('breadcrumb')
+    <li><a href="{{ route('admin.seo_blocks.index') }}">SEO-блоки</a></li>
+    <li class="active">Форма редактирования seo-блока</li>
+@endsection
+
 @section('content')
 
     <div class="panel panel-default">

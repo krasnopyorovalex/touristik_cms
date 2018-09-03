@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('breadcrumb')
+    <li class="active">Редиректы</li>
+@endsection
+
 @section('content')
 
     <a href="{{ route('admin.redirects.create') }}" type="button" class="btn bg-primary">

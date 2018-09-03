@@ -1,5 +1,10 @@
 @extends('layouts.admin')
 
+@section('breadcrumb')
+    <li><a href="{{ route('admin.catalogs.index') }}">Категории каталога</a></li>
+    <li class="active">Список товаров</li>
+@endsection
+
 @section('content')
 
     <a href="{{ route('admin.catalog_products.create', ['catalog' => $catalog]) }}" type="button" class="btn bg-primary">

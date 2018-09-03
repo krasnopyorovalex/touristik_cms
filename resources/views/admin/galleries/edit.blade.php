@@ -1,5 +1,10 @@
 @extends('layouts.admin')
 
+@section('breadcrumb')
+    <li><a href="{{ route('admin.galleries.index') }}">Фотогалерея</a></li>
+    <li class="active">Форма редактирования галереи</li>
+@endsection
+
 @section('content')
 
     <div class="panel panel-default">
@@ -35,7 +40,7 @@
                                     <input type="hidden" name="galleryId" value="{{ $gallery->id }}">
                                     <input type="hidden" name="uploadUrl" value="{{ route('admin.gallery_images.store', $gallery) }}">
                                     <input type="hidden" name="updatePositionUrl" value="{{ route('admin.gallery_images.update_positions') }}">
-                                    <input type="file" class="file-input-ajax" multiple="multiple" name="upload">
+                                    <input type="file" class="file-input-ajax" multiple="multiple" name="upload" accept="image/*">
                                 </div>
                             </div>
                         </form>

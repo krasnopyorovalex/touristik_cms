@@ -1,5 +1,11 @@
 @extends('layouts.admin')
 
+@section('breadcrumb')
+    <li><a href="{{ route('admin.catalogs.index') }}">Категории каталога</a></li>
+    <li><a href="{{ route('admin.catalog_products.index', $catalogProduct->catalog) }}">Список товаров</a></li>
+    <li class="active">Форма редактирования товара</li>
+@endsection
+
 @section('content')
 
     <div class="panel panel-default">

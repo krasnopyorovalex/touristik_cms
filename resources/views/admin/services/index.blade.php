@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('breadcrumb')
+    <li class="active">Услуги</li>
+@endsection
+
 @section('content')
 
     <a href="{{ route('admin.services.create') }}" type="button" class="btn bg-primary">

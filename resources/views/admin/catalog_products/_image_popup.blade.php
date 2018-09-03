@@ -13,7 +13,7 @@
                 @input(['name' => 'alt', 'label' => 'alt', 'entity' => $image])
                 @input(['name' => 'title', 'label' => 'title', 'entity' => $image])
 
-                @checkbox(['name' => 'is_published', 'label' => 'Опубликовано?', 'entity' => $image])
+                @checkbox(['name' => 'publish', 'label' => 'Опубликовано?', 'entity' => $image])
             </div>
             <div class="modal-footer">
                 @submit_btn()

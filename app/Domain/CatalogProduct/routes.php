@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['prefix' => 'catalog_products', 'as' => 'catalog_products.'], function () {
+Route::group(['prefix' => 'catalog-products', 'as' => 'catalog_products.'], function () {
     Route::pattern('id', '[0-9]+');
     Route::pattern('catalog', '[0-9]+');
 

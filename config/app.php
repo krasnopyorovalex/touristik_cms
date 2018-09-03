@@ -161,8 +161,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\UploadCkeditorImageServiceProvider::class,
-        App\Providers\UploadGalleryImagesServiceProvider::class,
+        App\Providers\UploadImagesServiceProvider::class,
         App\Providers\LinkGeneratorServiceProvider::class,
+        App\Providers\TreeRecursiveBuildServiceProvider::class,
 
     ],
 

@@ -12,15 +12,13 @@
 $(function() {
     // AJAX upload
     var fileInputAjax = jQuery(".file-input-ajax"),
-        galleryId = jQuery('#images form input[type=hidden]').val(),
+        entityId = jQuery('#images form input[name=entityId]').val(),
+        uploadUrl = jQuery('#images form input[name=uploadUrl]').val(),
         _images_box = jQuery("#_images_box");
 
     fileInputAjax.fileinput({
-        uploadUrl: '/_root/gallery-images',
+        uploadUrl: uploadUrl,
         uploadAsync: true,
-        uploadExtraData: {
-            'galleryId': parseInt(galleryId)
-        },
         //maxFileCount: 4,
         initialPreview: [],
         browseLabel: 'Выбрать',
@@ -44,7 +42,7 @@ $(function() {
 
     fileInputAjax.on('fileuploaded', function() {
         return jQuery.ajax({
-            url: '/_root/gallery-images/' + parseInt(galleryId),
+            url: uploadUrl,
             type: "GET",
             success: function(data) {
                 _images_box.html(data.images);

@@ -121,13 +121,14 @@ $(function() {
 });
 
 function startDnDImages() {
+    var url = jQuery('#images form input[name=updatePositionUrl]').val();
     return dragula([document.getElementById('pills-target-right')])
         .on('out', function (el, container) {
             var list = [];
             jQuery('#pills-target-right > div').each(function (item) {
                 list[item] = jQuery(this).attr('data-id');
             });
-            return $.post('/_root/gallery-images/update-positions', {'data': list}, function(data){
+            return $.post(url, {'data': list}, function(data){
                 return new PNotify({
                     title: 'Уведомление от сервера',
                     text: data.message,

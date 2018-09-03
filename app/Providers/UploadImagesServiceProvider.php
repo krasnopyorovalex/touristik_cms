@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
-use App\Services\UploadGalleryImagesService;
+use App\Services\UploadImagesService;
 use Illuminate\Support\ServiceProvider;
 
-class UploadGalleryImagesServiceProvider extends ServiceProvider
+class UploadImagesServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap services.
@@ -24,8 +24,8 @@ class UploadGalleryImagesServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(UploadGalleryImagesService::class, function () {
-            return new UploadGalleryImagesService();
+        $this->app->bind(UploadImagesService::class, function () {
+            return new UploadImagesService();
         });
     }
 }

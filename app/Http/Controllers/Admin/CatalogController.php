@@ -9,9 +9,13 @@ use App\Domain\Catalog\Queries\GetAllCatalogsNotParentQuery;
 use App\Domain\Catalog\Queries\GetAllCatalogsQuery;
 use App\Domain\Catalog\Queries\GetCatalogByIdQuery;
 use App\Http\Controllers\Controller;
+use App\Services\TreeRecursiveBuildService;
 use Domain\Catalog\Requests\CreateCatalogRequest;
 use Domain\Catalog\Requests\UpdateCatalogRequest;
 
+/**
+ * @property  treeRecursiveBuildService
+ */
 class CatalogController extends Controller
 {
     /**

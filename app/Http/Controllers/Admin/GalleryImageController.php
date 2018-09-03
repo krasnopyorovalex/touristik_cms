@@ -9,7 +9,7 @@ use App\Domain\GalleryImage\Commands\UpdatePositionsGalleryImageCommand;
 use App\Domain\GalleryImage\Queries\GetGalleryImageByIdQuery;
 use App\Domain\GalleryImage\Commands\CreateGalleryImageCommand;
 use App\Http\Controllers\Controller;
-use App\Services\UploadGalleryImagesService;
+use App\Services\UploadImagesService;
 use Domain\GalleryImage\Requests\CreateGalleryImageRequest;
 use Domain\GalleryImage\Requests\UpdateGalleryImageRequest;
 use Illuminate\Http\Request;
@@ -17,15 +17,15 @@ use Illuminate\Http\Request;
 class GalleryImageController extends Controller
 {
     /**
-     * @var UploadGalleryImagesService
+     * @var UploadImagesService
      */
     private $uploadGalleryImagesService;
 
     /**
      * GalleryImageController constructor.
-     * @param UploadGalleryImagesService $uploadGalleryImagesService
+     * @param UploadImagesService $uploadGalleryImagesService
      */
-    public function __construct(UploadGalleryImagesService $uploadGalleryImagesService)
+    public function __construct(UploadImagesService $uploadGalleryImagesService)
     {
         $this->uploadGalleryImagesService = $uploadGalleryImagesService;
     }
@@ -48,11 +48,12 @@ class GalleryImageController extends Controller
 
     /**
      * @param CreateGalleryImageRequest $request
+     * @param $gallery
      * @return array
      */
-    public function store(CreateGalleryImageRequest $request)
+    public function store(CreateGalleryImageRequest $request, $gallery)
     {
-        $image = $this->uploadGalleryImagesService->upload($request);
+        $image = $this->uploadGalleryImagesService->setWidthThumb(250)->upload($request, 'gallery', $gallery);
         $this->dispatch(new CreateGalleryImageCommand($image));
 
         return [

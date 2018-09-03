@@ -38,7 +38,8 @@ class DeleteCatalogProductCommand
     {
         $catalog = $this->dispatch(new GetCatalogProductByIdQuery($this->id));
 
+        \Storage::deleteDirectory('public/product/' . $this->id);
+
         return $catalog->delete();
     }
-
 }

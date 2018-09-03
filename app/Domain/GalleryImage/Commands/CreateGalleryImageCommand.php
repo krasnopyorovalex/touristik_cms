@@ -3,7 +3,7 @@
 namespace App\Domain\GalleryImage\Commands;
 
 use App\GalleryImage;
-use App\Services\UploadGalleryImagesService;
+use App\Services\UploadImagesService;
 
 /**
  * Class CreateGalleryImageCommand
@@ -16,9 +16,9 @@ class CreateGalleryImageCommand
 
     /**
      * CreateGalleryImageCommand constructor.
-     * @param UploadGalleryImagesService $uploadImage
+     * @param UploadImagesService $uploadImage
      */
-    public function __construct(UploadGalleryImagesService $uploadImage)
+    public function __construct(UploadImagesService $uploadImage)
     {
         $this->uploadImage = $uploadImage;
     }
@@ -31,7 +31,7 @@ class CreateGalleryImageCommand
         $galleryImage = new GalleryImage();
         $galleryImage->basename = $this->uploadImage->getImageHashName();
         $galleryImage->ext = $this->uploadImage->getExt();
-        $galleryImage->gallery_id = $this->uploadImage->getGalleryId();
+        $galleryImage->gallery_id = $this->uploadImage->getEntityId();
 
         return $galleryImage->save();
     }

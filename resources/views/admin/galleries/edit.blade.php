@@ -22,7 +22,7 @@
                             @method('put')
 
                             @input(['name' => 'name', 'label' => 'Название', 'entity' => $gallery])
-                            @checkbox(['name' => 'publish', 'label' => 'Опубликовано?', 'entity' => $gallery])
+                            @checkbox(['name' => 'is_published', 'label' => 'Опубликовано?', 'entity' => $gallery])
 
                             @submit_btn()
                         </form>
@@ -33,6 +33,8 @@
                             <div class="form-group">
                                 <div class="col-lg-12">
                                     <input type="hidden" name="galleryId" value="{{ $gallery->id }}">
+                                    <input type="hidden" name="uploadUrl" value="{{ route('admin.gallery_images.store', $gallery) }}">
+                                    <input type="hidden" name="updatePositionUrl" value="{{ route('admin.gallery_images.update_positions') }}">
                                     <input type="file" class="file-input-ajax" multiple="multiple" name="upload">
                                 </div>
                             </div>
@@ -40,7 +42,7 @@
                         <div class="clearfix"></div>
                         @if ($gallery->images)
                         <div id="_images_box">
-                            @include('admin.galleries._images_box', ['images' => $gallery->images])
+                            @include('admin.galleries._images_box')
                         </div>
                         @endif
                     </div>

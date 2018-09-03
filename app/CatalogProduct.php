@@ -23,4 +23,12 @@ class CatalogProduct extends Model
     {
         return $this->belongsToMany(CatalogProduct::class, 'catalog_product_relatives', 'product_id', 'product_relative_id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function images()
+    {
+        return $this->hasMany('App\CatalogProductImage', 'product_id')->orderBy('pos');
+    }
 }

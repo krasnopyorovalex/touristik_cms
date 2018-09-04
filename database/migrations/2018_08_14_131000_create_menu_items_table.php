@@ -18,7 +18,7 @@ class CreateMenuItemsTable extends Migration
             $table->unsignedInteger('menu_id');
             $table->unsignedInteger('parent_id')->nullable();
             $table->string('name', 255);
-            $table->string('link', 255);
+            $table->string('link', 127);
             $table->unsignedTinyInteger('pos')->default(0);
 
             $table->foreign('menu_id')->references('id')->on('menus')->onDelete('cascade');

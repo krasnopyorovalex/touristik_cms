@@ -14,7 +14,7 @@ class CreateMenuItemRequest extends Request
     {
         return [
             'name' => 'bail|required|max:64',
-            'link' => 'required|string',
+            'link' => 'required|string|max:127',
             'menu_id' => 'required|numeric|exists:menus,id',
             'parent_id' => 'integer|exists:menu_items,id|nullable',
             'pos' => 'integer|min:0|max:255'

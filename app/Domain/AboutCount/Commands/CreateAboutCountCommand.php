@@ -32,9 +32,8 @@ class CreateAboutCountCommand
     {
         $page = new AboutCount();
         $page->fill($this->request->all());
-        $page->save();
 
-        return true;
+        return $page->save();
     }
 
 }

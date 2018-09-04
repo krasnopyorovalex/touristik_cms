@@ -15,8 +15,9 @@ class UpdateMenuItemRequest extends Request
         return [
             'name' => 'bail|required|max:64',
             'link' => 'required|string',
-            'menu_id' => 'numeric|exists:menus,id',
-            'parent_id' => 'numeric|exists:menu_items,id|nullable',
+            'menu_id' => 'integer|exists:menus,id',
+            'parent_id' => 'integer|exists:menu_items,id|nullable',
+            'pos' => 'integer|min:0|max:255'
         ];
     }
 

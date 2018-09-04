@@ -16,7 +16,8 @@ class CreateMenuItemRequest extends Request
             'name' => 'bail|required|max:64',
             'link' => 'required|string',
             'menu_id' => 'required|numeric|exists:menus,id',
-            'parent_id' => 'numeric|exists:menu_items,id|nullable',
+            'parent_id' => 'integer|exists:menu_items,id|nullable',
+            'pos' => 'integer|min:0|max:255'
         ];
     }
 

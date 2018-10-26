@@ -18,7 +18,6 @@
                 <th>#</th>
                 <th>Название</th>
                 <th>Изображение</th>
-                <th>Город</th>
                 <th>Создана</th>
                 <th></th>
             </tr>
@@ -29,7 +28,6 @@
                     <td><span class="label label-primary">{{ $loop->iteration }}</span></td>
                     <td>{{ $guestbook->name }}</td>
                     <td>@if ($guestbook->image)<img src="{{ asset($guestbook->image->path) }}" alt="" class="icon_small">@endif</td>
-                    <td>{{ $guestbook->city }}</td>
                     <td><span class="label label-primary">{{ Illuminate\Support\Carbon::parse($guestbook->published_at)->format('d M Y') }}</span></td>
                     <td>
                         <div>

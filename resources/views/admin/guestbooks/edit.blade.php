@@ -27,13 +27,8 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="main">
                             <div class="row">
-                                <div class="col-md-12">
-                                    @input(['name' => 'name', 'label' => 'Название', 'entity' => $guestbook])
-                                </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-md-9">
-                                    @input(['name' => 'city', 'label' => 'Город', 'entity' => $guestbook])
+                                    @input(['name' => 'name', 'label' => 'Название', 'entity' => $guestbook])
                                 </div>
                                 <div class="col-md-3">
                                     @dateInput(['name' => 'published_at', 'label' => 'Дата публикации', 'entity' => $guestbook])
@@ -79,6 +74,6 @@
 <script src="{{ asset('dashboard/assets/js/plugins/ui/moment/moment.min.js') }}" defer></script>
 <script src="{{ asset('dashboard/assets/js/plugins/pickers/daterangepicker.js') }}" defer></script>
 <script src="{{ asset('dashboard/assets/js/pages/picker_date.js') }}" defer></script>
-<script src="{{ asset('dashboard/laravel-ckeditor/ckeditor.js') }}"></script>
+<script src="{{ asset('dashboard/ckeditor/ckeditor.js') }}"></script>
 @endpush
 @endsection

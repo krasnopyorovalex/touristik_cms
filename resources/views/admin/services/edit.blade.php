@@ -56,6 +56,6 @@
     </div>
 
 @push('scripts')
-<script src="{{ asset('dashboard/laravel-ckeditor/ckeditor.js') }}"></script>
+<script src="{{ asset('dashboard/ckeditor/ckeditor.js') }}"></script>
 @endpush
 @endsection

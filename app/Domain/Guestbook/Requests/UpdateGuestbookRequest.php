@@ -15,7 +15,6 @@ class UpdateGuestbookRequest extends Request
         return [
             'name' => 'bail|required|max:512',
             'text' => 'required|string',
-            'city' => 'required|string|max:32',
             'image' => 'image',
             'published_at' => 'date'
         ];
@@ -31,7 +30,6 @@ class UpdateGuestbookRequest extends Request
         return [
             'name.required' => 'Поле «Название» обязательно для заполнения',
             'text.required' => 'Поле «Текст» обязательно для заполнения',
-            'city.required' => 'Поле «Город» обязательно для заполнения',
         ];
     }
 }

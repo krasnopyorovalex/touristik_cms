@@ -17,7 +17,7 @@ class UpdateServiceRequest extends Request
             'name' => 'bail|required|max:512',
             'parent_id' => 'numeric|exists:services,id|nullable',
             'title' => 'required|max:512',
-            'description' => 'max:512',
+            'description' => 'required|string|max:512',
             'text' => 'required|string',
             'is_published' => 'digits_between:0,1',
             'pos' => 'integer|min:0|max:255',
@@ -39,6 +39,7 @@ class UpdateServiceRequest extends Request
         return [
             'name.required' => 'Поле «Название» обязательно для заполнения',
             'title.required'  => 'Поле «Title» обязательно для заполнения',
+            'description.required'  => 'Поле «Description» обязательно для заполнения',
             'text.required'  => 'Поле «Текст» обязательно для заполнения',
             'alias.required'  => 'Поле «Alias» обязательно для заполнения',
             'alias.unique'  => 'Значение поля «Alias» уже присутствует в базе данных',

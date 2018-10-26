@@ -81,16 +81,10 @@
                             <!-- Main -->
                             <li class="navigation-header"><span>Навигация</span> <i class="icon-menu" title="Main pages"></i></li>
                             <li><a href="{{ route('admin.pages.index') }}"><i class="icon-compose"></i> <span>Страницы</span></a></li>
-                            <li><a href="{{ route('admin.about_counts.index') }}"><i class="icon-bubble-lines4"></i> <span>О нас(счётчики)</span></a></li>
-                            <li><a href="{{ route('admin.banners.index') }}"><i class="icon-images3"></i> <span>Баннеры</span></a></li>
                             <li><a href="{{ route('admin.services.index') }}"><i class="icon-list"></i> <span>Услуги</span></a></li>
                             <li><a href="{{ route('admin.articles.index') }}"><i class="icon-magazine"></i> <span>Статьи</span></a></li>
-                            <li><a href="{{ route('admin.informations.index') }}"><i class="icon-newspaper2"></i> <span>Новости</span></a></li>
                             <li><a href="{{ route('admin.guestbooks.index') }}"><i class="icon-bubble2"></i> <span>Отзывы</span></a></li>
-                            <li><a href="{{ route('admin.catalogs.index') }}"><i class="icon-folder-open"></i> <span>Категории каталога</span></a></li>
                             <li><a href="{{ route('admin.menus.index') }}"><i class="icon-lan2"></i> <span>Навигация</span></a></li>
-                            <li><a href="{{ route('admin.galleries.index') }}"><i class="icon-images3"></i> <span>Фотогалерея</span></a></li>
-                            <li><a href="{{ route('admin.seo_blocks.index') }}"><i class="icon-markup"></i> <span>SEO-блоки</span></a></li>
                             <li><a href="{{ route('admin.redirects.index') }}"><i class="icon-transmission"></i> <span>Редиректы</span></a></li>
                             <!-- /main -->
 

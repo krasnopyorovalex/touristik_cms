@@ -17,7 +17,6 @@ class CreateGuestbooksTable extends Migration
             $table->increments('id');
             $table->string('name', 512);
             $table->text('text');
-            $table->string('city', 32);
             $table->unsignedSmallInteger('pos')->default(0);
             $table->date('published_at')->default(now());
         });

@@ -10,14 +10,14 @@
                 <div class="row align__items-center">
                     <div class="col-5">
                         <div class="slogan__box">
-                            <p>Комплексное<br />сопровождение сайта<br />от ТЗ до ТОП!</p>
+                            <p>{!! $page->slogan !!}</p>
                             <a href="#" class="btn black">Заказать сайт</a>
                         </div>
                         <!-- /.slogan__box -->
                     </div>
                     <div class="col-7">
                         <div class="main__image-top">
-                            <img src="{{ asset('img/in_main.svg') }}" alt="">
+                            <img src="{{ asset($page->image->path) }}" alt="{{ $page->image->alt }}" title="{{ $page->image->title }}">
                         </div>
                     </div>
                 </div>

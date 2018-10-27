@@ -14,10 +14,12 @@ class CreatePageRequest extends Request
     {
         return [
             'name' => 'bail|required|max:512',
-            'title' => 'required|max:512',
-            'description' => 'max:512',
+            'template' => 'required|string|max:24',
+            'slogan' => 'string|max:255|nullable',
+            'title' => 'required|string|max:512',
+            'description' => 'string|max:512',
             'text' => 'required|string',
-            'alias' => 'required|max:255|unique:pages',
+            'alias' => 'required|max:64|unique:pages',
             'is_published' => 'digits_between:0,1',
             'image' => 'image'
         ];

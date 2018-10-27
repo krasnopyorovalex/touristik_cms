@@ -167,6 +167,7 @@ return [
         App\Providers\GuestbookServiceProvider::class,
         App\Providers\MenuServiceProvider::class,
         App\Providers\ServicesServiceProvider::class,
+        App\Providers\ArticlesServiceProvider::class,
 
     ],
 

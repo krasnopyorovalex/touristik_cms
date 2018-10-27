@@ -18,7 +18,7 @@ class CreateServiceRequest extends Request
             'title' => 'required|max:512',
             'description' => 'required|string|max:512',
             'text' => 'required|string',
-            'alias' => 'required|max:255|unique:services',
+            'alias' => 'required|max:64|unique:services',
             'is_published' => 'digits_between:0,1',
             'pos' => 'integer|min:0|max:255'
         ];

@@ -8,8 +8,10 @@ use Illuminate\Database\Eloquent\Model;
  * App\Page
  *
  * @property int $id
+ * @property string $template
  * @property int $image_id
  * @property string $name
+ * @property string $slogan
  * @property string $title
  * @property string $description
  * @property string $text
@@ -24,10 +26,17 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Page extends Model
 {
+
+    private $templates = [
+        'page.index' => 'Главная',
+        'page.page' => 'Информационная',
+        'page.blog' => 'Блог',
+    ];
+
     /**
      * @var array
      */
-    protected $fillable = ['name', 'title', 'description', 'text', 'alias', 'is_published'];
+    protected $fillable = ['template', 'name', 'slogan', 'title', 'description', 'text', 'alias', 'is_published'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphOne
@@ -35,5 +44,13 @@ class Page extends Model
     public function image()
     {
         return $this->morphOne('App\Image', 'imageable');
+    }
+
+    /**
+     * @return array
+     */
+    public function getTemplates(): array
+    {
+        return $this->templates;
     }
 }

@@ -15,6 +15,6 @@ class PageController extends Controller
     {
         $page = $this->dispatch(new GetPageByAliasQuery($alias));
 
-        return view('page.index', ['page' => $page]);
+        return view($page->template, ['page' => $page]);
     }
 }

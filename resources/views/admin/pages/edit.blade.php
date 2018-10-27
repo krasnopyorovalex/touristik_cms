@@ -26,11 +26,23 @@
 
                     <div class="tab-content">
                         <div class="tab-pane active" id="main">
+
+                            <div class="form-group">
+                                <label for="template">Шаблон страницы:</label>
+                                <select class="form-control border-blue border-xs select-search" id="template" name="template" data-width="100%">
+                                    @foreach ($page->getTemplates() as $key => $value)
+                                        <option value="{{ $key }}" {{ $key == $page->template ? 'selected' : '' }}>{{ $value }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
                             @input(['name' => 'name', 'label' => 'Название', 'entity' => $page])
                             @input(['name' => 'title', 'label' => 'Title', 'entity' => $page])
                             @input(['name' => 'description', 'label' => 'Description', 'entity' => $page])
 
                             @input(['name' => 'alias', 'label' => 'Alias', 'entity' => $page])
+                            @input(['name' => 'slogan', 'label' => 'Слоган', 'entity' => $page])
+
                             @textarea(['name' => 'text', 'label' => 'Текст', 'entity' => $page])
                             @checkbox(['name' => 'is_published', 'label' => 'Опубликовано?', 'entity' => $page])
 

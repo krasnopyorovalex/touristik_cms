@@ -23,7 +23,7 @@ class UpdateServiceRequest extends Request
             'pos' => 'integer|min:0|max:255',
             'alias' => [
                 'required',
-                'max:255',
+                'max:64',
                 Rule::unique('services')->ignore($this->id)
             ]
         ];

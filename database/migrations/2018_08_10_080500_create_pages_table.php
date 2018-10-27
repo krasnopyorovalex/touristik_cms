@@ -19,7 +19,7 @@ class CreatePagesTable extends Migration
             $table->string('title', 512);
             $table->string('description', 512);
             $table->text('text');
-            $table->string('alias', 255)->unique();
+            $table->string('alias', 64)->unique();
             $table->enum('is_published',[0,1])->default(1);
             $table->timestamps();
         });

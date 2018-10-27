@@ -15,13 +15,15 @@ Route::pattern('alias', '[a-z-]+');
 
 Auth::routes();
 
-Route::get('/{alias?}', 'PageController@show')->name('page.show');
-Route::get('articles/{alias}', 'ArticleController@show')->name('article.show');
-Route::get('services/{alias}', 'ServiceController@show')->name('service.show');
-Route::get('informations/{alias}', 'InformationController@show')->name('information.show');
-Route::get('services/{alias}', 'ServiceController@show')->name('service.show');
-Route::get('catalogs/{alias}', 'CatalogController@show')->name('catalog.show');
-Route::get('product/{alias}', 'CatalogProductController@show')->name('catalog_product.show');
+Route::group(['middleware' => ['redirector', 'shortcode']], function () {
+    Route::get('/{alias?}', 'PageController@show')->name('page.show');
+    Route::get('blog/{alias}', 'BlogController@show')->name('article.show');
+    Route::get('services/{alias}', 'ServiceController@show')->name('service.show');
+    Route::get('informations/{alias}', 'InformationController@show')->name('information.show');
+    Route::get('services/{alias}', 'ServiceController@show')->name('service.show');
+    Route::get('catalogs/{alias}', 'CatalogController@show')->name('catalog.show');
+    Route::get('product/{alias}', 'CatalogProductController@show')->name('catalog_product.show');
+});
 
 Route::group(['prefix' => '_root', 'middleware' => 'auth', 'namespace' => 'Admin', 'as' => 'admin.'], function () {
 

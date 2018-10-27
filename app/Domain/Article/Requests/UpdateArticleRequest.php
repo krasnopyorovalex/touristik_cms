@@ -24,7 +24,7 @@ class UpdateArticleRequest extends Request
             'imageTitle' => 'string|max:255',
             'alias' => [
                 'required',
-                'max:255',
+                'max:64',
                 Rule::unique('articles')->ignore($this->id)
             ]
         ];

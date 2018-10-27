@@ -42,6 +42,8 @@
                 @input(['name' => 'name', 'label' => 'Название'])
                 @selectLink(['name' => 'link', 'label' => 'Ссылка'])
 
+                @checkbox(['name' => 'is_service', 'label' => 'Отобразить список услуг?'])
+
                 @submit_btn()
             </form>
 

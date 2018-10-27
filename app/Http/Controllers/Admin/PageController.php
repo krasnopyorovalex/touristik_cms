@@ -8,6 +8,7 @@ use App\Domain\Page\Commands\UpdatePageCommand;
 use App\Domain\Page\Queries\GetAllPagesQuery;
 use App\Domain\Page\Queries\GetPageByIdQuery;
 use App\Http\Controllers\Controller;
+use App\Page;
 use Domain\Page\Requests\CreatePageRequest;
 use Domain\Page\Requests\UpdatePageRequest;
 
@@ -38,7 +39,11 @@ class PageController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.create');
+        $page = new Page();
+
+        return view('admin.pages.create', [
+            'templates' => $page->getTemplates()
+        ]);
     }
 
     /**

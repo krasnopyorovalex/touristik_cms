@@ -15,8 +15,10 @@ class UpdatePageRequest extends Request
     {
         return [
             'name' => 'bail|required|max:512',
-            'title' => 'required|max:512',
-            'description' => 'max:512',
+            'slogan' => 'string|max:255|nullable',
+            'template' => 'required|string|max:24',
+            'title' => 'required|string|max:512',
+            'description' => 'string|max:512',
             'text' => 'required|string',
             'is_published' => 'digits_between:0,1',
             'image' => 'image',
@@ -24,7 +26,7 @@ class UpdatePageRequest extends Request
             'imageTitle' => 'string|max:255',
             'alias' => [
                 'required',
-                'max:255',
+                'max:64',
                 Rule::unique('pages')->ignore($this->id)
             ]
         ];

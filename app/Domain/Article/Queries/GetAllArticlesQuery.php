@@ -11,10 +11,30 @@ use App\Article;
 class GetAllArticlesQuery
 {
     /**
+     * @var bool
+     */
+    private $isPublished;
+
+    /**
+     * GetAllArticlesQuery constructor.
+     * @param bool $isPublished
+     */
+    public function __construct($isPublished = false)
+    {
+        $this->isPublished = $isPublished;
+    }
+
+    /**
      * Execute the job.
      */
     public function handle()
     {
-        return Article::all();
+        $articles = new Article();
+
+        if ($this->isPublished) {
+           $articles->where('is_published', '1');
+        }
+
+        return $articles->orderBy('published_at', 'desc')->get();
     }
 }

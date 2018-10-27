@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int|null $parent_id
  * @property string $name
  * @property string $link
+ * @property string $is_service
  * @property int $pos
  * @property-read \App\Menu $menu
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\MenuItem[] $menuItems
@@ -30,7 +31,7 @@ class MenuItem extends Model
     /**
      * @var array
      */
-    protected $fillable = ['name', 'link', 'menu_id', 'parent_id', 'pos'];
+    protected $fillable = ['is_service', 'name', 'link', 'menu_id', 'parent_id', 'pos'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne

@@ -21,7 +21,7 @@ class CreateServicesTable extends Migration
             $table->string('description', 512);
             $table->text('preview');
             $table->text('text');
-            $table->string('alias', 255)->unique();
+            $table->string('alias', 64)->unique();
             $table->enum('is_published',[0,1])->default(1);
             $table->unsignedTinyInteger('pos')->default(0);
 

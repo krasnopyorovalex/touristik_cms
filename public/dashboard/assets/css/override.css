@@ -296,3 +296,6 @@ li.mjs-nestedSortable-collapsed.mjs-nestedSortable-hovering div {
     display: block;
     max-width: 450px;
 }
+.page-content {
+    height: 95vh
+}

@@ -17,7 +17,7 @@ class CreateArticleRequest extends Request
             'title' => 'required|max:512',
             'description' => 'max:512',
             'text' => 'required|string',
-            'alias' => 'required|max:255|unique:articles',
+            'alias' => 'required|max:64|unique:articles',
             'is_published' => 'digits_between:0,1',
             'image' => 'image',
             'published_at' => 'date'

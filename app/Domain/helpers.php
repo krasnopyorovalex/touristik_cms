@@ -77,3 +77,32 @@ if (! function_exists('get_ids_from_array')) {
         }, $array);
     }
 }
+
+
+if (! function_exists('is_main_page')) {
+    /**
+     * @return bool
+     */
+    function is_main_page()
+    {
+        return in_array(request()->path(), ['/']);
+    }
+}
+
+if (! function_exists('add_css_class')) {
+    /**
+     * @param $item
+     * @return string
+     */
+    function add_css_class($item)
+    {
+        $classes = [];
+        if ($item->is_service) {
+            array_push($classes, 'has__child');
+        }
+        if (trim($item->link,'/') == request()->path() || request()->path() == $item->link) {
+            array_push($classes, 'active');
+        }
+        return count($classes) ? ' class="'. implode(' ', $classes) .'"' : '';
+    }
+}

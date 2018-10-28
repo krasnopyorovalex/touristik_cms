@@ -27,11 +27,44 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="main">
                             <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="category">Категория:</label>
+                                        <select class="form-control border-blue border-xs select-search" id="category" name="category" data-width="100%">
+                                            @foreach ($portfolio->getCategories() as $key => $value)
+                                                <option value="{{ $key }}" {{ $key == $portfolio->category ? 'selected' : '' }}>{{ $value }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="color">Цвет фона:</label>
+                                        <select class="form-control border-blue border-xs select-search" id="color" name="color" data-width="100%">
+                                            @foreach ($portfolio->getColors() as $key => $value)
+                                                <option value="{{ $key }}" {{ $key == $portfolio->color ? 'selected' : '' }}>{{ $value }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-md-12">
                                     @input(['name' => 'name', 'label' => 'Название', 'entity' => $portfolio])
                                     @input(['name' => 'title', 'label' => 'Title', 'entity' => $portfolio])
                                     @input(['name' => 'description', 'label' => 'Description', 'entity' => $portfolio])
                                     @input(['name' => 'alias', 'label' => 'Alias', 'entity' => $portfolio])
+                                    @input(['name' => 'site_url', 'label' => 'Ссылка на сайт', 'entity' => $portfolio])
+
+                                    <div class="form-group">
+                                        <label for="tags">Введите теги</label>
+                                        <select class="form-control border-blue border-xs select-multiple-tags" multiple="multiple" id="tags" name="tags[]" data-width="100%">
+                                            @foreach ($portfolio->tags as $tag)
+                                                <option value="{{ $tag }}" selected="selected">{{ $tag }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
                                 </div>
                             </div>
                             <div class="row">

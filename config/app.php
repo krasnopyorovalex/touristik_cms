@@ -148,7 +148,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
-        /*
+        /*ArticlesServiceProvider
          * Package Service Providers...
          */
 
@@ -168,6 +168,7 @@ return [
         App\Providers\MenuServiceProvider::class,
         App\Providers\ServicesServiceProvider::class,
         App\Providers\ArticlesServiceProvider::class,
+        App\Providers\PortfolioServiceProvider::class,
 
     ],
 

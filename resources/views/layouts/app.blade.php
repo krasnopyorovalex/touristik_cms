@@ -59,9 +59,9 @@
                         <div class="col-6 footer__contacts-text">
                             Звоните, пишите, договоримся!
                         </div>
-                        <div class="col-6 footer__contacts-messengers" itemscope itemtype="http://schema.org/Organization">
-                            <div class="phone"><a href="tel:89787547499" itemprop="telephone" title="Позвонить">8 (978) 754-74-99</a></div>
-                            <div class="email"><a href="mailto:info@krasber.ru" itemprop="email" title="Написать на почту">info@krasber.ru</a></div>
+                        <div class="col-6 footer__contacts-messengers">
+                            <div class="phone"><a href="tel:89787547499" title="Позвонить">8 (978) 754-74-99</a></div>
+                            <div class="email"><a href="mailto:info@krasber.ru" title="Написать на почту">info@krasber.ru</a></div>
                             <div class="f__icons">
                                 <a href="#">
                                     <svg class="icon telegram">

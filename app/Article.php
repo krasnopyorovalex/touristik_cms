@@ -25,6 +25,15 @@ class Article extends Model
     public $timestamps = false;
 
     /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'published_at'
+    ];
+
+    /**
      * @var array
      */
     protected $fillable = ['name', 'title', 'description', 'text', 'preview', 'alias', 'is_published', 'published_at'];
@@ -35,5 +44,13 @@ class Article extends Model
     public function image()
     {
         return $this->morphOne('App\Image', 'imageable');
+    }
+
+    /**
+     * @return string
+     */
+    public function getUrlAttribute()
+    {
+        return route("article.show", $this->alias);
     }
 }

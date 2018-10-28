@@ -14,8 +14,8 @@
                     <div class="row">
                         <div class="col-8">
                             <article>
-                                <time datetime="{{ date('c', strtotime($article->published_at)) }}">
-                                    {{ Illuminate\Support\Carbon::parse($article->published_at)->format('d M Y') }}
+                                <time datetime="{{ $article->published_at->format('c') }}">
+                                    {{ $article->published_at->formatLocalized('%d %b %Y') }}
                                 </time>
 
                                 <div class="content">

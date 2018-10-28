@@ -27,7 +27,7 @@
                             @if ($article->image)
                             <div itemscope="" itemprop="image" itemtype="http://schema.org/ImageObject" class="image">
                                 <figure>
-                                    <a href="{{ route('article.show', $article->alias) }}">
+                                    <a href="{{ $article->url }}">
                                         <img itemprop="url contentUrl" src="{{ asset($article->image->path) }}" alt="{{ $article->image->alt }}" title="{{ $article->image->title }}">
                                         <meta itemprop="url" content="{{ asset($article->image->path) }}">
                                         <meta itemprop="width" content="319">
@@ -37,12 +37,12 @@
                             </div>
                             @endif
                             <div itemprop="articleBody" class="preview">
-                                <time itemprop="datePublished" datetime="{{ date('c', strtotime($article->published_at)) }}">
-                                    {{ Illuminate\Support\Carbon::parse($article->published_at)->format('d M Y') }}
+                                <time itemprop="datePublished" datetime="{{ $article->published_at->format('c') }}">
+                                    {{ $article->published_at->formatLocalized('%d %b %Y') }}
                                 </time>
-                                <a itemprop="headline" href="{{ route('article.show', $article->alias) }}" class="name">{{ $article->name }}</a>
+                                <a itemprop="headline" href="{{ $article->url }}" class="name">{{ $article->name }}</a>
                                 {!! $article->preview !!}
-                                <a href="{{ route('article.show', $article->alias) }}" class="btn_style-two">читать подробнее</a>
+                                <a href="{{ $article->url }}" class="btn_style-two">читать подробнее</a>
                             </div>
                         </article>
                     @endforeach

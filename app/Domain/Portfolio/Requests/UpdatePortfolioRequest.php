@@ -15,8 +15,12 @@ class UpdatePortfolioRequest extends Request
     {
         return [
             'name' => 'bail|required|max:512',
-            'title' => 'required|max:512',
-            'description' => 'max:512',
+            'site_url' => 'string|nullable|max:64',
+            'tags' => 'array|nullable',
+            'color' => 'required|string|max:16',
+            'title' => 'required|string|max:512',
+            'category' => 'required|string|max:16',
+            'description' => 'max:512|string',
             'preview' => 'required|string',
             'text' => 'required|string',
             'pos' => 'integer|min:0|max:255',
@@ -42,7 +46,9 @@ class UpdatePortfolioRequest extends Request
             'name.required' => 'Поле «Название» обязательно для заполнения',
             'title.required' => 'Поле «Title» обязательно для заполнения',
             'text.required' => 'Поле «Текст» обязательно для заполнения',
+            'color.required'  => 'Поле «Цвет фона» обязательно для заполнения',
             'alias.required' => 'Поле «Alias» обязательно для заполнения',
+            'category.required'  => 'Поле «Категория» обязательно для заполнения',
             'alias.unique' => 'Значение поля «Alias» уже присутствует в базе данных',
         ];
     }

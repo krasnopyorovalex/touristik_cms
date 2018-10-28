@@ -119,6 +119,9 @@ $(function() {
     });
 
     $('.select-search').select2();
+    $(".select-multiple-tags").select2({
+        tags: true
+    });
 
     if($('#editor-full').length) {
         CKEDITOR.replace( 'editor-full');

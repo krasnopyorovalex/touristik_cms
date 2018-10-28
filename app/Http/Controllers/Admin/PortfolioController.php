@@ -8,6 +8,7 @@ use App\Domain\Portfolio\Commands\UpdatePortfolioCommand;
 use App\Domain\Portfolio\Queries\GetAllPortfoliosQuery;
 use App\Domain\Portfolio\Queries\GetPortfolioByIdQuery;
 use App\Http\Controllers\Controller;
+use App\Portfolio;
 use Domain\Portfolio\Requests\CreatePortfolioRequest;
 use Domain\Portfolio\Requests\UpdatePortfolioRequest;
 
@@ -38,7 +39,12 @@ class PortfolioController extends Controller
      */
     public function create()
     {
-        return view('admin.portfolios.create');
+        $portfolioObject = new Portfolio();
+
+        return view('admin.portfolios.create', [
+            'categories' => $portfolioObject->getCategories(),
+            'colors' => $portfolioObject->getColors()
+        ]);
     }
 
     /**

@@ -31,6 +31,7 @@ class Page extends Model
         'page.index' => 'Главная',
         'page.page' => 'Информационная',
         'page.blog' => 'Блог',
+        'page.portfolio' => 'Портфолио',
     ];
 
     /**
@@ -44,6 +45,14 @@ class Page extends Model
     public function image()
     {
         return $this->morphOne('App\Image', 'imageable');
+    }
+
+    /**
+     * @return string
+     */
+    public function getUrlAttribute(): string
+    {
+        return route("page.show", $this->alias);
     }
 
     /**

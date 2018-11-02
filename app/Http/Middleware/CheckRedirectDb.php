@@ -33,6 +33,16 @@ class CheckRedirectDb
            return redirect($existedInDb->url_new, 301);
         }
 
+        if (strpos($request->getPathInfo(), '//') !== false) {
+            $actualUrl = preg_replace("/\/+/","/", $request->getPathInfo());
+            return redirect($actualUrl, 301);
+        }
+
+        if (strpos($request->fullUrl(), 'index.php') !== false) {
+            $actualUrl = str_replace('/index.php', '', $request->fullUrl());
+            return redirect(null, 301)->to($actualUrl);
+        }
+
         return $next($request);
     }
 }

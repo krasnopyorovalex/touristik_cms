@@ -21,6 +21,9 @@ class UpdateServiceRequest extends Request
             'text' => 'required|string',
             'is_published' => 'digits_between:0,1',
             'pos' => 'integer|min:0|max:255',
+            'image' => 'image',
+            'imageAlt' => 'string|max:255',
+            'imageTitle' => 'string|max:255',
             'alias' => [
                 'required',
                 'max:64',

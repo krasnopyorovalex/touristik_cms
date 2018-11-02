@@ -10,6 +10,11 @@ use App\Service;
  */
 class GetAllServicesQuery
 {
+    private static $services;
+
+    /**
+     * @var Service|null
+     */
     private $excludeService;
 
     /**
@@ -26,12 +31,16 @@ class GetAllServicesQuery
      */
     public function handle()
     {
-        $query = Service::where('parent_id', null)->with(['services'])->orderBy('pos');
+        if ( ! self::$services) {
+            $query = Service::where('parent_id', null)->with(['services'])->orderBy('pos');
 
-        if ($this->excludeService) {
-            return $query->where('id', '<>', $this->excludeService->id)->get();
+            if ($this->excludeService) {
+                return $query->where('id', '<>', $this->excludeService->id)->get();
+            }
+
+            self::$services = $query->get();
         }
 
-        return $query->get();
+        return self::$services;
     }
 }

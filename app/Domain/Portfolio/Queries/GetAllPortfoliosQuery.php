@@ -29,12 +29,12 @@ class GetAllPortfoliosQuery
      */
     public function handle()
     {
-        $Portfolios = new Portfolio();
+        $portfolios = new Portfolio();
 
         if ($this->isPublished) {
-           $Portfolios->where('is_published', '1');
+            $portfolios->where('is_published', '1');
         }
 
-        return $Portfolios->get();
+        return $portfolios->with(['image'])->orderBy('pos', 'asc')->get();
     }
 }

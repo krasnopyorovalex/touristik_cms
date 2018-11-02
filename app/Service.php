@@ -20,4 +20,20 @@ class Service extends Model
     {
         return $this->hasMany('App\Service', 'parent_id', 'id')->orderBy('pos');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function parent()
+    {
+        return $this->belongsTo('App\Service', 'parent_id', 'id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
+     */
+    public function image()
+    {
+        return $this->morphOne('App\Image', 'imageable');
+    }
 }

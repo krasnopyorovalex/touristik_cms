@@ -2,9 +2,12 @@
 
 namespace App\Domain\Service\Commands;
 
+use App\Domain\Image\Commands\DeleteImageCommand;
+use App\Domain\Image\Commands\UploadImageCommand;
 use App\Domain\Service\Queries\GetServiceByIdQuery;
 use App\Events\RedirectDetected;
 use App\Http\Requests\Request;
+use App\Service;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
@@ -40,6 +43,13 @@ class UpdateServiceCommand
 
         if ($service->getOriginal('alias') != $urlNew) {
             event(new RedirectDetected($service->getOriginal('alias'), $urlNew, 'service.show'));
+        }
+
+        if ($this->request->has('image')) {
+            if ($service->image) {
+                $this->dispatch(new DeleteImageCommand($service->image));
+            }
+            $this->dispatch(new UploadImageCommand($this->request, $service->id, Service::class));
         }
 
         return $service->update($this->request->all());

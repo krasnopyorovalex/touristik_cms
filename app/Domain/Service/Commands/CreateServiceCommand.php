@@ -2,6 +2,7 @@
 
 namespace App\Domain\Service\Commands;
 
+use App\Domain\Image\Commands\UploadImageCommand;
 use App\Http\Requests\Request;
 use App\Service;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -33,6 +34,10 @@ class CreateServiceCommand
         $service = new Service();
         $service->fill($this->request->all());
         $service->save();
+
+        if($this->request->has('image')) {
+            return $this->dispatch(new UploadImageCommand($this->request, $service->id, Service::class));
+        }
 
         return true;
     }

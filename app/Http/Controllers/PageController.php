@@ -9,9 +9,9 @@ class PageController extends Controller
 {
     /**
      * @param string $alias
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Contracts\View\Factory|View
      */
-    public function show(string $alias = 'index'): View
+    public function show(string $alias = 'index')
     {
         $page = $this->dispatch(new GetPageByAliasQuery($alias));
 

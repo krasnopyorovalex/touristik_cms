@@ -52,6 +52,8 @@
                 @textarea(['name' => 'preview', 'label' => 'Превью портфолио', 'id' => 'editor-full2'])
                 @textarea(['name' => 'text', 'label' => 'Текст'])
 
+                @input(['name' => 'pos', 'label' => 'Позиция'])
+
                 @submit_btn()
             </form>
 

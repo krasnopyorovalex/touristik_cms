@@ -31,7 +31,7 @@ class MenuItem extends Model
     /**
      * @var array
      */
-    protected $fillable = ['is_service', 'name', 'link', 'menu_id', 'parent_id', 'pos'];
+    protected $fillable = ['is_service', 'is_delimiter', 'name', 'link', 'menu_id', 'parent_id', 'pos'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne

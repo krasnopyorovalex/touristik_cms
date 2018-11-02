@@ -30,7 +30,23 @@
 
     @includeWhen($services, 'layouts.sections.services', ['services' => $services])
 
-    @include('layouts.forms.order_service', ['services' => $services])
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-10">
+                    <div class="order__service-form">
+                        <div class="wrap">
+                            <div class="desc">
+                                <div class="as__h1">Заказать услугу</div>
+                                <p>Вы можете бесплатно  получить аудит вашего сайта. Вас это не к чему не обязывает.</p>
+                            </div>
+                            @include('layouts.forms.order_service', ['services' => $services])
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="why__we">
         <div class="container">
@@ -100,116 +116,9 @@
 
                     <div class="portfolio__list">
 
-                        <div class="portfolio__list-item">
-                            <div class="bg__item peach"></div>
-                            <div class="image__preview">
-                                <figure>
-                                    <img src="/img/portfolio_preview-01.png" alt="alt" title="Медведь и слон">
-                                </figure>
-                            </div>
-                            <div class="body">
-                                <div class="bg__box">
-                                    <div class="name">
-                                        <a href="/portfolio-item.html">Создание лэндинга для салона Misslisse</a>
-                                    </div>
-                                    <div class="desc">
-                                        <ul>
-                                            <li>- мобильная версия</li>
-                                            <li>- доработка новых модулей</li>
-                                            <li>- разработка рекламно кампании</li>
-                                        </ul>
-                                    </div>
-                                    <div class="tags">
-                                        <span>контекст</span>
-                                        <span>seo</span>
-                                    </div>
-                                    <div class="link__more">
-                                        <div class="link__more-text">
-                                            <a href="/portfolio-item.html">ПОДРОБНЕЕ</a>
-                                        </div>
-                                        <div class="link__more-icon">
-                                            <svg class="icon link">
-                                                <use xlink:href="{{ asset('img/symbols.svg#link') }}"></use>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="portfolio__list-item">
-                            <div class="bg__item"></div>
-                            <div class="image__preview">
-                                <figure>
-                                    <img src="/img/portfolio_preview-02.png" alt="alt" title="SEO-positions">
-                                </figure>
-                            </div>
-                            <div class="body">
-                                <div class="bg__box">
-                                    <div class="name">
-                                        <a href="/portfolio-item.html">Создание лэндинга для салона Misslisse</a>
-                                    </div>
-                                    <div class="desc">
-                                        <ul>
-                                            <li>- мобильная версия</li>
-                                            <li>- доработка новых модулей</li>
-                                            <li>- разработка рекламно кампании</li>
-                                        </ul>
-                                    </div>
-                                    <div class="tags">
-                                        <span>контекст</span>
-                                        <span>seo</span>
-                                    </div>
-                                    <div class="link__more">
-                                        <div class="link__more-text">
-                                            <a href="/portfolio-item.html">ПОДРОБНЕЕ</a>
-                                        </div>
-                                        <div class="link__more-icon">
-                                            <svg class="icon link">
-                                                <use xlink:href="{{ asset('img/symbols.svg#link') }}"></use>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="portfolio__list-item">
-                            <div class="bg__item grey"></div>
-                            <div class="image__preview">
-                                <figure>
-                                    <img src="/img/portfolio_preview-03.png" alt="alt" title="CRM-система">
-                                </figure>
-                            </div>
-                            <div class="body">
-                                <div class="bg__box">
-                                    <div class="name">
-                                        <a href="/portfolio-item.html">Создание лэндинга для салона Misslisse</a>
-                                    </div>
-                                    <div class="desc">
-                                        <ul>
-                                            <li>- мобильная версия</li>
-                                            <li>- доработка новых модулей</li>
-                                            <li>- разработка рекламно кампании</li>
-                                        </ul>
-                                    </div>
-                                    <div class="tags">
-                                        <span>контекст</span>
-                                        <span>seo</span>
-                                    </div>
-                                    <div class="link__more">
-                                        <div class="link__more-text">
-                                            <a href="/portfolio-item.html">ПОДРОБНЕЕ</a>
-                                        </div>
-                                        <div class="link__more-icon">
-                                            <svg class="icon link">
-                                                <use xlink:href="{{ asset('img/symbols.svg#link') }}"></use>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @foreach ($portfolios->slice(0,3) as $portfolio)
+                            @include('layouts.partials._portfolio_item', ['portfolio' => $portfolio])
+                        @endforeach
 
                         <div class="btn__more">
                             <a href="{{ route('page.show', ['alias' => 'portfolio']) }}" class="btn green">БОЛЬШЕ РАБОТ</a>
@@ -250,6 +159,22 @@
         </div>
     </section>
 
-    @include('layouts.forms.order_service', ['services' => $services, 'postfix' => '_bottom'])
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-10">
+                    <div class="order__service-form">
+                        <div class="wrap">
+                            <div class="desc">
+                                <div class="as__h1">Заказать услугу</div>
+                                <p>Вы можете бесплатно  получить аудит вашего сайта. Вас это не к чему не обязывает.</p>
+                            </div>
+                            @include('layouts.forms.order_service', ['services' => $services, 'postfix' => '_bottom'])
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 @endsection

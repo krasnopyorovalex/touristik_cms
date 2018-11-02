@@ -19,7 +19,7 @@ class UpdatePageRequest extends Request
             'template' => 'required|string|max:24',
             'title' => 'required|string|max:512',
             'description' => 'string|max:512',
-            'text' => 'required|string',
+            'text' => 'string|nullable',
             'is_published' => 'digits_between:0,1',
             'image' => 'image',
             'imageAlt' => 'string|max:255',
@@ -42,7 +42,6 @@ class UpdatePageRequest extends Request
         return [
             'name.required' => 'Поле «Название» обязательно для заполнения',
             'title.required' => 'Поле «Title» обязательно для заполнения',
-            'text.required' => 'Поле «Текст» обязательно для заполнения',
             'alias.required' => 'Поле «Alias» обязательно для заполнения',
             'alias.unique' => 'Значение поля «Alias» уже присутствует в базе данных',
         ];

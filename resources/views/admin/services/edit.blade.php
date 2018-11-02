@@ -21,6 +21,7 @@
                 <div class="tabbable">
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#main" data-toggle="tab">Основное</a></li>
+                        <li><a href="#image" data-toggle="tab">Изображение</a></li>
                     </ul>
 
                     <div class="tab-content">
@@ -45,6 +46,23 @@
                             @textarea(['name' => 'text', 'label' => 'Текст', 'entity' => $service])
                             @checkbox(['name' => 'is_published', 'label' => 'Опубликовано?', 'entity' => $service])
 
+                            @submit_btn()
+                        </div>
+                        <div class="tab-pane" id="image">
+                            @if ($service->image)
+                                <div class="panel panel-flat border-blue border-xs" id="image__box">
+                                    <div class="panel-body">
+                                        <img src="{{ asset($service->image->path) }}" alt="" class="upload__image">
+
+                                        <div class="btn-group btn__actions">
+                                            <button data-toggle="modal" data-target="#modal_info" type="button" class="btn btn-primary btn-labeled btn-sm"><b><i class="icon-pencil4"></i></b> Атрибуты</button>
+
+                                            <button type="button" data-href="{{ route('admin.images.destroy', ['id' => $service->image->id]) }}" class="btn delete__img btn-danger btn-labeled btn-labeled-right btn-sm">Удалить <b><i class="icon-trash"></i></b></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+                            @imageInput(['name' => 'image', 'type' => 'file', 'entity' => $service, 'label' => 'Выберите изображение на компьютере'])
                             @submit_btn()
                         </div>
 

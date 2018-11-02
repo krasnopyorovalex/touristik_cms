@@ -43,6 +43,7 @@
                 @selectLink(['name' => 'link', 'label' => 'Ссылка'])
 
                 @checkbox(['name' => 'is_service', 'label' => 'Отобразить список услуг?'])
+                @checkbox(['name' => 'is_delimiter', 'label' => 'Разделитель?'])
 
                 @submit_btn()
             </form>

@@ -15,10 +15,10 @@ Route::pattern('alias', '[a-z-]+');
 
 Auth::routes();
 
-Route::group(['middleware' => ['redirector', 'shortcode']], function () {
+Route::group(['middleware' => ['redirector']], function () {
+    Route::get('{alias}', 'ServiceController@show')->name('service.show');
     Route::get('/{alias?}', 'PageController@show')->name('page.show');
     Route::get('blog/{alias}', 'BlogController@show')->name('article.show');
-    Route::get('services/{alias}', 'ServiceController@show')->name('service.show');
     Route::get('portfolio/{alias}', 'PortfolioController@show')->name('portfolio.show');
 });
 

@@ -17,6 +17,6 @@ class ServicesServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->make('view')->composer(['page.index', 'layouts.app'], 'App\Http\ViewComposers\ServiceComposer');
+        $this->app->make('view')->composer('*', 'App\Http\ViewComposers\ServiceComposer');
     }
 }

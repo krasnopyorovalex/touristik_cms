@@ -18,6 +18,7 @@
                 <th>#</th>
                 <th>Название</th>
                 <th>Alias</th>
+                <th>Позиция</th>
                 <th></th>
             </tr>
             </thead>
@@ -27,6 +28,7 @@
                     <td><span class="label label-primary">{{ $loop->iteration }}</span></td>
                     <td>{{ $portfolio->name }}</td>
                     <td>{{ $portfolio->alias }}</td>
+                    <td>{{ $portfolio->pos }}</td>
                     <td>
                         <div>
                             <a href="{{ route('admin.portfolios.edit', $portfolio) }}"><i class="icon-pencil7"></i></a>

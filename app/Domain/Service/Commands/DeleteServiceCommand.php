@@ -2,6 +2,7 @@
 
 namespace App\Domain\Service\Commands;
 
+use App\Domain\Image\Commands\DeleteImageCommand;
 use App\Domain\Service\Queries\GetServiceByIdQuery;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
@@ -36,6 +37,10 @@ class DeleteServiceCommand
     public function handle(): bool
     {
         $service = $this->dispatch(new GetServiceByIdQuery($this->id));
+
+        if($service->image) {
+            $this->dispatch(new DeleteImageCommand($service->image));
+        }
 
         return $service->delete();
     }

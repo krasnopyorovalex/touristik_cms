@@ -59,9 +59,11 @@
                                     <div class="form-group">
                                         <label for="tags">Введите теги</label>
                                         <select class="form-control border-blue border-xs select-multiple-tags" multiple="multiple" id="tags" name="tags[]" data-width="100%">
-                                            @foreach ($portfolio->tags as $tag)
-                                                <option value="{{ $tag }}" selected="selected">{{ $tag }}</option>
-                                            @endforeach
+                                            @if (isset($portfolio->tags))
+                                                @foreach ($portfolio->tags as $tag)
+                                                    <option value="{{ $tag }}" selected="selected">{{ $tag }}</option>
+                                                @endforeach
+                                            @endif
                                         </select>
                                     </div>
 
@@ -71,6 +73,7 @@
                                 <div class="col-md-12">
                                     @textarea(['name' => 'preview', 'label' => 'Превью портфолио', 'id' => 'editor-full2', 'entity' => $portfolio])
                                     @textarea(['name' => 'text', 'label' => 'Текст', 'entity' => $portfolio])
+                                    @input(['name' => 'pos', 'label' => 'Позиция', 'entity' => $portfolio])
 
                                     @submit_btn()
                                 </div>

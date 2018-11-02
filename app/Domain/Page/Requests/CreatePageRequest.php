@@ -18,7 +18,7 @@ class CreatePageRequest extends Request
             'slogan' => 'string|max:255|nullable',
             'title' => 'required|string|max:512',
             'description' => 'string|max:512',
-            'text' => 'required|string',
+            'text' => 'string|nullable',
             'alias' => 'required|max:64|unique:pages',
             'is_published' => 'digits_between:0,1',
             'image' => 'image'
@@ -35,7 +35,6 @@ class CreatePageRequest extends Request
         return [
             'name.required' => 'Поле «Название» обязательно для заполнения',
             'title.required' => 'Поле «Title» обязательно для заполнения',
-            'text.required' => 'Поле «Текст» обязательно для заполнения',
             'alias.required' => 'Поле «Alias» обязательно для заполнения',
             'alias.unique' => 'Значение поля «Alias» уже присутствует в базе данных',
         ];

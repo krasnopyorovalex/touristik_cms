@@ -19,7 +19,7 @@ class Portfolio extends Model
     private $categories = [
         'cat_01' => 'индивидуальный проект',
         'cat_02' => 'сайт каталог',
-        'cat_03' => 'сайт-визитка',
+        'cat_03' => 'CRM-система',
     ];
 
     private $colors = [

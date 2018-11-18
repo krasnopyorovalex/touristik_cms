@@ -299,3 +299,19 @@ li.mjs-nestedSortable-collapsed.mjs-nestedSortable-hovering div {
 .page-content {
     height: 95vh
 }
+.select2-results__options .icon, .select2-selection__rendered .icon {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+    vertical-align: middle
+}
+.select2-selection__rendered .icon {
+    width: 30px;
+    height: 30px;
+}
+.table .icon {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+}

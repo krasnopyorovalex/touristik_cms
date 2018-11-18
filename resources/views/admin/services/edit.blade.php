@@ -37,6 +37,31 @@
                                 </select>
                             </div>
 
+                            <div class="form-group">
+                                <label for="icon_id">Выберите иконку</label>
+                                <select class="form-control border-blue border-xs select-icons" id="icon_id" name="icon" data-width="100%">
+                                    @foreach ($service->getIcons() as $key => $value)
+                                        <option value="{{ $key }}" data-icon="{{ $key }}" @if ($key == $service->icon)selected="selected"@endif>
+                                            {{ $value }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="services">Выберите сопутствующие услуги</label>
+                                <select class="form-control border-blue border-xs select-search" multiple="multiple" id="services" name="services[]" data-width="100%">
+                                    @foreach($services as $item)
+                                        <option value="{{ $item->id }}" {{ in_array($item->id, $relatedServices) ? 'selected' : '' }}>{{ $item->name }}</option>
+                                        @if ($item->services)
+                                            @foreach ($item->services as $subItem)
+                                                <option value="{{ $subItem->id }}" {{ in_array($subItem->id, $relatedServices) ? 'selected' : '' }}>*** {{ $subItem->name }}</option>
+                                            @endforeach
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
+
                             @input(['name' => 'name', 'label' => 'Название', 'entity' => $service])
                             @input(['name' => 'title', 'label' => 'Title', 'entity' => $service])
                             @input(['name' => 'description', 'label' => 'Description', 'entity' => $service])

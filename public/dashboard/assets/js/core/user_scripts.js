@@ -189,7 +189,28 @@ $(function() {
         }
     });
 
+    // Initialize with options
+    $(".select-icons").select2({
+        templateResult: iconFormat,
+        minimumResultsForSearch: Infinity,
+        templateSelection: iconFormat,
+        escapeMarkup: function(m) { return m; }
+    });
+
 });
+
+// Format icon
+function iconFormat(icon) {
+    var originalOption = icon.element;
+    if (!icon.id) { return icon.text; }
+    //var $icon = "<i class='icon-" + $(icon.element).data('icon') + "'></i>" + icon.text;
+
+    var $icon = "<svg class=\"icon\">\n" +
+            "<use xlink:href=\"/img/symbols.svg#" + $(icon.element).data('icon') + "\"></use>\n" +
+        "</svg>" + icon.text;
+
+    return $icon;
+}
 
 function sendDestroyRequest(_this, alias = '') {
     var notice = new PNotify({

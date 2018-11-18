@@ -35,6 +35,8 @@ class CreateServiceCommand
         $service->fill($this->request->all());
         $service->save();
 
+        $service->relatedServices()->attach($this->request->post('services'));
+
         if($this->request->has('image')) {
             return $this->dispatch(new UploadImageCommand($this->request, $service->id, Service::class));
         }

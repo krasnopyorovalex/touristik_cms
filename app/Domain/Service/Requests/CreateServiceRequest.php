@@ -15,12 +15,13 @@ class CreateServiceRequest extends Request
         return [
             'name' => 'bail|required|max:512',
             'parent_id' => 'numeric|exists:services,id|nullable',
-            'title' => 'required|max:512',
+            'title' => 'required|max:512|string',
             'description' => 'required|string|max:512',
             'text' => 'required|string',
             'alias' => 'required|max:64|unique:services',
             'is_published' => 'digits_between:0,1',
             'pos' => 'integer|min:0|max:255',
+            'icon' => 'required|max:16|string|nullable',
             'image' => 'image'
         ];
     }

@@ -8,6 +8,7 @@ use App\Domain\Service\Commands\UpdateServiceCommand;
 use App\Domain\Service\Queries\GetAllServicesQuery;
 use App\Domain\Service\Queries\GetServiceByIdQuery;
 use App\Http\Controllers\Controller;
+use App\Service;
 use Domain\Service\Requests\CreateServiceRequest;
 use Domain\Service\Requests\UpdateServiceRequest;
 
@@ -41,7 +42,8 @@ class ServiceController extends Controller
         $services = $this->dispatch(new GetAllServicesQuery());
 
         return view('admin.services.create', [
-            'services' => $services
+            'services' => $services,
+            'service' => new Service
         ]);
     }
 
@@ -69,9 +71,12 @@ class ServiceController extends Controller
         $service = $this->dispatch(new GetServiceByIdQuery($id));
         $services = $this->dispatch(new GetAllServicesQuery($service));
 
+        $relatedServices = get_ids_from_array($service->relatedServices->toArray());
+
         return view('admin.services.edit', [
             'service' => $service,
-            'services' => $services
+            'services' => $services,
+            'relatedServices' => $relatedServices
         ]);
     }
 

@@ -52,6 +52,8 @@ class UpdateServiceCommand
             $this->dispatch(new UploadImageCommand($this->request, $service->id, Service::class));
         }
 
+        $service->relatedServices()->sync($this->request->post('services'));
+
         return $service->update($this->request->all());
     }
 

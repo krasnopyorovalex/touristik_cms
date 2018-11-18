@@ -27,6 +27,31 @@
                     </select>
                 </div>
 
+                <div class="form-group">
+                    <label for="icon_id">Выберите иконку</label>
+                    <select class="form-control border-blue border-xs select-icons" id="icon_id" name="icon" data-width="100%">
+                        @foreach ($service->getIcons() as $key => $value)
+                            <option value="{{ $key }}" data-icon="{{ $key }}">
+                                {{ $value }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="services">Выберите сопутствующие услуги</label>
+                    <select class="form-control border-blue border-xs select-search" multiple="multiple" id="services" name="services[]" data-width="100%">
+                        @foreach($services as $service)
+                            <option value="{{ $service->id }}">{{ $service->name }}</option>
+                            @if ($service->services)
+                                @foreach ($service->services as $subService)
+                                        <option value="{{ $subService->id }}">*** {{ $subService->name }}</option>
+                                @endforeach
+                            @endif
+                        @endforeach
+                    </select>
+                </div>
+
                 @input(['name' => 'name', 'label' => 'Название'])
                 @input(['name' => 'title', 'label' => 'Title'])
                 @input(['name' => 'description', 'label' => 'Description'])

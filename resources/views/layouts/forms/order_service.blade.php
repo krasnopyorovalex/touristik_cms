@@ -30,7 +30,7 @@
         </div>
         <div class="single__block agree__block">
             <input type="checkbox" name="agree" id="i_agree{{ $postfix ?? '' }}" value="1" checked>
-            <label for="i_agree{{ $postfix ?? '' }}">Отправляя заяявку  вы соглашаетесь с <a href="#">правилами офферты</a></label>
+            <label for="i_agree{{ $postfix ?? '' }}">Отправляя заявку  вы соглашаетесь с <a href="#">правилами офферты</a></label>
         </div>
     </form>
     <!-- /.order__service -->

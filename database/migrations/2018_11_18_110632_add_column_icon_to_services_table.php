@@ -1,10 +1,10 @@
-<?php $table->string('site_url', 64)->nullable()->after('alias');
+<?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddColumnSiteUrlToPortfoliosTable extends Migration
+class AddColumnIconToServicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddColumnSiteUrlToPortfoliosTable extends Migration
      */
     public function up()
     {
-        Schema::table('portfolios', function (Blueprint $table) {
-            $table->string('site_url', 64)->nullable()->after('alias');
+        Schema::table('services', function (Blueprint $table) {
+            $table->string('icon', 16)->nullable()->after('is_published');
         });
     }
 
@@ -25,8 +25,8 @@ class AddColumnSiteUrlToPortfoliosTable extends Migration
      */
     public function down()
     {
-        Schema::table('portfolios', function (Blueprint $table) {
-            $table->dropColumn(['site_url']);
+        Schema::table('services', function (Blueprint $table) {
+            $table->dropColumn(['icon']);
         });
     }
 }

@@ -1,5 +1,12 @@
 <tr>
     <td><span class="label label-primary">{{ $child ? '' : $loop->iteration }}</span></td>
+    <td>
+        @if ($service->icon)
+            <svg class="icon">
+                <use xlink:href="{{ asset('img/symbols.svg#' . $service->icon) }}"></use>
+            </svg>
+        @endif
+    </td>
     <td> {{ $prefix }} {{ $service->name }}</td>
     <td>{{ $service->alias }}</td>
     <td>

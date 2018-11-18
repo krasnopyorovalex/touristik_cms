@@ -16,6 +16,7 @@
             <thead>
             <tr class="border-solid">
                 <th>#</th>
+                <th>Иконка</th>
                 <th>Название</th>
                 <th>Alias</th>
                 <th></th>

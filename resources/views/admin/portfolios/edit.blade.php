@@ -74,6 +74,8 @@
                                     @textarea(['name' => 'preview', 'label' => 'Превью портфолио', 'id' => 'editor-full2', 'entity' => $portfolio])
                                     @textarea(['name' => 'text', 'label' => 'Текст', 'entity' => $portfolio])
                                     @input(['name' => 'pos', 'label' => 'Позиция', 'entity' => $portfolio])
+                                    @input(['name' => 'form_title', 'label' => 'Название формы', 'entity' => $portfolio])
+                                    @input(['name' => 'form_sub_title', 'label' => 'Описание под названием формы', 'entity' => $portfolio])
 
                                     @submit_btn()
                                 </div>

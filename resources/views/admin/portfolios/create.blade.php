@@ -53,6 +53,8 @@
                 @textarea(['name' => 'text', 'label' => 'Текст'])
 
                 @input(['name' => 'pos', 'label' => 'Позиция'])
+                @input(['name' => 'form_title', 'label' => 'Название формы'])
+                @input(['name' => 'form_sub_title', 'label' => 'Описание под названием формы'])
 
                 @submit_btn()
             </form>

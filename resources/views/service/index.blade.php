@@ -16,6 +16,7 @@
             <div class="row">
                 <div class="col-10">
                     {!! $service->text !!}
+                    @if ($service->is_showed_dev_stages)
                     <div class="list__items develop__steps">
                         <div class="list__items-item">
                             <div class="title">Звоните или пишите нам</div>
@@ -153,11 +154,13 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>
     </main>
 
+    @if ($service->is_showed_type_sites)
     <section class="sites__types">
         <div class="bg__box"></div>
         <div class="container">
@@ -239,6 +242,34 @@
             </div>
         </div>
     </section>
+    @endif
+
+    @if (count($service->relatedServices))
+        <section class="services_list-box">
+            <div class="container">
+                <div class="row">
+                    <div class="col-10">
+                        <div class="as__h1 center">Сопутствующие услуги</div>
+                        <div class="list__items">
+                        @foreach ($service->relatedServices as $relatedService)
+                            <div class="list__items-item4">
+                                <a href="{{ route('service.show', ['alias' => $relatedService->alias]) }}">
+                                    <svg class="icon {{ $relatedService->icon }}">
+                                        <use xlink:href="./img/symbols.svg#{{ $relatedService->icon }}"></use>
+                                    </svg>
+                                </a>
+                                <a href="{{ route('service.show', ['alias' => $relatedService->alias]) }}" class="title">{{ $relatedService->name }}</a>
+                                {!! $relatedService->preview !!}
+                                <div class="price">{{ $relatedService->getPrice() }}</div>
+                                <a href="{{ route('service.show', ['alias' => $relatedService->alias]) }}" class="btn_style-two">Подробнее</a>
+                            </div>
+                        @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
 
     <section>
         <div class="container">
@@ -248,7 +279,7 @@
                         <div class="wrap">
                             <div class="desc">
                                 <div class="as__h1">Заказать услугу</div>
-                                <p>Вы можете бесплатно  получить аудит вашего сайта. Вас это не к чему не обязывает.</p>
+                                <p>Оставьте свою заявку и наш менеджер свяжется с Вами.</p>
                             </div>
                             @include('layouts.forms.order_service', ['services' => $services, 'postfix' => '_bottom'])
                         </div>

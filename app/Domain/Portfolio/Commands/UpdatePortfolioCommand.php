@@ -38,21 +38,21 @@ class UpdatePortfolioCommand
      */
     public function handle(): bool
     {
-        $Portfolio = $this->dispatch(new GetPortfolioByIdQuery($this->id));
+        $portfolio = $this->dispatch(new GetPortfolioByIdQuery($this->id));
         $urlNew = $this->request->post('alias');
 
-        if ($Portfolio->getOriginal('alias') != $urlNew) {
-            event(new RedirectDetected($Portfolio->getOriginal('alias'), $urlNew, 'Portfolio.show'));
+        if ($portfolio->getOriginal('alias') != $urlNew) {
+            event(new RedirectDetected($portfolio->getOriginal('alias'), $urlNew, 'portfolio.show'));
         }
 
         if ($this->request->has('image')) {
-            if ($Portfolio->image) {
-                $this->dispatch(new DeleteImageCommand($Portfolio->image));
+            if ($portfolio->image) {
+                $this->dispatch(new DeleteImageCommand($portfolio->image));
             }
-            $this->dispatch(new UploadImageCommand($this->request, $Portfolio->id, Portfolio::class));
+            $this->dispatch(new UploadImageCommand($this->request, $portfolio->id, Portfolio::class));
         }
 
-        return $Portfolio->update($this->request->all());
+        return $portfolio->update($this->request->all());
     }
 
 }

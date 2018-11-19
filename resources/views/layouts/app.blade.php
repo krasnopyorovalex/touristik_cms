@@ -20,7 +20,7 @@
             <div class="container">
                 <div class="top__line">
                     <svg class="icon menu">
-                        <use xlink:href="{{ asset('img/symbols.svg#menu') }}') }}"></use>
+                        <use xlink:href="{{ asset('img/symbols.svg#menu') }}"></use>
                     </svg>
                     <div class="logo">
                         <a href="{{ route('page.show') }}">

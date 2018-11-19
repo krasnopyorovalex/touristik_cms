@@ -15,6 +15,8 @@ class UpdatePortfolioRequest extends Request
     {
         return [
             'name' => 'bail|required|max:512',
+            'form_title' => 'max:255|string|nullable',
+            'form_sub_title' => 'max:512|string|nullable',
             'site_url' => 'string|nullable|max:64',
             'tags' => 'array|nullable',
             'color' => 'required|string|max:16',

@@ -34,7 +34,7 @@ class Portfolio extends Model
     /**
      * @var array
      */
-    protected $fillable = ['category', 'color', 'site_url', 'tags', 'name', 'title', 'description', 'text', 'preview', 'alias', 'pos'];
+    protected $fillable = ['category', 'color', 'site_url', 'tags', 'name', 'title', 'description', 'text', 'preview', 'alias', 'pos', 'form_title', 'form_sub_title'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphOne

@@ -8,7 +8,7 @@
                     <optgroup label="{{ $service->name }}">
                         @if ($service->services->count())
                             @foreach ($service->services as $subService)
-                                <option>{{ $subService->name }}</option>
+                                <option value="{{ $subService->name }}">{{ $subService->name }}</option>
                             @endforeach
                         @endif
                     </optgroup>
@@ -30,7 +30,7 @@
         </div>
         <div class="single__block agree__block">
             <input type="checkbox" name="agree" id="i_agree{{ $postfix ?? '' }}" value="1" checked>
-            <label for="i_agree{{ $postfix ?? '' }}">Отправляя заявку  вы соглашаетесь с <a href="#">правилами офферты</a></label>
+            <label for="i_agree{{ $postfix ?? '' }}">Отправляя заявку  вы соглашаетесь с <a href="{{ route('page.show', ['alias' => 'personal-data']) }}" target="_blank" title="Перейти на страницу описания">правилами офферты</a></label>
         </div>
     </form>
     <!-- /.order__service -->

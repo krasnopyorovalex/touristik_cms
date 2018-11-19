@@ -14,6 +14,8 @@ class CreatePortfolioRequest extends Request
     {
         return [
             'name' => 'bail|required|max:512',
+            'form_title' => 'max:255|string|nullable',
+            'form_sub_title' => 'max:512|string|nullable',
             'title' => 'required|string|max:512',
             'site_url' => 'string|nullable|max:64',
             'tags' => 'array|nullable',

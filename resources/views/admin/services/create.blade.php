@@ -56,12 +56,15 @@
                 @input(['name' => 'title', 'label' => 'Title'])
                 @input(['name' => 'description', 'label' => 'Description'])
                 @input(['name' => 'alias', 'label' => 'Alias'])
+                @input(['name' => 'price', 'label' => 'Цена'])
 
                 @imageInput(['name' => 'image', 'type' => 'file', 'label' => 'Выберите изображение на компьютере'])
 
                 @textarea(['name' => 'preview', 'label' => 'Превью услуги', 'id' => 'editor-full2'])
                 @textarea(['name' => 'text', 'label' => 'Текст'])
                 @checkbox(['name' => 'is_published', 'label' => 'Опубликовано?', 'isChecked' => true])
+                @checkbox(['name' => 'is_showed_dev_stages', 'label' => 'Отображать блок - Этапы разработки сайта?'])
+                @checkbox(['name' => 'is_showed_type_sites', 'label' => 'Отображать блок - Типы сайтов?'])
 
                 @submit_btn()
             </form>

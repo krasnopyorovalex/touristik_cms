@@ -26,7 +26,7 @@ class Service extends Model
     /**
      * @var array
      */
-    protected $fillable = ['parent_id', 'name', 'title', 'description', 'preview', 'text', 'alias', 'is_published', 'icon', 'pos'];
+    protected $fillable = ['parent_id', 'name', 'title', 'description', 'preview', 'text', 'alias', 'is_published', 'icon', 'pos', 'price', 'is_showed_dev_stages', 'is_showed_type_sites'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -66,5 +66,15 @@ class Service extends Model
     public function getIcons(): array
     {
         return $this->icons;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPrice(): string
+    {
+        return $this->price
+            ? sprintf('от %s р.', number_format($this->price, 0, '.', ' '))
+            : 'Бесплатно';
     }
 }

@@ -249,7 +249,7 @@
             <div class="row">
                 <div class="col-6 green">
                     <div class="as__h1">Заказать консультацию</div>
-                    <div class="sub__title">Вы можете получить консультацию по услуге «{{ mb_strtolower($service->name) }}». Вас это ни к чему не обязывает</div>
+                    <div class="sub__title">Вы можете получить консультацию по услуге {{ mb_strtolower($service->name) }}. Вас это ни к чему не обязывает</div>
 
                     <form action="#" method="post">
                         <div class="single__block">

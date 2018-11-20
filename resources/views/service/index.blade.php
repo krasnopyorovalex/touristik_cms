@@ -244,49 +244,64 @@
     </section>
     @endif
 
+    <section class="order__form">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 green">
+                    <div class="as__h1">Заказать консультацию</div>
+                    <div class="sub__title">Вы можете получить консультацию по услуге «{{ mb_strtolower($service->name) }}». Вас это ни к чему не обязывает</div>
+
+                    <form action="#" method="post">
+                        <div class="single__block">
+                            <input type="text" name="name" placeholder="Ваше имя" autocomplete="off">
+                        </div>
+                        <div class="single__block">
+                            <input type="email" name="email" placeholder="Email" autocomplete="off">
+                        </div>
+                        <div class="single__block">
+                            <input type="text" name="phone" autocomplete="off">
+                        </div>
+                        <div class="single__block message">
+                            <textarea name="message" id="message" placeholder="Дополнительная информация"></textarea>
+                        </div>
+                        <div class="single__block agree__block">
+                            <input type="checkbox" name="agree" id="i_agree2" value="1" checked>
+                            <label for="i_agree2">Отправляя заяявку  вы соглашаетесь с <a href="#" title="Перейти на страницу описания">правилами офферты</a></label>
+                        </div>
+                        <div class="single__block submit__block">
+                            <button type="submit">Отправить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
     @if (count($service->relatedServices))
         <section class="services_list-box">
             <div class="container">
                 <div class="row">
                     <div class="col-10">
-                        <div class="as__h1 center">Сопутствующие услуги</div>
+                        <h4 class="as__h1 center">Что заказывают вместе с услугой «{{ mb_strtolower($service->name) }}»</h4>
                         <div class="list__items">
-                        @foreach ($service->relatedServices as $relatedService)
-                            <div class="list__items-item4">
-                                <a href="{{ route('service.show', ['alias' => $relatedService->alias]) }}">
-                                    <svg class="icon {{ $relatedService->icon }}">
-                                        <use xlink:href="./img/symbols.svg#{{ $relatedService->icon }}"></use>
-                                    </svg>
-                                </a>
-                                <a href="{{ route('service.show', ['alias' => $relatedService->alias]) }}" class="title">{{ $relatedService->name }}</a>
-                                {!! $relatedService->preview !!}
-                                <div class="price">{{ $relatedService->getPrice() }}</div>
-                                <a href="{{ route('service.show', ['alias' => $relatedService->alias]) }}" class="btn_style-two">Подробнее</a>
-                            </div>
-                        @endforeach
+                            @foreach ($service->relatedServices as $relatedService)
+                                <div class="list__items-item4">
+                                    <a href="{{ route('service.show', ['alias' => $relatedService->alias]) }}">
+                                        <svg class="icon {{ $relatedService->icon }}">
+                                            <use xlink:href="./img/symbols.svg#{{ $relatedService->icon }}"></use>
+                                        </svg>
+                                    </a>
+                                    <a href="{{ route('service.show', ['alias' => $relatedService->alias]) }}" class="title">{{ $relatedService->name }}</a>
+                                    {!! $relatedService->preview !!}
+                                    <div class="price">{{ $relatedService->getPrice() }}</div>
+                                    <a href="{{ route('service.show', ['alias' => $relatedService->alias]) }}" class="btn_style-two">Подробнее</a>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     @endif
-
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-10">
-                    <div class="order__service-form">
-                        <div class="wrap">
-                            <div class="desc">
-                                <div class="as__h1">Заказать услугу</div>
-                                <p>Оставьте свою заявку и наш менеджер свяжется с Вами.</p>
-                            </div>
-                            @include('layouts.forms.order_service', ['services' => $services, 'postfix' => '_bottom'])
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
 @endsection

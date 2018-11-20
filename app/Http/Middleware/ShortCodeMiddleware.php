@@ -2,7 +2,6 @@
 
 namespace App\Http\Middleware;
 
-use App\Domain\Article\Queries\GetAllArticlesQuery;
 use Closure;
 use Illuminate\Http\Response;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -27,18 +26,19 @@ class ShortCodeMiddleware
             return $response;
         }
 
-//        $content = preg_replace_callback_array(
-//            [
-//                '#(<p(.*)>)?{blog}(<\/p>)?#' => function () {
-//                    $articles = $this->dispatch(new GetAllArticlesQuery(true));
-//
-//                    return view('layouts.shortcodes.articles', ['articles' => $articles]);
-//                }
-//            ],
-//            $response->content()
-//        );
-//
-//        $response->setContent($content);
+        $content = preg_replace_callback_array(
+            [
+                '#(<p(.*)>)?{form}(<\/p>)?#' => function () {
+                    return view('layouts.shortcodes.form_order');
+                },
+                '#(<p(.*)>)?{tariffs}(<\/p>)?#' => function () {
+                    return view('layouts.shortcodes.tariffs');
+                }
+            ],
+            $response->content()
+        );
+
+        $response->setContent($content);
 
         return $response;
     }

@@ -15,7 +15,7 @@ Route::pattern('alias', '[a-z-]+');
 
 Auth::routes();
 
-Route::group(['middleware' => ['redirector']], function () {
+Route::group(['middleware' => ['redirector', 'shortcode']], function () {
     Route::get('{alias}', 'ServiceController@show')->name('service.show');
     Route::get('/{alias?}', 'PageController@show')->name('page.show');
     Route::get('blog/{alias}', 'BlogController@show')->name('article.show');

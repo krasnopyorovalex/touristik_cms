@@ -10,6 +10,7 @@
     @stack('og')
     <link href="{{ asset('css/app.min.css') }}" rel="stylesheet">
     <link href="{{ asset('favicon.ico') }}" rel="shortcut icon" type="image/x-icon" />
+    <meta name="robots" content="noindex, nofollow" />
 </head>
 <body>
     <header itemscope="" itemtype="http://schema.org/WPHeader">

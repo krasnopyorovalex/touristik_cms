@@ -8,7 +8,7 @@
                 <div class="services__list">
                     @foreach ($services as $service)
                     <div class="services__list-item">
-                        <a href="{{ route('service.show', $service->alias) }}" class="name">{{ $service->name }}</a>
+                        <a href="{{ route('service.show', $service->alias) }}" class="name">{{ $service->getMenuName() }}</a>
                         <svg class="icon arrow_down">
                             <use xlink:href="{{ asset('img/symbols.svg#arrow_down') }}"></use>
                         </svg>
@@ -19,7 +19,7 @@
                             @if ($service->services->count())
                             <ul>
                                 @foreach ($service->services as $subService)
-                                <li><a href="{{ route('service.show', $subService->alias) }}">{{ $subService->name }}</a></li>
+                                <li><a href="{{ route('service.show', $subService->alias) }}">{{ $subService->getMenuName() }}</a></li>
                                 @endforeach
                             </ul>
                             @endif

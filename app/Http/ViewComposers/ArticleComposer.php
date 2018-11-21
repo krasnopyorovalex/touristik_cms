@@ -14,12 +14,14 @@ class ArticleComposer
 {
     use DispatchesJobs;
 
+    private const PAGINATE_LIMIT = 10;
+
     /**
      * @param View $view
      */
     public function compose(View $view)
     {
-        $articles = $this->dispatch(new GetAllArticlesQuery(true));
+        $articles = $this->dispatch(new GetAllArticlesQuery(true, self::PAGINATE_LIMIT));
 
         $view->with('articles', $articles);
     }

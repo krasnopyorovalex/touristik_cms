@@ -2,6 +2,7 @@
 
 @section('title', $page->title)
 @section('description', $page->description)
+@section('canonical', route('page.show', ['alias' => request('alias')]))
 
 @section('content')
 
@@ -48,7 +49,7 @@
                     @endforeach
 
                     <div class="center">
-                        <a href="/article.html" class="btn green">еще статьи</a>
+                        {{ $articles->links() }}
                     </div>
                 </div>
             </div>
@@ -77,5 +78,4 @@
             </div>
         </div>
     </section>
-
 @endsection

@@ -25,6 +25,7 @@ class CreateServiceRequest extends Request
             'pos' => 'integer|min:0|max:255',
             'price' => 'integer|min:0',
             'icon' => 'required|max:16|string|nullable',
+            'menu_name' => 'max:255|string|nullable',
             'image' => 'image'
         ];
     }

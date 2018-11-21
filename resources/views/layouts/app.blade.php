@@ -117,11 +117,11 @@
                         </div>
                         @foreach ($services as $service)
                             <div class="col__service">
-                                <div class="title">{{ $service->name }}</div>
+                                <div class="title">{{ $service->getMenuName() }}</div>
                                 @if ($service->services->count())
                                     <ul>
                                         @foreach ($service->services as $subService)
-                                            <li><a href="#">{{ $subService->name }}</a></li>
+                                            <li><a href="{{ route('service.show', $subService->alias) }}">{{ $subService->getMenuName() }}</a></li>
                                         @endforeach
                                     </ul>
                                 @endif

@@ -26,7 +26,7 @@ class Service extends Model
     /**
      * @var array
      */
-    protected $fillable = ['parent_id', 'name', 'title', 'description', 'preview', 'text', 'alias', 'is_published', 'icon', 'pos', 'price', 'is_showed_dev_stages', 'is_showed_type_sites'];
+    protected $fillable = ['parent_id', 'name', 'menu_name', 'title', 'description', 'preview', 'text', 'alias', 'is_published', 'icon', 'pos', 'price', 'is_showed_dev_stages', 'is_showed_type_sites'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -76,5 +76,15 @@ class Service extends Model
         return $this->price
             ? sprintf('от %s р.', number_format($this->price, 0, '.', ' '))
             : 'Бесплатно';
+    }
+
+    /**
+     * @return string
+     */
+    public function getMenuName(): string
+    {
+        return $this->menu_name
+            ? sprintf('%s', $this->menu_name)
+            : $this->name;
     }
 }

@@ -63,6 +63,7 @@
                             </div>
 
                             @input(['name' => 'name', 'label' => 'Название', 'entity' => $service])
+                            @input(['name' => 'menu_name', 'label' => 'Название в меню', 'entity' => $service])
                             @input(['name' => 'title', 'label' => 'Title', 'entity' => $service])
                             @input(['name' => 'description', 'label' => 'Description', 'entity' => $service])
 

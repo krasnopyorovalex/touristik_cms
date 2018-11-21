@@ -38,7 +38,7 @@
                                 <li>Помощь в пополнении баланса рекламы</li>
                                 <li>Передача доступов от рекламного кабинета</li>
                             </ul>
-                            <a href="#" class="btn green call__popup" data-service="Базовый">Заказать</a>
+                            <a href="#" class="btn green call__popup" data-service="Самостоятельный">Заказать</a>
                         </div>
                         <div class="price">
                             <p>Единоразовая настройка - 2 500 руб.</p>
@@ -69,7 +69,7 @@
                                 <li>Подбор оптимальной ставки за клик для каждого запроса</li>
                                 <li>Предоставление отчета 2 раза в месяц</li>
                             </ul>
-                            <a href="#" class="btn green call__popup" data-service="Стандарт">Заказать</a>
+                            <a href="#" class="btn green call__popup" data-service="Начинающий">Заказать</a>
                         </div>
                         <div class="price">
                             <p>Настройка - 3 000 руб.</p>
@@ -91,7 +91,7 @@
                                 <li>Настройка UTM-меток</li>
                                 <li>Еженедельный отчет</li>
                             </ul>
-                            <a href="#" class="btn green call__popup" data-service="Премиум">Заказать</a>
+                            <a href="#" class="btn green call__popup" data-service="Продвинутый">Заказать</a>
                         </div>
                         <div class="price">
                             <p>Стоимость настройки - 4 000 руб.</p>

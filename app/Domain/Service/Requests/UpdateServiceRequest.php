@@ -15,6 +15,7 @@ class UpdateServiceRequest extends Request
     {
         return [
             'name' => 'bail|required|max:512',
+            'menu_name' => 'max:255|string|nullable',
             'parent_id' => 'numeric|exists:services,id|nullable',
             'title' => 'required|max:512',
             'description' => 'required|string|max:512',

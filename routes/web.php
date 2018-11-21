@@ -11,7 +11,7 @@
 |
 */
 
-Route::pattern('alias', '[a-z-]+');
+Route::pattern('alias', '[\da-z-]+');
 
 Auth::routes();
 

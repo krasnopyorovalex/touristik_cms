@@ -32,7 +32,9 @@ class GetAllServicesQuery
     public function handle()
     {
         if ( ! self::$services) {
-            $query = Service::where('parent_id', null)->with(['services'])->orderBy('pos');
+            $query = Service::where('parent_id', null)->with(['services' => function($query){
+                return $query->orderBy('pos');
+            }])->orderBy('pos');
 
             if ($this->excludeService) {
                 return $query->where('id', '<>', $this->excludeService->id)->get();

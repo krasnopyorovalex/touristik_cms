@@ -89,6 +89,10 @@
                             <li><a href="{{ route('admin.redirects.index') }}"><i class="icon-transmission"></i> <span>Редиректы</span></a></li>
                             <!-- /main -->
 
+                            <div class="info_btn">
+                                <button type="button" data-toggle="modal" data-target="#modal_info" class="btn btn-primary btn-labeled btn-xlg"><b><i class="icon-info3"></i></b> Информация</button>
+                            </div>
+
                         </ul>
                     </div>
                 </div>
@@ -139,6 +143,32 @@
 
 </div>
 <!-- /page container -->
+
+<!-- Basic modal -->
+<div id="modal_info" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5 class="modal-title">Применение shortcode'ов</h5>
+            </div>
+
+            <div class="modal-body">
+                <h6 class="text-semibold">Доступные shortcode'ы:</h6>
+                <ul>
+                    <li>Карта сайта - {sitemap}</li>
+                    <li>Тарифы - {tariffs}</li>
+                    <li>Форма заказа услуги - {form}</li>
+                </ul>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn bg-primary" data-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /basic modal -->
 
 <!-- Scripts -->
 <script src="{{ asset('dashboard/assets/js/jquery.js') }}" defer></script>

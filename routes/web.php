@@ -15,6 +15,8 @@ Route::pattern('alias', '[\da-z-]+');
 
 Auth::routes();
 
+Route::get('sitemap.xml', 'SitemapController@xml')->name('sitemap.xml');
+
 Route::group(['middleware' => ['redirector', 'shortcode']], function () {
     Route::get('{alias}', 'ServiceController@show')->name('service.show');
     Route::get('/{alias?}/{page?}', 'PageController@show')->name('page.show')->where('page', '[0-9]+');

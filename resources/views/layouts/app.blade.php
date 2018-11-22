@@ -26,7 +26,8 @@
                     </svg>
                     <div class="logo">
                         <a href="{{ route('page.show') }}">
-                            <img src="{{ is_main_page() ? asset('img/logo_white.svg') : asset('img/logo_green.svg') }}" data-green-logo="{{ is_main_page() ? asset('img/logo_green.svg'): '' }}" alt="Создание сайта в веб-студии Красбер" title="Веб-студия Красбер">
+                            <img class="desktop__logo" src="{{ is_main_page() ? asset('img/logo_white.svg') : asset('img/logo_green.svg') }}" data-green-logo="{{ is_main_page() ? asset('img/logo_green.svg'): '' }}" alt="Создание сайта в веб-студии Красбер" title="Веб-студия Красбер" />
+                            <img class="mobile__logo" src="./img/logo_green.svg" alt="Создание сайта в веб-студии Красбер" title="Веб-студия Красбер" />
                         </a>
                     </div>
                     <!-- /.logo -->

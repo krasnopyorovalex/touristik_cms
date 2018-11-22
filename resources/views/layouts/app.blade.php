@@ -27,7 +27,7 @@
                     <div class="logo">
                         <a href="{{ route('page.show') }}">
                             <img class="desktop__logo" src="{{ is_main_page() ? asset('img/logo_white.svg') : asset('img/logo_green.svg') }}" data-green-logo="{{ is_main_page() ? asset('img/logo_green.svg'): '' }}" alt="Создание сайта в веб-студии Красбер" title="Веб-студия Красбер" />
-                            <img class="mobile__logo" src="./img/logo_green.svg" alt="Создание сайта в веб-студии Красбер" title="Веб-студия Красбер" />
+                            <img class="mobile__logo" src="{{ asset('img/logo_green.svg') }}" alt="Создание сайта в веб-студии Красбер" title="Веб-студия Красбер" />
                         </a>
                     </div>
                     <!-- /.logo -->
@@ -138,6 +138,9 @@
             </div>
         </div>
     </footer>
+    
+    <div class="notify"></div>
+    
     <script src="{{ asset('js/app.min.js') }}" defer></script>
 </body>
 </html>

@@ -21,7 +21,7 @@ class CreateServiceRequest extends Request
             'alias' => 'required|max:64|unique:services',
             'is_published' => 'digits_between:0,1',
             'is_showed_dev_stages' => 'digits_between:0,1',
-            'is_showed_type_sites' => 'digits_between:0,1',
+//            'is_showed_type_sites' => 'digits_between:0,1',
             'pos' => 'integer|min:0|max:255',
             'price' => 'integer|min:0',
             'icon' => 'required|max:16|string|nullable',

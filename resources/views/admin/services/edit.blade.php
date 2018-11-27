@@ -73,7 +73,6 @@
                             @textarea(['name' => 'text', 'label' => 'Текст', 'entity' => $service])
                             @checkbox(['name' => 'is_published', 'label' => 'Опубликовано?', 'entity' => $service])
                             @checkbox(['name' => 'is_showed_dev_stages', 'label' => 'Отображать блок - Этапы разработки сайта?', 'entity' => $service])
-                            @checkbox(['name' => 'is_showed_type_sites', 'label' => 'Отображать блок - Типы сайтов?', 'entity' => $service])
 
                             @submit_btn()
                         </div>

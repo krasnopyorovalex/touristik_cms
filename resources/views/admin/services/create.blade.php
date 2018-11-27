@@ -65,7 +65,6 @@
                 @textarea(['name' => 'text', 'label' => 'Текст'])
                 @checkbox(['name' => 'is_published', 'label' => 'Опубликовано?', 'isChecked' => true])
                 @checkbox(['name' => 'is_showed_dev_stages', 'label' => 'Отображать блок - Этапы разработки сайта?'])
-                @checkbox(['name' => 'is_showed_type_sites', 'label' => 'Отображать блок - Типы сайтов?'])
 
                 @submit_btn()
             </form>

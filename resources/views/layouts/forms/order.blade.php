@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row">
             <div class="col-7">
-                <div class="as__h1">{{ $form_title ?: 'Заказать сайт' }}</div>
-                <div class="sub__title">{{ $form_sub_title ?: 'Вы можете бесплатно  получить аудит вашего сайта. Вас это не к чему не обязывает.' }}</div>
+                <div class="as__h1">{{ $form_title ?? 'Заказать сайт' }}</div>
+                <div class="sub__title">{{ $form_sub_title ?? 'Вы можете бесплатно  получить аудит вашего сайта. Вас это не к чему не обязывает.' }}</div>
 
                 <form action="#" method="post">
                     <div class="single__block">
@@ -20,7 +20,7 @@
                     </div>
                     <div class="single__block agree__block">
                         <input type="checkbox" name="agree" id="i_agree2" value="1" checked>
-                        <label for="i_agree2">Отправляя заяявку  вы соглашаетесь с <a href="{{ route('page.show', ['alias' => 'personal-data']) }}" target="_blank" title="Перейти на страницу описания">правилами офферты</a></label>
+                        <label for="i_agree2">Оставляя заявку, вы соглашаетесь на <a href="{{ route('page.show', ['alias' => 'personal-data']) }}" target="_blank" title="Перейти на страницу описания">обработку персональных данных</a></label>
                     </div>
                     <div class="single__block submit__block">
                         <button type="submit">Отправить</button>

@@ -29,8 +29,8 @@
         </div>
         <div class="single__block agree__block">
             <input type="checkbox" name="agree" id="i_agree{{ $postfix ?? '' }}" value="1" checked>
-            <label for="i_agree{{ $postfix ?? '' }}">Отправляя заявку  вы соглашаетесь с <a href="{{ route('page.show', ['alias' => 'personal-data']) }}" target="_blank" title="Перейти на страницу описания">правилами офферты</a></label>
-            <p class="error">Отметьте, пожалуйста</p>
+            <label for="i_agree{{ $postfix ?? '' }}">Оставляя заявку, вы соглашаетесь на <a href="{{ route('page.show', ['alias' => 'personal-data']) }}" target="_blank" title="Перейти на страницу описания">обработку персональных данных</a></label>
+            <p class="error">Согласитесь на обработку персональных данных</p>
         </div>
     </form>
     <!-- /.order__service -->

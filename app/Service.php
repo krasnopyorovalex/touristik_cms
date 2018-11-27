@@ -4,6 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Service
+ * @package App
+ */
 class Service extends Model
 {
     public $timestamps = false;
@@ -26,7 +30,7 @@ class Service extends Model
     /**
      * @var array
      */
-    protected $fillable = ['parent_id', 'name', 'menu_name', 'title', 'description', 'preview', 'text', 'alias', 'is_published', 'icon', 'pos', 'price', 'is_showed_dev_stages', 'is_showed_type_sites'];
+    protected $fillable = ['parent_id', 'name', 'menu_name', 'title', 'description', 'preview', 'text', 'alias', 'is_published', 'icon', 'pos', 'price', 'is_showed_dev_stages'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

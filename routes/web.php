@@ -15,7 +15,8 @@ Route::pattern('alias', '[\da-z-]+');
 
 Auth::routes();
 
-Route::post('form-handler/order-service', 'FormHandlerController@orderService')->name('order.service.send');
+Route::post('form/order-service', 'FormHandlerController@orderService')->name('order.service.send');
+Route::post('form/order-consultation', 'FormHandlerController@orderConsultation')->name('order.consultation.send');
 Route::get('sitemap.xml', 'SitemapController@xml')->name('sitemap.xml');
 
 Route::group(['middleware' => ['redirector', 'shortcode']], function () {

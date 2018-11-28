@@ -2,19 +2,35 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Forms\OrderConsultationRequest;
+use App\Http\Requests\Forms\OrderServiceRequest;
+use App\Mail\OrderConsultationSent;
 use App\Mail\OrderServiceSent;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Http\Request;
 
 class FormHandlerController extends Controller
 {
     /**
-     * @param Request $request
+     * @param OrderServiceRequest $request
      * @return array
      */
-    public function orderService(Request $request): array
+    public function orderService(OrderServiceRequest $request): array
     {
         Mail::to(['info@krasber.ru'])->send(new OrderServiceSent($request->all()));
+
+        return [
+            'message' => 'Благодарим за вашу заявку. Наш менеджер свяжется с вами в ближайшее время',
+            'status' => 200
+        ];
+    }
+
+    /**
+     * @param OrderConsultationRequest $request
+     * @return array
+     */
+    public function orderConsultation(OrderConsultationRequest $request): array
+    {
+        Mail::to(['info@krasber.ru'])->send(new OrderConsultationSent($request->all()));
 
         return [
             'message' => 'Благодарим за вашу заявку. Наш менеджер свяжется с вами в ближайшее время',

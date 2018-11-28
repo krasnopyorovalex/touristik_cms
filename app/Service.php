@@ -24,7 +24,16 @@ class Service extends Model
         'free_audit' => 'Бесплатный аудит',
         'design' => 'Дизайн сопровождение',
         'smm' => 'SMM сопровождение',
-        'telegram' => 'Телеграм'
+        'telegram_bot' => 'Телеграм-бот',
+        'sajt_katalog' => 'Сайт-каталог',
+        'shop' => 'Интернет-магазин',
+        'website' => 'Корпоративный сайт',
+        'landing_page' => 'Landing page',
+        'maintenance' => 'Сопровождение сайта',
+        'yandex_direct' => 'Контекстная реклама в Яндекс.Директ',
+        'reg_domain' => 'Регистрация домена',
+        'hosting' => 'Хостинг',
+        'usable_audit' => 'Юзабили аудит',
     ];
 
     /**

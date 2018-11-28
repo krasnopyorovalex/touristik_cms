@@ -27,7 +27,9 @@
                     <div class="logo">
                         <a href="{{ route('page.show') }}">
                             <img class="desktop__logo" src="{{ is_main_page() ? asset('img/logo_white.svg') : asset('img/logo_green.svg') }}" data-green-logo="{{ is_main_page() ? asset('img/logo_green.svg'): '' }}" alt="Создание сайта в веб-студии Красбер" title="Веб-студия Красбер" />
+                            @if (is_main_page())
                             <img class="mobile__logo" src="{{ asset('img/logo_green.svg') }}" alt="Создание сайта в веб-студии Красбер" title="Веб-студия Красбер" />
+                            @endif
                         </a>
                     </div>
                     <!-- /.logo -->

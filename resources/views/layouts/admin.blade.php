@@ -89,14 +89,14 @@
                             <li><a href="{{ route('admin.redirects.index') }}"><i class="icon-transmission"></i> <span>Редиректы</span></a></li>
                             <!-- /main -->
 
-                            <div class="info_btn">
-                                <button type="button" data-toggle="modal" data-target="#modal_info" class="btn btn-primary btn-labeled btn-xlg"><b><i class="icon-info3"></i></b> Информация</button>
-                            </div>
-
                         </ul>
                     </div>
                 </div>
                 <!-- /main navigation -->
+                
+                <div class="info_btn">
+                    <button type="button" data-toggle="modal" data-target="#modal_info" class="btn btn-primary btn-labeled btn-xlg"><b><i class="icon-info3"></i></b> Информация</button>
+                </div>
 
             </div>
         </div>

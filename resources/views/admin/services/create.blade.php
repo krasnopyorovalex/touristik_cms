@@ -53,6 +53,8 @@
                 </div>
 
                 @input(['name' => 'name', 'label' => 'Название'])
+                @input(['name' => 'slogan', 'label' => 'Слоган'])
+                @input(['name' => 'title_block', 'label' => 'Название блока для дочерних услуг'])
                 @input(['name' => 'menu_name', 'label' => 'Название в меню'])
                 @input(['name' => 'title', 'label' => 'Title'])
                 @input(['name' => 'description', 'label' => 'Description'])

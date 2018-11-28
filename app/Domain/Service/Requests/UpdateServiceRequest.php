@@ -19,6 +19,8 @@ class UpdateServiceRequest extends Request
             'parent_id' => 'numeric|exists:services,id|nullable',
             'title' => 'required|max:512',
             'description' => 'required|string|max:512',
+            'slogan' => 'string|max:255|nullable',
+            'title_block' => 'string|max:255|nullable',
             'text' => 'required|string',
             'is_published' => 'digits_between:0,1',
             'is_showed_dev_stages' => 'digits_between:0,1',

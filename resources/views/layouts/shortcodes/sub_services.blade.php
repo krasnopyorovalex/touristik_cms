@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row">
             <div class="col-10">
-                <div class="as__h1">Типы сайтов</div>
+                <div class="as__h1">{{ $service->title_block }}</div>
 
                 <div class="list__items">
                     @foreach ($service->services as $service)

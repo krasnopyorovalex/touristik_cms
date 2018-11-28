@@ -17,6 +17,8 @@ class CreateServiceRequest extends Request
             'parent_id' => 'numeric|exists:services,id|nullable',
             'title' => 'required|max:512|string',
             'description' => 'required|string|max:512',
+            'slogan' => 'string|max:255|nullable',
+            'title_block' => 'string|max:255|nullable',
             'text' => 'required|string',
             'alias' => 'required|max:64|unique:services',
             'is_published' => 'digits_between:0,1',

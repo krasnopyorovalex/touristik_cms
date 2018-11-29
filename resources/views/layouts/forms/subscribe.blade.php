@@ -14,7 +14,7 @@
                                 <p class="error">Согласитесь на обработку персональных данных</p>
                             </div>
                         </div>
-                        <div class="single__block">
+                        <div class="single__block submit__block">
                             <button type="submit">ПОДПИСАТЬСЯ</button>
                         </div>
                     </form>

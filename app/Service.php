@@ -31,7 +31,7 @@ class Service extends Model
         'landing_page' => 'Landing page',
         'maintenance' => 'Сопровождение сайта',
         'yandex_direct' => 'Контекстная реклама в Яндекс.Директ',
-        'reg_domain' => 'Регистрация домена',
+        'domain_hosting' => 'Регистрация домена',
         'hosting' => 'Хостинг',
         'usable_audit' => 'Юзабили аудит',
     ];

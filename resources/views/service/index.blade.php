@@ -2,7 +2,15 @@
 
 @section('title', $service->title)
 @section('description', $service->description)
-
+@push('og')
+<meta property="og:title" content="{{ $service->title }}">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{ request()->getUri() }}">
+    <meta property="og:image" content="{{ asset('img/logo_green.svg') }}">
+    <meta property="og:description" content="{{ $service->description }}">
+    <meta property="og:site_name" content="Веб-студия Красбер в Крыму и Краснодарском крае">
+    <meta property="og:locale" content="ru_RU">
+@endpush
 @section('content')
 
     @if ($service->image)

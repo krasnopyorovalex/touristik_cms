@@ -17,6 +17,8 @@ Auth::routes();
 
 Route::post('form/order-service', 'FormHandlerController@orderService')->name('order.service.send');
 Route::post('form/order-consultation', 'FormHandlerController@orderConsultation')->name('order.consultation.send');
+Route::post('form/order-tariff', 'FormHandlerController@orderTariff')->name('order.tariff.send');
+Route::post('form/subscribe', 'FormHandlerController@subscribe')->name('subscribe.send');
 Route::get('sitemap.xml', 'SitemapController@xml')->name('sitemap.xml');
 
 Route::group(['middleware' => ['redirector', 'shortcode']], function () {

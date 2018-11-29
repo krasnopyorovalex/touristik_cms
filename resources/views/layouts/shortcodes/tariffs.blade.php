@@ -122,9 +122,10 @@
                             <p>Вы можете бесплатно  получить аудит вашего сайта. Вас это не к чему не обязывает.</p>
                         </div>
                         <div class="form__box">
-                            <form action="#" class="order__service" method="post">
+                            <form action="{{ route('order.tariff.send') }}" class="order__service" id="order__tariff-form" method="post">
+                                @csrf
                                 <div class="services__list-block single__block">
-                                    <select name="service" id="service__field">
+                                    <select name="tariff" id="service__field">
                                         <option value="Самостоятельный">Самостоятельный</option>
                                         <option value="Начинающий">Начинающий</option>
                                         <option value="Продвинутый">Продвинутый</option>
@@ -144,8 +145,9 @@
                                     <button type="submit">Отправить</button>
                                 </div>
                                 <div class="single__block agree__block">
-                                    <input type="checkbox" name="agree" id="i_agree" value="1" checked>
-                                    <label for="i_agree">Отправляя заяявку  вы соглашаетесь с <a href="#">правилами офферты</a></label>
+                                    <input type="checkbox" name="agree" id="i_agree-tariff" value="1" checked>
+                                    <label for="i_agree-tariff">Отправляя заяявку  вы соглашаетесь с <a href="#">правилами офферты</a></label>
+                                    <p class="error">Согласитесь на обработку персональных данных</p>
                                 </div>
                             </form>
                             <!-- /.order__service -->

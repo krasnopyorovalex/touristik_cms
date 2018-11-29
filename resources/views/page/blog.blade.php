@@ -56,26 +56,5 @@
         </div>
     </section>
     @endif
-    <section class="subscribe">
-        <div class="container">
-            <div class="row">
-                <div class="col-10">
-                    <div class="subscribe__box grey">
-                        <div class="title">Подпишитесь и узнавайте о самых интересных материалах на KRASBER</div>
-                        <form action="#" class="subscribe" method="post">
-                            <div class="single__block email__block">
-                                <input type="email" name="email" placeholder="Укажите ваш Email" autocomplete="off">
-                                <div class="info__message">
-                                    Нажимая кнопку подписаться, Вы даете согласие на обработку персональных данных
-                                </div>
-                            </div>
-                            <div class="single__block">
-                                <button type="submit">ПОДПИСАТЬСЯ</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    @include('layouts.forms.subscribe')
 @endsection

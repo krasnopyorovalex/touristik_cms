@@ -188,7 +188,7 @@
                                         </svg>
                                     </a>
                                     <a href="{{ route('service.show', ['alias' => $relatedService->alias]) }}" class="title">{{ $relatedService->name }}</a>
-                                    {!! $relatedService->preview !!}
+                                    {!! preg_replace('#<ul[^.]*<\/ul>#', '', $relatedService->preview) !!}
                                     <div class="price">{{ $relatedService->getPrice() }}</div>
                                     <a href="{{ route('service.show', ['alias' => $relatedService->alias]) }}" class="btn_style-two">Подробнее</a>
                                 </div>

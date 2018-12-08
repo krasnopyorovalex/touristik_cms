@@ -10,7 +10,7 @@
                 <h2>Тарифы контекстной рекламы</h2>
 
                 <div class="row">
-                    <div class="tariff type-one col-4 is__open">
+                    <div class="tariff type-one col-4">
                         <div class="box">
                             <div class="name">Самостоятельный</div>
                             <svg class="icon arrow_down">
@@ -44,7 +44,7 @@
                             <p>Единоразовая настройка - 2 500 руб.</p>
                         </div>
                     </div>
-                    <div class="tariff type-two col-4">
+                    <div class="tariff type-two col-4 is__open">
                         <div class="box">
                             <div class="name">Начинающий</div>
                             <svg class="icon arrow_down">

@@ -22,6 +22,7 @@
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#main" data-toggle="tab">Основное</a></li>
                         <li><a href="#image" data-toggle="tab">Изображение</a></li>
+                        <li><a href="#faqs" data-toggle="tab">Faq</a></li>
                     </ul>
 
                     <div class="tab-content">
@@ -93,6 +94,18 @@
                                 </div>
                             @endif
                             @imageInput(['name' => 'image', 'type' => 'file', 'entity' => $service, 'label' => 'Выберите изображение на компьютере'])
+                            @submit_btn()
+                        </div>
+
+                        <div class="tab-pane" id="faqs">
+                            <div class="form-group">
+                                <label for="products">Выберите Вопрос-ответ</label>
+                                <select class="form-control border-blue border-xs select-search" multiple="multiple" id="faqs" name="faqs[]" data-width="100%">
+                                    @foreach($faqs as $faq)
+                                        <option value="{{ $faq->id }}" {{ in_array($faq->id, $relatedFaqs) ? 'selected' : '' }}>{{ $faq->question }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                             @submit_btn()
                         </div>
 

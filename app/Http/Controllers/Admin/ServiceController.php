@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Domain\Faq\Queries\GetAllFaqsQuery;
 use App\Domain\Service\Commands\CreateServiceCommand;
 use App\Domain\Service\Commands\DeleteServiceCommand;
 use App\Domain\Service\Commands\UpdateServiceCommand;
@@ -70,13 +71,17 @@ class ServiceController extends Controller
     {
         $service = $this->dispatch(new GetServiceByIdQuery($id));
         $services = $this->dispatch(new GetAllServicesQuery($service));
+        $faqs = $this->dispatch(new GetAllFaqsQuery());
 
         $relatedServices = get_ids_from_array($service->relatedServices->toArray());
+        $relatedFaqs = get_ids_from_array($service->relatedFaqs->toArray());
 
         return view('admin.services.edit', [
             'service' => $service,
             'services' => $services,
-            'relatedServices' => $relatedServices
+            'relatedServices' => $relatedServices,
+            'faqs' => $faqs,
+            'relatedFaqs' => $relatedFaqs
         ]);
     }
 

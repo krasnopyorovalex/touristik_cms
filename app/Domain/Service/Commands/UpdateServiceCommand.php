@@ -53,6 +53,7 @@ class UpdateServiceCommand
         }
 
         $service->relatedServices()->sync($this->request->post('services'));
+        $service->relatedFaqs()->sync($this->request->post('faqs'));
 
         return $service->update($this->request->all());
     }

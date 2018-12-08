@@ -86,6 +86,7 @@
                             <li><a href="{{ route('admin.guestbooks.index') }}"><i class="icon-bubble2"></i> <span>Отзывы</span></a></li>
                             <li><a href="{{ route('admin.portfolios.index') }}"><i class="icon-images3"></i> <span>Портфолио</span></a></li>
                             <li><a href="{{ route('admin.menus.index') }}"><i class="icon-lan2"></i> <span>Навигация</span></a></li>
+                            <li><a href="{{ route('admin.faqs.index') }}"><i class="icon-question3"></i> <span>Faq</span></a></li>
                             <li><a href="{{ route('admin.redirects.index') }}"><i class="icon-transmission"></i> <span>Редиректы</span></a></li>
                             <!-- /main -->
 

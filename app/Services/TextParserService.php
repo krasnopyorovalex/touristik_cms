@@ -27,6 +27,9 @@ class TextParserService
                     $service = $services->firstWhere('id', '=', $entity->id);
 
                     return view('layouts.shortcodes.sub_services', ['service' => $service]);
+                },
+                '#(<p(.*)>)?{faq}(<\/p>)?#' => function () use ($entity) {
+                    return view('layouts.shortcodes.faqs', ['faqs' => $entity->relatedFaqs]);
                 }
             ],
             $entity->text

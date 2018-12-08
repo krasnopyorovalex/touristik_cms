@@ -58,6 +58,14 @@ class Service extends Model
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function relatedFaqs()
+    {
+        return $this->belongsToMany(Faq::class, 'service_faqs', 'service_id', 'faq_id');
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function parent()

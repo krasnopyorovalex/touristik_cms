@@ -62,7 +62,7 @@ class Service extends Model
      */
     public function relatedFaqs()
     {
-        return $this->belongsToMany(Faq::class, 'service_faqs', 'service_id', 'faq_id');
+        return $this->belongsToMany(Faq::class, 'service_faqs', 'service_id', 'faq_id')->orderBy('pos');
     }
 
     /**

@@ -37,7 +37,7 @@
                         </li>
                     @endif
                     <li itemscope="" itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-                        {{ $page->name }}
+                        {{ $page->menu_name ?: $page->name }}
                         <meta itemprop="position" content="{{ isset($parent) ? 3 : 2 }}">
                     </li>
                 </ul>

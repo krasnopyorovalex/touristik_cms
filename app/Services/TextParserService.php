@@ -30,6 +30,9 @@ class TextParserService
                 },
                 '#(<p(.*)>)?{faq}(<\/p>)?#' => function () use ($entity) {
                     return view('layouts.shortcodes.faqs', ['faqs' => $entity->relatedFaqs]);
+                },
+                '#(<p(.*)>)?{service_portfolios}(<\/p>)?#' => function () use ($entity) {
+                    return view('layouts.shortcodes.service_portfolios', ['portfolios' => $entity->relatedPortfolios]);
                 }
             ],
             $entity->text

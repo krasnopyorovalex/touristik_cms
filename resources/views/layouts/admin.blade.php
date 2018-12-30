@@ -160,6 +160,8 @@
                     <li>Карта сайта - {sitemap}</li>
                     <li>Тарифы - {tariffs}</li>
                     <li>Форма заказа услуги - {form}</li>
+                    <li>FAQ - {faq}</li>
+                    <li>Прикреплённые портфолио к услуге - {service_portfolios}</li>
                 </ul>
             </div>
 

@@ -178,7 +178,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-10">
-                        <h4 class="as__h1 center">Что заказывают вместе с услугой «{{ mb_strtolower($service->name) }}»</h4>
+                        <h4 class="as__h1 center">Что заказывают вместе с услугой «{{ mb_strtolower($service->menu_name) }}»</h4>
                         <div class="list__items">
                             @foreach ($service->relatedServices as $relatedService)
                                 <div class="list__items-item4">

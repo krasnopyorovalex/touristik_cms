@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Domain\Faq\Queries\GetAllFaqsQuery;
+use App\Domain\Portfolio\Queries\GetAllPortfoliosQuery;
 use App\Domain\Service\Commands\CreateServiceCommand;
 use App\Domain\Service\Commands\DeleteServiceCommand;
 use App\Domain\Service\Commands\UpdateServiceCommand;
@@ -41,10 +42,12 @@ class ServiceController extends Controller
     public function create()
     {
         $services = $this->dispatch(new GetAllServicesQuery());
+        $portfolios = $this->dispatch(new GetAllPortfoliosQuery());
 
         return view('admin.services.create', [
             'services' => $services,
-            'service' => new Service
+            'service' => new Service,
+            'portfolios' => $portfolios
         ]);
     }
 
@@ -72,16 +75,20 @@ class ServiceController extends Controller
         $service = $this->dispatch(new GetServiceByIdQuery($id));
         $services = $this->dispatch(new GetAllServicesQuery($service));
         $faqs = $this->dispatch(new GetAllFaqsQuery());
+        $portfolios = $this->dispatch(new GetAllPortfoliosQuery());
 
         $relatedServices = get_ids_from_array($service->relatedServices->toArray());
         $relatedFaqs = get_ids_from_array($service->relatedFaqs->toArray());
+        $relatedPortfolios = get_ids_from_array($service->relatedPortfolios->toArray());
 
         return view('admin.services.edit', [
             'service' => $service,
             'services' => $services,
             'relatedServices' => $relatedServices,
             'faqs' => $faqs,
-            'relatedFaqs' => $relatedFaqs
+            'relatedFaqs' => $relatedFaqs,
+            'relatedPortfolios' => $relatedPortfolios,
+            'portfolios' => $portfolios
         ]);
     }
 

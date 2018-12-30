@@ -28,6 +28,15 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="portfolios">Выберите портфолио</label>
+                    <select class="form-control border-blue border-xs select-search" multiple="multiple" id="portfolios" name="portfolios[]" data-width="100%">
+                        @foreach($portfolios as $portfolio)
+                            <option value="{{ $portfolio->id }}">{{ $portfolio->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="form-group">
                     <label for="icon_id">Выберите иконку</label>
                     <select class="form-control border-blue border-xs select-icons" id="icon_id" name="icon" data-width="100%">
                         @foreach ($service->getIcons() as $key => $value)

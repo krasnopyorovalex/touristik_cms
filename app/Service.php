@@ -66,6 +66,14 @@ class Service extends Model
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function relatedPortfolios()
+    {
+        return $this->belongsToMany(Portfolio::class, 'service_portfolios', 'service_id', 'portfolio_id')->orderBy('pos');
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function parent()

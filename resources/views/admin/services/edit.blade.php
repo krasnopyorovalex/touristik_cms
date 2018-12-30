@@ -23,6 +23,7 @@
                         <li class="active"><a href="#main" data-toggle="tab">Основное</a></li>
                         <li><a href="#image" data-toggle="tab">Изображение</a></li>
                         <li><a href="#faqs" data-toggle="tab">Faq</a></li>
+                        <li><a href="#portfolios" data-toggle="tab">Портфолио</a></li>
                     </ul>
 
                     <div class="tab-content">
@@ -99,10 +100,22 @@
 
                         <div class="tab-pane" id="faqs">
                             <div class="form-group">
-                                <label for="products">Выберите Вопрос-ответ</label>
+                                <label for="faqs">Выберите Вопрос-ответ</label>
                                 <select class="form-control border-blue border-xs select-search" multiple="multiple" id="faqs" name="faqs[]" data-width="100%">
                                     @foreach($faqs as $faq)
                                         <option value="{{ $faq->id }}" {{ in_array($faq->id, $relatedFaqs) ? 'selected' : '' }}>{{ $faq->question }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            @submit_btn()
+                        </div>
+
+                        <div class="tab-pane" id="portfolios">
+                            <div class="form-group">
+                                <label for="portfolio">Выберите портфолио</label>
+                                <select class="form-control border-blue border-xs select-search" multiple="multiple" id="portfolio" name="portfolios[]" data-width="100%">
+                                    @foreach($portfolios as $portfolio)
+                                        <option value="{{ $portfolio->id }}" {{ in_array($portfolio->id, $relatedPortfolios) ? 'selected' : '' }}>{{ $portfolio->name }}</option>
                                     @endforeach
                                 </select>
                             </div>

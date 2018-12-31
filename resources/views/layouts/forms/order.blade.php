@@ -21,7 +21,7 @@
                     </div>
                     <div class="single__block agree__block">
                         <input type="checkbox" name="agree" id="i_agree-2" value="1" checked>
-                        <label for="i_agree-2">Оставляя заявку, вы соглашаетесь на <a href="{{ route('page.show', ['alias' => 'personal-data']) }}" target="_blank" title="Перейти на страницу описания">обработку персональных данных</a></label>
+                        <label for="i_agree-2">Оставляя заявку, Вы соглашаетесь на <a href="{{ route('page.show', ['alias' => 'personal-data']) }}" target="_blank" title="Перейти на страницу описания">обработку персональных данных</a></label>
                         <p class="error">Согласитесь на обработку персональных данных</p>
                     </div>
                     <div class="single__block submit__block">

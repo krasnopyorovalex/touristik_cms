@@ -10,7 +10,7 @@
                             <input type="email" name="email" placeholder="Укажите ваш Email" autocomplete="off" required>
                             <div class="single__block agree__block info__message">
                                 <input type="checkbox" name="agree" id="i_agree-subscribe" value="1" checked>
-                                <label for="i_agree-subscribe">Оставляя заявку, вы соглашаетесь на <a href="{{ route('page.show', ['alias' => 'personal-data']) }}" target="_blank" title="Перейти на страницу описания">обработку персональных данных</a></label>
+                                <label for="i_agree-subscribe">Оставляя заявку, Вы соглашаетесь на <a href="{{ route('page.show', ['alias' => 'personal-data']) }}" target="_blank" title="Перейти на страницу описания">обработку персональных данных</a></label>
                                 <p class="error">Согласитесь на обработку персональных данных</p>
                             </div>
                         </div>

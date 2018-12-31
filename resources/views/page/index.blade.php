@@ -19,7 +19,7 @@
                     <div class="col-5">
                         <div class="slogan__box">
                             <p>{!! $page->slogan !!}</p>
-                            <a href="#" class="btn black">Заказать сайт</a>
+                            <a href="{{ route('page.show', ['alias' => 'create-site']) }}" class="btn black">Заказать сайт</a>
                         </div>
                         <!-- /.slogan__box -->
                     </div>

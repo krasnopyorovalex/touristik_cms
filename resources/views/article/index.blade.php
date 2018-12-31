@@ -40,29 +40,29 @@
                             <div class="ad">
                                 <div class="text">Реклама</div>
                             </div>
-                            <aside class="other__articles">
-                                <div class="title">ЧИТАЙТЕ ПО ТЕМЕ</div>
-                                <div class="other__articles-row">
-                                    <div class="other__articles-image">
-                                        <figure>
-                                            <img src="/img/article_another.png" alt="alt">
-                                        </figure>
-                                    </div>
-                                    <div class="other__articles-name">
-                                        <div class="name">Где заказать сайт: фриланс или веб-студия</div>
-                                    </div>
-                                </div>
-                                <div class="other__articles-row">
-                                    <div class="other__articles-image">
-                                        <figure>
-                                            <img src="/img/article_another.png" alt="alt">
-                                        </figure>
-                                    </div>
-                                    <div class="other__articles-name">
-                                        <div class="name">Где заказать сайт: фриланс или веб-студия</div>
-                                    </div>
-                                </div>
-                            </aside>
+                            {{--<aside class="other__articles">--}}
+                                {{--<div class="title">ЧИТАЙТЕ ПО ТЕМЕ</div>--}}
+                                {{--<div class="other__articles-row">--}}
+                                    {{--<div class="other__articles-image">--}}
+                                        {{--<figure>--}}
+                                            {{--<img src="/img/article_another.png" alt="alt">--}}
+                                        {{--</figure>--}}
+                                    {{--</div>--}}
+                                    {{--<div class="other__articles-name">--}}
+                                        {{--<div class="name">Где заказать сайт: фриланс или веб-студия</div>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                                {{--<div class="other__articles-row">--}}
+                                    {{--<div class="other__articles-image">--}}
+                                        {{--<figure>--}}
+                                            {{--<img src="/img/article_another.png" alt="alt">--}}
+                                        {{--</figure>--}}
+                                    {{--</div>--}}
+                                    {{--<div class="other__articles-name">--}}
+                                        {{--<div class="name">Где заказать сайт: фриланс или веб-студия</div>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</aside>--}}
                         </div>
                     </div>
                 </div>

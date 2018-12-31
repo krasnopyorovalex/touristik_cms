@@ -26,7 +26,14 @@ Route::group(['middleware' => ['redirector', 'shortcode']], function () {
     Route::get('/{alias?}/{page?}', 'PageController@show')->name('page.show')->where('page', '[0-9]+');
     Route::get('blog/{alias}', 'BlogController@show')->name('article.show');
     Route::get('portfolio/{alias}', 'PortfolioController@show')->name('portfolio.show');
+
+    /**
+     * @todo temporary solution for correct perform redirects. After indexing bots can be removed
+     */
     Route::get('services/{alias}', function (){
+        return false;
+    });
+    Route::get('articles/{alias}', function (){
         return false;
     });
 });

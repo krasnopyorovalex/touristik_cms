@@ -23,7 +23,7 @@ class FormHandlerController extends Controller
         Mail::to(['info@krasber.ru'])->send(new OrderServiceSent($request->all()));
 
         return [
-            'message' => 'Благодарим за Вашу заявку. Наш менеджер свяжется с вами в ближайшее время',
+            'message' => 'Благодарим за Вашу заявку. Наш менеджер свяжется с Вами в ближайшее время',
             'status' => 200
         ];
     }
@@ -37,7 +37,7 @@ class FormHandlerController extends Controller
         Mail::to(['info@krasber.ru'])->send(new OrderConsultationSent($request->all()));
 
         return [
-            'message' => 'Благодарим за Вашу заявку. Наш менеджер свяжется с вами в ближайшее время',
+            'message' => 'Благодарим за Вашу заявку. Наш менеджер свяжется с Вами в ближайшее время',
             'status' => 200
         ];
     }
@@ -51,7 +51,7 @@ class FormHandlerController extends Controller
         Mail::to(['info@krasber.ru'])->send(new OrderTariffSent($request->all()));
 
         return [
-            'message' => 'Благодарим за Вашу заявку. Наш менеджер свяжется с вами в ближайшее время',
+            'message' => 'Благодарим за Вашу заявку. Наш менеджер свяжется с Вами в ближайшее время',
             'status' => 200
         ];
     }

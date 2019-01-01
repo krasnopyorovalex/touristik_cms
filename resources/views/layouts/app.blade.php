@@ -7,6 +7,7 @@
     <title>@yield('title', 'Мебель для гостиниц')</title>
     <meta name="description" content="@yield('description', '')">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="theme-color" content="#eee">
     @stack('og')
     <link href="{{ asset('css/app.min.css') }}" rel="stylesheet">
     <link href="{{ asset('favicon.ico') }}" rel="shortcut icon" type="image/x-icon" />

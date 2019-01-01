@@ -104,7 +104,7 @@
         </div>
     </section>
 
-    <footer itemtype="http://schema.org/WPFooter">
+    <footer itemtype="http://schema.org/WPFooter" itemscope="">
         <div class="container">
             <div class="row">
                 <div class="col-10">
@@ -115,7 +115,7 @@
                                 <img src="{{ asset('img/logo_green.svg') }}" class="logo__green" alt="Создание сайта в веб-студии Красбер" title="Веб-студия Красбер">
                             </a>
                             <div class="copyright">
-                                <span itemprop="copyrightYear">2017 - {{ date('Y') }}</span> © Создание и продвижение сайтов. ООО «Красбер», ИНН 9106013479
+                                <span itemprop="copyrightYear">2017</span> - {{ date('Y') }} © Создание и продвижение сайтов. ООО «Красбер», ИНН 9106013479
                             </div>
                         </div>
                         @foreach ($services as $service)

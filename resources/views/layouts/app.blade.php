@@ -65,32 +65,32 @@
                             <div class="phone"><a href="tel:89787547499" title="Позвонить">8 (978) 754-74-99</a></div>
                             <div class="email"><a href="mailto:info@krasber.ru" title="Написать на почту">info@krasber.ru</a></div>
                             <div class="f__icons">
-                                <a href="#">
+                                <a href="https://t.me/nata_ber" target="_blank">
                                     <svg class="icon telegram">
                                         <use xlink:href="{{ asset('img/symbols.svg#telegram') }}"></use>
                                     </svg>
                                 </a>
-                                <a href="#">
+                                <a href="viber://add?number=89787547499" target="_blank">
                                     <svg class="icon viber">
                                         <use xlink:href="{{ asset('img/symbols.svg#viber') }}"></use>
                                     </svg>
                                 </a>
-                                <a href="#">
+                                <a href="skype:live:info_773422" target="_blank">
                                     <svg class="icon skype">
                                         <use xlink:href="{{ asset('img/symbols.svg#skype') }}"></use>
                                     </svg>
                                 </a>
-                                <a href="#">
+                                <a href="https://www.instagram.com/krasber_studio/" target="_blank">
                                     <svg class="icon insta">
                                         <use xlink:href="{{ asset('img/symbols.svg#insta') }}"></use>
                                     </svg>
                                 </a>
-                                <a href="#">
+                                <a href="https://www.facebook.com/krasber/" target="_blank">
                                     <svg class="icon facebook">
                                         <use xlink:href="{{ asset('img/symbols.svg#facebook') }}"></use>
                                     </svg>
                                 </a>
-                                <a href="#">
+                                <a href="https://vk.com/krasber" target="_blank">
                                     <svg class="icon vk">
                                         <use xlink:href="{{ asset('img/symbols.svg#vk') }}"></use>
                                     </svg>

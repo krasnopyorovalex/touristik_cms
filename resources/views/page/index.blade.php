@@ -18,7 +18,7 @@
                 <div class="row align__items-center">
                     <div class="col-5">
                         <div class="slogan__box">
-                            <p>{!! $page->slogan !!}</p>
+                            <h1>{!! $page->slogan !!}</h1>
                             <a href="{{ route('page.show', ['alias' => 'create-site']) }}" class="btn black">Заказать сайт</a>
                         </div>
                         <!-- /.slogan__box -->
@@ -35,6 +35,19 @@
 @endsection
 
 @section('content')
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-10">
+                    <h1>{{ $page->name }}</h1>
+                    <div class="main__text">
+                        {!! $page->text !!}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     @includeWhen($services, 'layouts.sections.services', ['services' => $services])
 
@@ -61,7 +74,7 @@
             <div class="row">
                 <div class="col-10">
                     <div class="step">02</div>
-                    <div class="as__h1">Несколько фактов о нас</div>
+                    <h2 class="as__h1">Несколько фактов о нас</h2>
                     <div class="why__we-list">
                         <div class="why__we-list-item">
                             <svg class="icon opit_v_razrabotke">
@@ -119,7 +132,7 @@
             <div class="row">
                 <div class="col-10">
                     <div class="step">04</div>
-                    <div class="as__h1">Портфолио</div>
+                    <h3 class="as__h1">Портфолио</h3>
                     <div class="info">Работы нашей веб-студии, разработанные сайты, полезные кейсы.</div>
 
                     <div class="portfolio__list">
@@ -143,7 +156,7 @@
             <div class="row">
                 <div class="col-10">
                     <div class="step">05</div>
-                    <div class="as__h1">Мы работаем</div>
+                    <h3 class="as__h1">Мы работаем</h3>
                     <div class="info">Инструменты, которые мы используем для анализа и увеличения эффективности работы сайта.</div>
                     <div class="we__work-list">
                         <div class="we__work-list-item">

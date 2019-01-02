@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-10">
                 <div class="step">01</div>
-                <div class="as__h1">Наши услуги</div>
+                <h2 class="as__h1">Наши услуги</h2>
 
                 <div class="services__list">
                     @foreach ($services as $service)

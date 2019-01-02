@@ -147,19 +147,34 @@
                     <div class="info">Инструменты, которые мы используем для анализа и увеличения эффективности работы сайта.</div>
                     <div class="we__work-list">
                         <div class="we__work-list-item">
-                            <img src="{{ asset('img/we_work-01.png') }}" alt="Яндекс.Метрика">
+                            <img src="{{ asset('img/php-logo.svg') }}" alt="php" title="Язык программирования - PHP">
                         </div>
                         <div class="we__work-list-item">
-                            <img src="{{ asset('img/we_work-02.jpg') }}" alt="Яндекс.Директ">
+                            <img src="{{ asset('img/laravel-framework.svg') }}" alt="Laravel framework" title="Laravel фреймворк">
                         </div>
                         <div class="we__work-list-item">
-                            <img src="{{ asset('img/we_work-03.jpeg') }}" alt="Google.Adwords">
+                            <img src="{{ asset('img/yii-framework.svg') }}" alt="Yii framework" title="Yii фреймворк">
                         </div>
                         <div class="we__work-list-item">
-                            <img src="{{ asset('img/we_work-04.png') }}" alt="Google.Analytics">
+                            <img src="{{ asset('img/css3.svg') }}" alt="CSS3" title="Язык описания внешнего вида документа - css">
                         </div>
                         <div class="we__work-list-item">
-                            <img src="{{ asset('img/we_work-05.png') }}" alt="Topvisor">
+                            <img src="{{ asset('img/javascript.svg') }}" alt="javascript" title="Язык программирования - Javascript">
+                        </div>
+                        <div class="we__work-list-item">
+                            <img src="{{ asset('img/we_work-01.png') }}" alt="Яндекс.Метрика" title="Бесплатный инструмент аналитики от Яндекс">
+                        </div>
+                        <div class="we__work-list-item">
+                            <img src="{{ asset('img/we_work-02.jpg') }}" alt="Яндекс.Директ" title="Онлайн реклама в поиске Яндекс">
+                        </div>
+                        <div class="we__work-list-item">
+                            <img src="{{ asset('img/we_work-03.jpeg') }}" alt="Google.Adwords" title="Онлайн реклама в поиске Google">
+                        </div>
+                        <div class="we__work-list-item">
+                            <img src="{{ asset('img/we_work-04.png') }}" alt="Google.Analytics" title="Google.Analytics - детальная статистика посещения Вашего веб-сайта">
+                        </div>
+                        <div class="we__work-list-item">
+                            <img src="{{ asset('img/we_work-05.png') }}" alt="Topvisor" title="Topvisor - сервис поисковой аналитики">
                         </div>
                     </div>
                 </div>

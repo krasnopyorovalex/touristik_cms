@@ -18,7 +18,7 @@
                 <div class="row align__items-center">
                     <div class="col-5">
                         <div class="slogan__box">
-                            <h1>{!! $page->slogan !!}</h1>
+                            <p>{!! $page->slogan !!}</p>
                             <a href="{{ route('page.show', ['alias' => 'create-site']) }}" class="btn black">Заказать сайт</a>
                         </div>
                         <!-- /.slogan__box -->

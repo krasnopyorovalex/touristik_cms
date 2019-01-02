@@ -2,7 +2,7 @@
     <form action="{{ route('order.service.send') }}" id="order__service-form" class="order__service" method="post">
         @csrf
         <div class="services__list-block single__block">
-            <select name="service" id="service__field{{ $postfix ?? '' }}" required>
+            <select name="service" id="service__field{{ $postfix ?? '' }}">
                 @foreach ($services as $service)
                     <optgroup label="{{ $service->name }}">
                         @if ($service->services->count())

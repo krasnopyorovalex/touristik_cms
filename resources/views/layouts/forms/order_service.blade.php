@@ -1,5 +1,5 @@
 <div class="form__box">
-    <form action="{{ route('order.service.send') }}" id="order__service-form" class="order__service" method="post">
+    <form action="{{ route('order.service.send') }}" id="order__service-form{{ $postfix ?? '' }}" class="order__service" method="post">
         @csrf
         <div class="services__list-block single__block">
             <select name="service" id="service__field{{ $postfix ?? '' }}">

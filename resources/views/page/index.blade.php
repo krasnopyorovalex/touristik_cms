@@ -36,14 +36,13 @@
 
 @section('content')
 
-    <section>
+    <section class="main__text">
         <div class="container">
             <div class="row">
                 <div class="col-10">
+                    <div class="step">01</div>
                     <h1>{{ $page->name }}</h1>
-                    <div class="main__text">
-                        {!! $page->text !!}
-                    </div>
+                    {!! $page->text !!}
                 </div>
             </div>
         </div>
@@ -73,7 +72,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-10">
-                    <div class="step">02</div>
+                    <div class="step">03</div>
                     <h2 class="as__h1">Несколько фактов о нас</h2>
                     <div class="why__we-list">
                         <div class="why__we-list-item">
@@ -131,7 +130,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-10">
-                    <div class="step">04</div>
+                    <div class="step">05</div>
                     <h3 class="as__h1">Портфолио</h3>
                     <div class="info">Работы нашей веб-студии, разработанные сайты, полезные кейсы.</div>
 
@@ -155,7 +154,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-10">
-                    <div class="step">05</div>
+                    <div class="step">06</div>
                     <h3 class="as__h1">Мы работаем</h3>
                     <div class="info">Инструменты, которые мы используем для анализа и увеличения эффективности работы сайта.</div>
                     <div class="we__work-list">

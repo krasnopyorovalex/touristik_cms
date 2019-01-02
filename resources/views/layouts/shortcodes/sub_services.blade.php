@@ -25,7 +25,7 @@
                                 </div>
                                 <div class="col-8">
                                     <div class="body">
-                                        <a class="title" href="{{ route('service.show', ['alias' => $service->alias]) }}">{{ $service->name }}</a>
+                                        <a class="title" href="{{ route('service.show', ['alias' => $service->alias]) }}">{{ $service->menu_name }}</a>
                                         {!! $service->preview !!}
                                         <div class="price">{{ $service->getPrice() }}</div>
                                         <a href="{{ route('service.show', ['alias' => $service->alias]) }}" class="btn green">ПОДРОБНЕЕ</a>

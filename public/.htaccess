@@ -5,10 +5,8 @@
 
     RewriteEngine On
 
-    RewriteCond %{HTTPS} =off
-    RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [QSA,L]
-    RewriteCond %{HTTP_HOST} ^www.krasber.ru
-    RewriteRule (.*) https://krasber.ru/$1 [R=301,L]
+    RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+    RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .

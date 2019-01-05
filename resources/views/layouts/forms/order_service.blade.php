@@ -19,7 +19,7 @@
             <input type="text" name="name" placeholder="Ваше имя" autocomplete="off" required minlength="3">
         </div>
         <div class="single__block">
-            <input type="text" name="phone" placeholder="Номер телефона" autocomplete="off" required>
+            <input type="text" name="phone" placeholder="" autocomplete="off" required>
         </div>
         <div class="single__block">
             <input type="email" name="email" placeholder="Email" autocomplete="off" required>

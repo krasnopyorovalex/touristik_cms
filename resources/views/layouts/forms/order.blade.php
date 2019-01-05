@@ -14,7 +14,7 @@
                         <input type="email" name="email" placeholder="Ваш e-mail" autocomplete="off" required>
                     </div>
                     <div class="single__block">
-                        <input type="text" name="phone" placeholder="Email" autocomplete="off" required>
+                        <input type="text" name="phone" autocomplete="off" required>
                     </div>
                     <div class="single__block message">
                         <textarea name="message" id="message" placeholder="Дополнительная информация"></textarea>

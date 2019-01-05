@@ -66,7 +66,7 @@
                             <div class="phone"><a href="tel:89787547499" title="Позвонить">8 (978) 754-74-99</a></div>
                             <div class="email"><a href="mailto:info@krasber.ru" title="Написать на почту">info@krasber.ru</a></div>
                             <div class="f__icons">
-                                <a href="https://t.me/nata_ber" target="_blank">
+                                <a href="https://t.me/nata_ber" target="_blank" rel="noopener noreferrer">
                                     <svg class="icon telegram">
                                         <use xlink:href="{{ asset('img/symbols.svg#telegram') }}"></use>
                                     </svg>
@@ -81,17 +81,17 @@
                                         <use xlink:href="{{ asset('img/symbols.svg#skype') }}"></use>
                                     </svg>
                                 </a>
-                                <a href="https://www.instagram.com/krasber_studio/" target="_blank">
+                                <a href="https://www.instagram.com/krasber_studio/" target="_blank" rel="noopener noreferrer">
                                     <svg class="icon insta">
                                         <use xlink:href="{{ asset('img/symbols.svg#insta') }}"></use>
                                     </svg>
                                 </a>
-                                <a href="https://www.facebook.com/krasber/" target="_blank">
+                                <a href="https://www.facebook.com/krasber/" target="_blank" rel="noopener noreferrer">
                                     <svg class="icon facebook">
                                         <use xlink:href="{{ asset('img/symbols.svg#facebook') }}"></use>
                                     </svg>
                                 </a>
-                                <a href="https://vk.com/krasber" target="_blank">
+                                <a href="https://vk.com/krasber" target="_blank" rel="noopener noreferrer">
                                     <svg class="icon vk">
                                         <use xlink:href="{{ asset('img/symbols.svg#vk') }}"></use>
                                     </svg>

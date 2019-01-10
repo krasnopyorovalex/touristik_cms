@@ -1,13 +1,13 @@
 <div class="form__box">
-    <form action="{{ route('order.service.send') }}" id="order__service-form{{ $postfix ?? '' }}" class="order__service" method="post">
+    <form action="{{ route('order.service.send') }}" id="order__service-form{{ $postfix ?? '' }}" class="order__service" method="post" onsubmit="yaCounter45495162.reachGoal('USLUGA'); return true">
         @csrf
         <div class="services__list-block single__block">
             <select name="service" id="service__field{{ $postfix ?? '' }}">
                 @foreach ($services as $service)
-                    <optgroup label="{{ $service->name }}">
+                    <optgroup label="{{ $service->menu_name }}">
                         @if ($service->services->count())
                             @foreach ($service->services as $subService)
-                                <option value="{{ $subService->name }}">{{ $subService->name }}</option>
+                                <option value="{{ $subService->menu_name }}">{{ $subService->menu_name }}</option>
                             @endforeach
                         @endif
                     </optgroup>

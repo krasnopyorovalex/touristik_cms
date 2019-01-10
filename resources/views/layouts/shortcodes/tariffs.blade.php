@@ -122,7 +122,7 @@
                             <p>Вы можете бесплатно  получить аудит вашего сайта. Вас это не к чему не обязывает.</p>
                         </div>
                         <div class="form__box">
-                            <form action="{{ route('order.tariff.send') }}" class="order__service" id="order__tariff-form" method="post">
+                            <form action="{{ route('order.tariff.send') }}" class="order__service" id="order__tariff-form" method="post"onsubmit="yaCounter45495162.reachGoal('ZAKAZ'); return true">
                                 @csrf
                                 <div class="services__list-block single__block">
                                     <select name="tariff" id="service__field">

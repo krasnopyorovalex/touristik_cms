@@ -6,7 +6,11 @@
 <meta property="og:title" content="{{ $service->title }}">
     <meta property="og:type" content="article">
     <meta property="og:url" content="{{ request()->getUri() }}">
+@if ($page->image)
+    <meta property="og:image" content="{{ asset(str_replace('.svg', '.jpg', $page->image->path)) }}">
+@else
     <meta property="og:image" content="{{ asset('img/logo_green.jpg') }}">
+@endif
     <meta property="og:description" content="{{ $service->description }}">
     <meta property="og:site_name" content="Веб-студия Красбер в Крыму и Краснодарском крае">
     <meta property="og:locale" content="ru_RU">

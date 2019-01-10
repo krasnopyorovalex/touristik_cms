@@ -6,8 +6,8 @@
 <meta property="og:title" content="{{ $service->title }}">
     <meta property="og:type" content="article">
     <meta property="og:url" content="{{ request()->getUri() }}">
-@if ($page->image)
-    <meta property="og:image" content="{{ asset(str_replace('.svg', '.jpg', $page->image->path)) }}">
+@if ($service->image)
+    <meta property="og:image" content="{{ asset(str_replace('.svg', '.jpg', $service->image->path)) }}">
 @else
     <meta property="og:image" content="{{ asset('img/logo_green.jpg') }}">
 @endif

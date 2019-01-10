@@ -9,7 +9,7 @@
 @if ($page->image)
     <meta property="og:image" content="{{ asset($page->image->path) }}">
 @else
-    <meta property="og:image" content="{{ asset('img/logo_green.svg') }}">
+    <meta property="og:image" content="{{ asset('img/logo_green.jpg') }}">
 @endif
     <meta property="og:description" content="{{ $page->description }}">
     <meta property="og:site_name" content="Веб-студия Красбер в Крыму и Краснодарском крае">

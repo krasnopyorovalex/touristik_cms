@@ -7,7 +7,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ request()->getUri() }}">
 @if ($page->image)
-    <meta property="og:image" content="{{ asset($page->image->path) }}">
+    <meta property="og:image" content="{{ asset(str_replace('.svg', '.jpg', $page->image->path)) }}">
 @else
     <meta property="og:image" content="{{ asset('img/logo_green.svg') }}">
 @endif

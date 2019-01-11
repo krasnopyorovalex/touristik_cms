@@ -25,7 +25,7 @@
                         <p class="error">Согласитесь на обработку персональных данных</p>
                     </div>
                     <div class="single__block submit__block">
-                        <button type="submit">Отправить</button>
+                        <button type="submit">{{ $btn_text ?? 'Отправить' }}</button>
                     </div>
                 </form>
             </div>

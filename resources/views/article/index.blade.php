@@ -70,6 +70,12 @@
         </div>
     </main>
 
+    @include('layouts.forms.order', [
+        'form_title' => 'Появились вопросы?',
+        'form_sub_title' => 'Если Вы не нашли необходимой информации в статье, оставьте завявку и наш менеджер свяжется с Вами в течение 24 часов',
+        'btn_text' => 'Задать вопрос'
+    ])
+
     <section>
         <div class="container">
             <div class="row">

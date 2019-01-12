@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePagesTable extends Migration
+class CreateSlidersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,11 @@ class CreatePagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('pages', function (Blueprint $table) {
+        Schema::create('sliders', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('template', 24);
-            $table->string('name', 512);
-            $table->string('title', 512);
-            $table->string('description', 512);
-            $table->text('text')->nullable();
-            $table->string('alias', 64)->unique();
+            $table->string('name', 255);
             $table->enum('is_published',[0,1])->default(1);
-            $table->timestamps();
+            $table->unsignedTinyInteger('pos')->default(0);
         });
     }
 
@@ -33,6 +28,6 @@ class CreatePagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pages');
+        Schema::dropIfExists('sliders');
     }
 }

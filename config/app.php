@@ -166,9 +166,7 @@ return [
         App\Providers\TreeRecursiveBuildServiceProvider::class,
         App\Providers\GuestbookServiceProvider::class,
         App\Providers\MenuServiceProvider::class,
-        App\Providers\ServicesServiceProvider::class,
         App\Providers\ArticlesServiceProvider::class,
-        App\Providers\PortfolioServiceProvider::class,
         App\Providers\TextParserServiceProvider::class,
 
     ],

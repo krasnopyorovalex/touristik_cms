@@ -12,17 +12,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property int|null $parent_id
  * @property string $name
  * @property string $link
- * @property string $is_service
  * @property int $pos
  * @property-read \App\Menu $menu
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\MenuItem[] $menuItems
  * @mixin \Eloquent
- * @method static \Illuminate\Database\Eloquent\Builder|\App\MenuItem whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\MenuItem whereLink($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\MenuItem whereMenuId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\MenuItem whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\MenuItem whereParentId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\MenuItem wherePos($value)
  */
 class MenuItem extends Model
 {
@@ -31,7 +24,7 @@ class MenuItem extends Model
     /**
      * @var array
      */
-    protected $fillable = ['is_service', 'is_delimiter', 'name', 'link', 'menu_id', 'parent_id', 'pos'];
+    protected $fillable = ['name', 'link', 'menu_id', 'parent_id', 'pos'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne

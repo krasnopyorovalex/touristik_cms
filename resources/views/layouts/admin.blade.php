@@ -45,13 +45,8 @@
                 </a>
 
                 <ul class="dropdown-menu dropdown-menu-right">
-                    <li><a href="#"><i class="icon-user-plus"></i> My profile</a></li>
-                    <li><a href="#"><i class="icon-coins"></i> My balance</a></li>
-                    <li><a href="#"><span class="badge bg-teal-400 pull-right">58</span> <i class="icon-comment-discussion"></i> Messages</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#"><i class="icon-cog5"></i> Account settings</a></li>
                     <li>
-                        <a href="#" id="logout-btn"><i class="icon-switch2"></i> Logout</a>
+                        <a href="#" id="logout-btn"><i class="icon-switch2"></i> Выйти</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="post">
                             {{ csrf_field() }}
                         </form>
@@ -81,12 +76,12 @@
                             <!-- Main -->
                             <li class="navigation-header"><span>Навигация</span> <i class="icon-menu" title="Main pages"></i></li>
                             <li><a href="{{ route('admin.pages.index') }}"><i class="icon-compose"></i> <span>Страницы</span></a></li>
-                            <li><a href="{{ route('admin.services.index') }}"><i class="icon-list"></i> <span>Услуги</span></a></li>
                             <li><a href="{{ route('admin.articles.index') }}"><i class="icon-magazine"></i> <span>Статьи</span></a></li>
                             <li><a href="{{ route('admin.guestbooks.index') }}"><i class="icon-bubble2"></i> <span>Отзывы</span></a></li>
-                            <li><a href="{{ route('admin.portfolios.index') }}"><i class="icon-images3"></i> <span>Портфолио</span></a></li>
+                            <li><a href="{{ route('admin.sliders.index') }}"><i class="icon-images2"></i> <span>Слайдер</span></a></li>
+                            <li><a href="{{ route('admin.galleries.index') }}"><i class="icon-stack-picture"></i> <span>Галерея</span></a></li>
+                            <li><a href="{{ route('admin.tabs.index') }}"><i class="icon-stack"></i> <span>Вкладки</span></a></li>
                             <li><a href="{{ route('admin.menus.index') }}"><i class="icon-lan2"></i> <span>Навигация</span></a></li>
-                            <li><a href="{{ route('admin.faqs.index') }}"><i class="icon-question3"></i> <span>Faq</span></a></li>
                             <li><a href="{{ route('admin.redirects.index') }}"><i class="icon-transmission"></i> <span>Редиректы</span></a></li>
                             <!-- /main -->
 
@@ -158,10 +153,7 @@
                 <h6 class="text-semibold">Доступные shortcode'ы:</h6>
                 <ul>
                     <li>Карта сайта - {sitemap}</li>
-                    <li>Тарифы - {tariffs}</li>
-                    <li>Форма заказа услуги - {form}</li>
-                    <li>FAQ - {faq}</li>
-                    <li>Прикреплённые портфолио к услуге - {service_portfolios}</li>
+                    <li>Блог - {blog}</li>
                 </ul>
             </div>
 

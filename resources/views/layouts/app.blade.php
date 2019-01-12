@@ -14,10 +14,7 @@
     <link rel="canonical" href="@yield('canonical', request()->url())"/>
 </head>
 <body>
-    <header itemscope="" itemtype="http://schema.org/WPHeader">
-        <meta itemprop="headline" content="Веб-студия Красбер в Крыму и Краснодарском крае">
-        <meta itemprop="description" content="Создание и seo-продвижение веб-сайтов, настройка рекламы в интернете по всей России">
-        <meta itemprop="keywords" content="создание, продвижение, интернет-реклама, крым, краснодар">
+    <header>
         <div class="sticky__menu{{ is_main_page() ? '' : ' sticky__menu-always' }}">
             <div class="container">
                 <div class="top__line">
@@ -54,55 +51,7 @@
 
     @yield('content')
 
-    <section class="footer__contacts">
-        <div class="container">
-            <div class="row">
-                <div class="col-10">
-                    <div class="row">
-                        <div class="col-6 footer__contacts-text">
-                            Звоните, пишите, договоримся!
-                        </div>
-                        <div class="col-6 footer__contacts-messengers">
-                            <div class="phone"><a href="tel:89787547499" title="Позвонить">8 (978) 754-74-99</a></div>
-                            <div class="email"><a href="mailto:info@krasber.ru" title="Написать на почту">info@krasber.ru</a></div>
-                            <div class="f__icons">
-                                <a href="https://t.me/nata_ber" target="_blank" rel="noopener noreferrer">
-                                    <svg class="icon telegram">
-                                        <use xlink:href="{{ asset('img/symbols.svg#telegram') }}"></use>
-                                    </svg>
-                                </a>
-                                <a href="viber://add?number=89787547499" target="_blank">
-                                    <svg class="icon viber">
-                                        <use xlink:href="{{ asset('img/symbols.svg#viber') }}"></use>
-                                    </svg>
-                                </a>
-                                <a href="skype:live:info_773422" target="_blank">
-                                    <svg class="icon skype">
-                                        <use xlink:href="{{ asset('img/symbols.svg#skype') }}"></use>
-                                    </svg>
-                                </a>
-                                <a href="https://www.instagram.com/krasber_studio/" target="_blank" rel="noopener noreferrer">
-                                    <svg class="icon insta">
-                                        <use xlink:href="{{ asset('img/symbols.svg#insta') }}"></use>
-                                    </svg>
-                                </a>
-                                <a href="https://www.facebook.com/krasber/" target="_blank" rel="noopener noreferrer">
-                                    <svg class="icon facebook">
-                                        <use xlink:href="{{ asset('img/symbols.svg#facebook') }}"></use>
-                                    </svg>
-                                </a>
-                                <a href="https://vk.com/krasber" target="_blank" rel="noopener noreferrer">
-                                    <svg class="icon vk">
-                                        <use xlink:href="{{ asset('img/symbols.svg#vk') }}"></use>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <footer itemtype="http://schema.org/WPFooter" itemscope="">
         <div class="container">

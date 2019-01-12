@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Services\UploadCkeditorImageService;
 use Illuminate\Http\Request;
 
+/**
+ * Class CkeditorController
+ * @package App\Http\Controllers\Admin
+ */
 class CkeditorController extends Controller
 {
     /**

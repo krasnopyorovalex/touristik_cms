@@ -3,35 +3,111 @@
 @section('title', $page->title)
 @section('description', $page->description)
 @push('og')
-<meta property="og:title" content="{{ $page->title }}">
+    <meta property="og:title" content="{{ $page->title }}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ request()->getUri() }}">
-@if ($page->image)
-    <meta property="og:image" content="{{ asset(str_replace('.svg', '.jpg', $page->image->path)) }}">
-@else
-    <meta property="og:image" content="{{ asset('img/logo_green.jpg') }}">
-@endif
+    <meta property="og:image" content="{{ asset($page->image ? $page->image->path : 'img/logo.png') }}">
     <meta property="og:description" content="{{ $page->description }}">
-    <meta property="og:site_name" content="Веб-студия Красбер в Крыму и Краснодарском крае">
+    <meta property="og:site_name" content="Бравый турист">
     <meta property="og:locale" content="ru_RU">
 @endpush
 
 @section('content')
-
-    @if ($page->image)
-        @include('layouts.partials.header_with_image', ['page' => $page])
-     @else
-        @include('layouts.partials.header', ['page' => $page])
-    @endif
-
-    <main>
+    @includeWhen($page->slider, 'layouts.sections.slider', ['slider' => $page->slider])
+    <section class="title__section">
         <div class="container">
             <div class="row">
-                <div class="col-10">
-                   {!! $page->text !!}
+                <div class="col-12">
+                    <h1>{{ $page->name }}</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="seo page">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    @include('layouts.partials.breadcrumbs', ['page' => $page])
+                    <div class="seo__text">
+                        {!! $page->text !!}
+                    </div>
                 </div>
             </div>
         </div>
     </main>
+
+    @include('layouts.partials.counts', ['css' => ' without__margin'])
+
+    @include('layouts.partials.begin_travel')
+
+    @includeWhen($page->gallery, 'layouts.sections.gallery', ['gallery' => $page->gallery])
+
+    <section class="travels">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="title">
+                        Какие путешествия тебе нужны
+                    </div>
+                    <div class="sub__title">
+                        Наши услуги
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="travel__item-two">
+                        <img src="./img/travel-2-01.jpg" alt="travel">
+                        <div class="travel__item-name">
+                            <a href="#">Однодневные туры</a>
+                        </div>
+                        <a href="#" class="btn__more">&nbsp;</a>
+                        <div class="travel__count">01</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="travel__item-two">
+                        <img src="./img/travel-2-02.jpg" alt="travel">
+                        <div class="travel__item-name">
+                            <a href="#">Многодневные туры</a>
+                        </div>
+                        <a href="#" class="btn__more">&nbsp;</a>
+                        <div class="travel__count">02</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="travel__item-two">
+                        <img src="./img/travel-2-03.jpg" alt="travel">
+                        <div class="travel__item-name">
+                            <a href="#">Индивидуальные туры</a>
+                        </div>
+                        <a href="#" class="btn__more">&nbsp;</a>
+                        <div class="travel__count">03</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="travel__item-two">
+                        <img src="./img/travel-2-04.jpg" alt="travel">
+                        <div class="travel__item-name">
+                            <a href="#">Морские туры на каяках</a>
+                        </div>
+                        <a href="#" class="btn__more">&nbsp;</a>
+                        <div class="travel__count">04</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="travel__item-two">
+                        <img src="./img/travel-2-04.jpg" alt="travel">
+                        <div class="travel__item-name">
+                            <a href="#">Морские туры на каяках</a>
+                        </div>
+                        <a href="#" class="btn__more">&nbsp;</a>
+                        <div class="travel__count">05</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 @endsection

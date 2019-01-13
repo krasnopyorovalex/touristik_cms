@@ -17,6 +17,9 @@
             <form action="{{ route('admin.pages.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
 
+                @select(['name' => 'slider_id', 'label' => 'Слайдер', 'items' => $sliders])
+                @select(['name' => 'gallery_id', 'label' => 'Галерея', 'items' => $galleries])
+
                 <div class="form-group">
                     <label for="template">Шаблон страницы:</label>
                     <select class="form-control border-blue border-xs select-search" id="template" name="template" data-width="100%">
@@ -30,7 +33,6 @@
                 @input(['name' => 'title', 'label' => 'Title'])
                 @input(['name' => 'description', 'label' => 'Description'])
                 @input(['name' => 'alias', 'label' => 'Alias'])
-                @input(['name' => 'slogan', 'label' => 'Слоган'])
 
                 @imageInput(['name' => 'image', 'type' => 'file', 'label' => 'Выберите изображение на компьютере'])
 

@@ -15,6 +15,9 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Menu whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Menu whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Menu whereSysName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Menu newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Menu newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Menu query()
  */
 class Menu extends Model
 {

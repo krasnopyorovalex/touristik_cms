@@ -24,7 +24,7 @@
                                 @csrf
 
                                 @input(['name' => 'name', 'label' => 'Название'])
-                                @checkbox(['name' => 'publish', 'label' => 'Опубликовано?', 'isChecked' => true])
+                                {{--@checkbox(['name' => 'publish', 'label' => 'Опубликовано?', 'isChecked' => true])--}}
 
                                 @submit_btn()
                             </form>

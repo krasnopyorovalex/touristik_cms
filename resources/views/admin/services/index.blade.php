@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('breadcrumb')
-    <li class="active">Услуги</li>
+    <li class="active">Туры</li>
 @endsection
 
 @section('content')
@@ -16,7 +16,6 @@
             <thead>
             <tr class="border-solid">
                 <th>#</th>
-                <th>Иконка</th>
                 <th>Название</th>
                 <th>Alias</th>
                 <th></th>

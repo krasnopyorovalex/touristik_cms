@@ -16,6 +16,15 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \App\Menu $menu
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\MenuItem[] $menuItems
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\MenuItem newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\MenuItem newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\MenuItem query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\MenuItem whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\MenuItem whereLink($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\MenuItem whereMenuId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\MenuItem whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\MenuItem whereParentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\MenuItem wherePos($value)
  */
 class MenuItem extends Model
 {

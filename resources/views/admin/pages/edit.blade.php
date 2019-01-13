@@ -21,11 +21,14 @@
                 <div class="tabbable">
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#main" data-toggle="tab">Основное</a></li>
-                        <li><a href="#image" data-toggle="tab">Изображение</a></li>
+                        <li><a href="#image" data-toggle="tab">Изображение для соцсетей</a></li>
                     </ul>
 
                     <div class="tab-content">
                         <div class="tab-pane active" id="main">
+
+                            @select(['name' => 'slider_id', 'label' => 'Слайдер', 'items' => $sliders, 'entity' => $page])
+                            @select(['name' => 'gallery_id', 'label' => 'Галерея', 'items' => $galleries, 'entity' => $page])
 
                             <div class="form-group">
                                 <label for="template">Шаблон страницы:</label>
@@ -41,7 +44,6 @@
                             @input(['name' => 'description', 'label' => 'Description', 'entity' => $page])
 
                             @input(['name' => 'alias', 'label' => 'Alias', 'entity' => $page])
-                            @input(['name' => 'slogan', 'label' => 'Слоган', 'entity' => $page])
 
                             @textarea(['name' => 'text', 'label' => 'Текст', 'entity' => $page])
                             @checkbox(['name' => 'is_published', 'label' => 'Опубликовано?', 'entity' => $page])

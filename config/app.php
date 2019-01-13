@@ -168,6 +168,7 @@ return [
         App\Providers\MenuServiceProvider::class,
         App\Providers\ArticlesServiceProvider::class,
         App\Providers\TextParserServiceProvider::class,
+        App\Providers\ServicesServiceProvider::class,
 
     ],
 

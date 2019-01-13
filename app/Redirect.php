@@ -14,6 +14,9 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Redirect whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Redirect whereUrlNew($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Redirect whereUrlOld($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Redirect newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Redirect newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Redirect query()
  */
 class Redirect extends Model
 {

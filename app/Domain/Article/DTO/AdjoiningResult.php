@@ -5,6 +5,10 @@ namespace App\Domain\Article\DTO;
 use App\Article;
 use Illuminate\Database\Eloquent\Collection;
 
+/**
+ * Class AdjoiningResult
+ * @package App\Domain\Article\DTO
+ */
 class AdjoiningResult
 {
     /**

@@ -1,34 +1,37 @@
-<section class="order__form">
-    <div class="container">
-        <div class="row">
-            <div class="col-7">
-                <div class="as__h1">{{ $form_title ?? 'Заказать сайт' }}</div>
-                <div class="sub__title">{{ $form_sub_title ?? 'Вы можете бесплатно  получить аудит вашего сайта. Вас это не к чему не обязывает.' }}</div>
-
-                <form action="{{ route('order.consultation.send') }}" method="post" id="order__consultation-form" onsubmit="yaCounter45495162.reachGoal('KONSULTACIA'); return true">
-                    @csrf
-                    <div class="single__block">
-                        <input type="text" name="name" placeholder="Ваше имя" autocomplete="off" required>
-                    </div>
-                    <div class="single__block">
-                        <input type="email" name="email" placeholder="Ваш e-mail" autocomplete="off" required>
-                    </div>
-                    <div class="single__block">
-                        <input type="text" name="phone" autocomplete="off" required>
-                    </div>
-                    <div class="single__block message">
-                        <textarea name="message" id="message" placeholder="Дополнительная информация"></textarea>
-                    </div>
-                    <div class="single__block agree__block">
-                        <input type="checkbox" name="agree" id="i_agree-2" value="1" checked>
-                        <label for="i_agree-2">Оставляя заявку, Вы соглашаетесь на <a href="{{ route('page.show', ['alias' => 'personal-data']) }}" target="_blank" title="Перейти на страницу описания">обработку персональных данных</a></label>
-                        <p class="error">Согласитесь на обработку персональных данных</p>
-                    </div>
-                    <div class="single__block submit__block">
-                        <button type="submit">{{ $btn_text ?? 'Отправить' }}</button>
-                    </div>
-                </form>
+<form action="{{ route('order.check.send') }}" class="form__order" id="{{ $id ?? 'check__order' }}">
+    @if(isset($title))
+        <div class="close__box" title="Закрыть форму">
+            <div class="close"></div>
+        </div>
+        <div class="single__block">
+            <div class="title">
+                {{ $title }}
             </div>
         </div>
+    @endif
+    <div class="single__block name">
+        <input type="text" name="name" placeholder="Имя*" autocomplete="off">
+        <i class="icon human"></i>
     </div>
-</section>
+    <div class="single__block phone">
+        <input type="text" name="name" placeholder="Телефон*" autocomplete="off">
+        <i class="icon phone"></i>
+    </div>
+    <div class="single__block email">
+        <input type="text" name="email" placeholder="Email" autocomplete="off">
+        <i class="icon email"></i>
+    </div>
+    <div class="single__block">
+        <textarea name="info" placeholder="Доп. информация"></textarea>
+    </div>
+    <div class="single__block i__agree">
+        <input type="checkbox" name="agree" id="agree" checked="checked">
+        <label for="agree">
+            Согласие на обработку персональных данных
+        </label>
+        <p class="error">Согласитесь на обработку персональных данных</p>
+    </div>
+    <div class="single__block center submit">
+        <button type="submit" class="btn">Отправить</button>
+    </div>
+</form>

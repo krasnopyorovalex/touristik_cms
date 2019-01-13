@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Domain\Gallery\Queries\GetAllGalleriesQuery;
 use App\Domain\Page\Commands\CreatePageCommand;
 use App\Domain\Page\Commands\DeletePageCommand;
 use App\Domain\Page\Commands\UpdatePageCommand;
 use App\Domain\Page\Queries\GetAllPagesQuery;
 use App\Domain\Page\Queries\GetPageByIdQuery;
+use App\Domain\Slider\Queries\GetAllSlidersQuery;
 use App\Http\Controllers\Controller;
 use App\Page;
 use Domain\Page\Requests\CreatePageRequest;
@@ -40,9 +42,13 @@ class PageController extends Controller
     public function create()
     {
         $page = new Page();
+        $sliders = $this->dispatch(new GetAllSlidersQuery());
+        $galleries = $this->dispatch(new GetAllGalleriesQuery());
 
         return view('admin.pages.create', [
-            'templates' => $page->getTemplates()
+            'templates' => $page->getTemplates(),
+            'sliders' => $sliders,
+            'galleries' => $galleries
         ]);
     }
 
@@ -68,9 +74,13 @@ class PageController extends Controller
     public function edit($id)
     {
         $page = $this->dispatch(new GetPageByIdQuery($id));
+        $sliders = $this->dispatch(new GetAllSlidersQuery());
+        $galleries = $this->dispatch(new GetAllGalleriesQuery());
 
         return view('admin.pages.edit', [
-            'page' => $page
+            'page' => $page,
+            'sliders' => $sliders,
+            'galleries' => $galleries
         ]);
     }
 

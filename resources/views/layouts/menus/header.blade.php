@@ -1,25 +1,8 @@
-<nav itemscope="" itemtype="http://schema.org/SiteNavigationElement">
-    <ul>
-        @foreach($menu->get('menu_header') as $item)
-            <li{!! add_css_class($item) !!}>
-                <a itemprop="url" href="{{ ! $item->is_delimiter ? $item->link : '#'}}">{{ $item->name }}</a>
-                @if ($item->is_service && $services->count())
-                    <ul>
-                        @foreach ($services as $service)
-                            <li>
-                                <a itemprop="url" href="{{ route('service.show', $service->alias) }}">{{ $service->getMenuName() }}</a>
-                                @if ($service->services->count())
-                                    <ul>
-                                        @foreach ($service->services as $subService)
-                                            <li><a itemprop="url" href="{{ route('service.show', $subService->alias) }}">{{ $subService->getMenuName() }}</a></li>
-                                        @endforeach
-                                    </ul>
-                                @endif
-                            </li>
-                        @endforeach
-                    </ul>    
-                @endif
-            </li>
-        @endforeach
-    </ul>
-</nav>
+<ul class="header__nav">
+    <li class="logo"><a href="{{ route('page.show') }}"><img src="{{ asset('img/logo.png') }}" alt="logo"></a></li>
+    @foreach($menu->get('menu_header') as $item)
+        <li{!! add_css_class($item) !!}>
+            <a itemprop="url" href="{{ $item->link }}">{{ $item->name }}</a>
+        </li>
+    @endforeach
+</ul>

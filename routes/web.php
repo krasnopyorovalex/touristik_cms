@@ -15,12 +15,13 @@ Route::pattern('alias', '[\da-z-]+');
 
 Auth::routes();
 
+Route::post('form/send-order', 'FormHandlerController@orderCheck')->name('order.check.send');
 Route::get('sitemap.xml', 'SitemapController@xml')->name('sitemap.xml');
 
 Route::group(['middleware' => ['redirector', 'shortcode']], function () {
-    Route::get('{alias}', 'PageController@show')->name('page.show');
+    Route::get('{alias}', 'ServiceController@show')->name('service.show');
     Route::get('/{alias?}/{page?}', 'PageController@show')->name('page.show')->where('page', '[0-9]+');
-    Route::get('blog/{alias}', 'BlogController@show')->name('article.show');
+    Route::get('blog/{alias}', 'BlogController@show')->name('blog.show');
 });
 
 Route::group(['prefix' => '_root', 'middleware' => 'auth', 'namespace' => 'Admin', 'as' => 'admin.'], function () {

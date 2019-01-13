@@ -6,209 +6,114 @@
 <meta property="og:title" content="{{ $page->title }}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ request()->getUri() }}">
-@if ($page->image)
-    <meta property="og:image" content="{{ asset(str_replace('.svg', '.jpg', $page->image->path)) }}">
-@else
-    <meta property="og:image" content="{{ asset('img/logo_green.jpg') }}">
-@endif
+    <meta property="og:image" content="{{ asset($page->image ? $page->image->path : 'img/logo.png') }}">
     <meta property="og:description" content="{{ $page->description }}">
-    <meta property="og:site_name" content="Веб-студия Красбер в Крыму и Краснодарском крае">
+    <meta property="og:site_name" content="Бравый турист">
     <meta property="og:locale" content="ru_RU">
 @endpush
-@section('slogan')
-    <div class="container">
-        <div class="row">
-            <div class="col-10">
-                <div class="row align__items-center">
-                    <div class="col-5">
-                        <div class="slogan__box">
-                            <p>{!! $page->slogan !!}</p>
-                            <a href="{{ route('page.show', ['alias' => 'create-site']) }}" class="btn black">Заказать сайт</a>
-                        </div>
-                        <!-- /.slogan__box -->
-                    </div>
-                    <div class="col-7">
-                        <div class="main__image-top">
-                            <img src="{{ asset($page->image->path) }}" alt="{{ $page->image->alt }}" title="{{ $page->image->title }}">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-@endsection
 
 @section('content')
 
-    <section class="main__text">
+    @includeWhen($page->slider, 'layouts.sections.slider', ['slider' => $page->slider])
+
+    @includeWhen($services, 'layouts.sections.services')
+
+    <section class="info__text">
         <div class="container">
             <div class="row">
-                <div class="col-10">
-                    <div class="step">01</div>
-                    <h1>{{ $page->name }}</h1>
-                    {!! $page->text !!}
+                <div class="col-6">
+                    <div class="title">Мы создаем воспоминания</div>
+                    <div class="sub__title">О компании</div>
+                    <div class="text">
+                        <p>Бравый Турист это многолетний опыт походов и несколько десятков инструкторов – опытных путешественников из Санкт-Петербурга, Москвы и других городов. Активный отдых в самых интересных местах - это наша специализация.Каждый год инструткоры, которых вы можете видеть на нашем сайте, отправляются в большое количество походов по самым разнообразным маршрутам по всей России и миру и рады пригласить в них всех, кто хочет отдыхать активно.</p>
+                        <p>Участники наших походов - это, в основном, молодые люди и девушки, но возраст не является для нас ограничением, присоединиться к походам могут как более взрослые, так и более молодые участники.</p>
+                        <p>Мы предлагаем большое количество походов с открытым набором в группы - присоединиться можно как одному участнику, так и с друзьями. Для организованных групп от 10 человек мы готовы предложить поход по любому из имеющихся у нас на сайте маршрутов в отдельные удобные сроки.</p>
+                        <div class="center">
+                            <a href="#" class="btn">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="img__bg">
+                        <img src="./img/info_text-bg.jpg" alt="alt">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    @includeWhen($services, 'layouts.sections.services', ['services' => $services])
+    @include('layouts.partials.begin_travel')
 
-    <section>
+    @includeWhen($page->gallery, 'layouts.sections.gallery', ['gallery' => $page->gallery])
+
+    <section class="guides">
         <div class="container">
             <div class="row">
-                <div class="col-10">
-                    <div class="order__service-form">
-                        <div class="wrap">
-                            <div class="desc">
-                                <div class="as__h1">Заказать услугу</div>
-                                <p>Вы можете бесплатно  получить аудит вашего сайта. Вас это не к чему не обязывает.</p>
+                <div class="col-12">
+                    <div class="title">
+                        Профессионалы своего дела
+                    </div>
+                    <div class="sub__title">Наши гиды</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <div class="guide__item">
+                        <a href="#">
+                            <div class="ava">
+                                <img src="./img/guide-02.jpg" alt="alt">
                             </div>
-                            @include('layouts.forms.order_service', ['services' => $services])
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="why__we">
-        <div class="container">
-            <div class="row">
-                <div class="col-10">
-                    <div class="step">03</div>
-                    <h2 class="as__h1">Несколько фактов о нас</h2>
-                    <div class="why__we-list">
-                        <div class="why__we-list-item">
-                            <svg class="icon opit_v_razrabotke">
-                                <use xlink:href="{{ asset('img/symbols.svg#opit_v_razrabotke') }}"></use>
-                            </svg>
-                            <div class="separator"></div>
-                            <div class="desc">Опыт в разработке сайтов более 5 лет</div>
-                        </div>
-                        <div class="why__we-list-item">
-                            <svg class="icon opit">
-                                <use xlink:href="{{ asset('img/symbols.svg#opit') }}"></use>
-                            </svg>
-                            <div class="separator"></div>
-                            <div class="desc">Опыт в интернет-рекламе более 3 лет</div>
-                        </div>
-                        <div class="why__we-list-item">
-                            <svg class="icon sertifikat">
-                                <use xlink:href="{{ asset('img/symbols.svg#sertifikat') }}"></use>
-                            </svg>
-                            <div class="separator"></div>
-                            <div class="desc">Сертифицированные специалисты Яндекс.Директ и Google.Adwords</div>
-                        </div>
-                        <div class="why__we-list-item">
-                            <svg class="icon konsultaciya">
-                                <use xlink:href="{{ asset('img/symbols.svg#konsultaciya') }}"></use>
-                            </svg>
-                            <div class="separator"></div>
-                            <div class="desc">Бесплатные консультации и информационная поддержка спец. на всех этапах работы</div>
-                        </div>
-                        <div class="why__we-list-item">
-                            <svg class="icon podhod">
-                                <use xlink:href="{{ asset('img/symbols.svg#podhod') }}"></use>
-                            </svg>
-                            <div class="separator"></div>
-                            <div class="desc">Индивидуальный подход и расчет стоимости для каждого клиента</div>
-                        </div>
-                        <div class="why__we-list-item">
-                            <svg class="icon garantii">
-                                <use xlink:href="{{ asset('img/symbols.svg#garantii') }}"></use>
-                            </svg>
-                            <div class="separator"></div>
-                            <div class="desc">Юридические гарантии (составление договора)</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    @includeWhen($guestbook, 'layouts.sections.guestbook', ['guestbook' => $guestbook])
-
-    <section class="portfolio">
-        <div class="bg__box-section"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-10">
-                    <div class="step">05</div>
-                    <h3 class="as__h1">Портфолио</h3>
-                    <div class="info">Работы нашей веб-студии, разработанные сайты, полезные кейсы.</div>
-
-                    <div class="portfolio__list">
-
-                        @foreach ($portfolios->slice(0,3) as $portfolio)
-                            @include('layouts.partials._portfolio_item', ['portfolio' => $portfolio])
-                        @endforeach
-
-                        <div class="btn__more">
-                            <a href="{{ route('page.show', ['alias' => 'portfolio']) }}" class="btn green">БОЛЬШЕ РАБОТ</a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="we__work">
-        <div class="container">
-            <div class="row">
-                <div class="col-10">
-                    <div class="step">06</div>
-                    <h3 class="as__h1">Мы работаем</h3>
-                    <div class="info">Инструменты, которые мы используем для анализа и увеличения эффективности работы сайта.</div>
-                    <div class="we__work-list">
-                        <div class="we__work-list-item">
-                            <img src="{{ asset('img/php-logo.svg') }}" alt="php" title="Язык программирования - PHP">
-                        </div>
-                        <div class="we__work-list-item">
-                            <img src="{{ asset('img/laravel-framework.svg') }}" alt="Laravel framework" title="Laravel фреймворк">
-                        </div>
-                        <div class="we__work-list-item">
-                            <img src="{{ asset('img/yii-framework.svg') }}" alt="Yii framework" title="Yii фреймворк">
-                        </div>
-                        <div class="we__work-list-item">
-                            <img src="{{ asset('img/css3.svg') }}" alt="CSS3" title="Язык описания внешнего вида документа - css">
-                        </div>
-                        <div class="we__work-list-item">
-                            <img src="{{ asset('img/javascript.svg') }}" alt="javascript" title="Язык программирования - Javascript">
-                        </div>
-                        <div class="we__work-list-item">
-                            <img src="{{ asset('img/we_work-01.png') }}" alt="Яндекс.Метрика" title="Бесплатный инструмент аналитики от Яндекс">
-                        </div>
-                        <div class="we__work-list-item">
-                            <img src="{{ asset('img/we_work-02.jpg') }}" alt="Яндекс.Директ" title="Онлайн реклама в поиске Яндекс">
-                        </div>
-                        <div class="we__work-list-item">
-                            <img src="{{ asset('img/we_work-03.jpeg') }}" alt="Google.Adwords" title="Онлайн реклама в поиске Google">
-                        </div>
-                        <div class="we__work-list-item">
-                            <img src="{{ asset('img/we_work-04.png') }}" alt="Google.Analytics" title="Google.Analytics - детальная статистика посещения Вашего веб-сайта">
-                        </div>
-                        <div class="we__work-list-item">
-                            <img src="{{ asset('img/we_work-05.png') }}" alt="Topvisor" title="Topvisor - сервис поисковой аналитики">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-10">
-                    <div class="order__service-form">
-                        <div class="wrap">
-                            <div class="desc">
-                                <div class="as__h1">Заказать услугу</div>
-                                <p>Вы можете бесплатно  получить аудит вашего сайта. Вас это не к чему не обязывает.</p>
+                        </a>
+                        <div class="info">
+                            <a href="#" class="name">Ольга Лесова</a>
+                            <div class="text">
+                                <p>Пешие туры, поднятие в горы. Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
                             </div>
-                            @include('layouts.forms.order_service', ['services' => $services, 'postfix' => '_bottom'])
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="guide__item">
+                        <a href="#">
+                            <div class="ava">
+                                <img src="./img/guide-03.jpg" alt="alt">
+                            </div>
+                        </a>
+                        <div class="info">
+                            <div class="name">Игорь бунев</div>
+                            <div class="text">
+                                <p>Пешие туры, поднятие в горы. Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="guide__item">
+                        <a href="#">
+                            <div class="ava">
+                                <img src="./img/guide-01.jpg" alt="alt">
+                            </div>
+                        </a>
+                        <div class="info">
+                            <a href="#" class="name">Игорь бунев</a>
+                            <div class="text">
+                                <p>Пешие туры, поднятие в горы. Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="guide__item">
+                        <a href="#">
+                            <div class="ava">
+                                <img src="./img/guide-04.jpeg" alt="alt">
+                            </div>
+                        </a>
+                        <div class="info">
+                            <a href="#" class="name">Ольга Лесова</a>
+                            <div class="text">
+                                <p>Пешие туры, поднятие в горы. Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -216,4 +121,23 @@
         </div>
     </section>
 
+    @include('layouts.partials.counts')
+
+    <main class="seo">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="title">{{ $page->name }}</h1>
+                    <div class="sub__title">СЕО Текст</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="seo__text">
+                        {!! $page->text !!}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 @endsection

@@ -27,7 +27,7 @@ class CreateSliderImageRequest extends Request
     {
         return [
             'upload.image' => 'Разрешено загружать только изображения',
-            'galleryId.integer' => 'Поле «id галереи» должно быть целым числом'
+            'sliderId.integer' => 'Поле «id слайдера» должно быть целым числом'
         ];
     }
 }

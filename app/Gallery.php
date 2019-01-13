@@ -15,6 +15,15 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Carbon\Carbon|null $updated_at
  * @mixin \Eloquent
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\GalleryImage[] $images
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Gallery newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Gallery newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Gallery query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Gallery whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Gallery whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Gallery whereIsPublished($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Gallery whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Gallery wherePos($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Gallery whereUpdatedAt($value)
  */
 class Gallery extends Model
 {

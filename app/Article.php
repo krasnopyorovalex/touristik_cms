@@ -18,9 +18,23 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon $published_at
  * @property-read \App\Image $image
  * @mixin \Eloquent
+ * @property-read string $url
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Article newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Article newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Article query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Article whereAlias($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Article whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Article whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Article whereIsPublished($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Article whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Article wherePreview($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Article wherePublishedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Article whereText($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Article whereTitle($value)
  */
 class Article extends Model
 {
+    use AutoAliasTrait;
 
     public $timestamps = false;
 

@@ -27,7 +27,7 @@
                             @method('put')
 
                             @input(['name' => 'name', 'label' => 'Название', 'entity' => $gallery])
-                            @checkbox(['name' => 'is_published', 'label' => 'Опубликовано?', 'entity' => $gallery])
+                            {{--@checkbox(['name' => 'is_published', 'label' => 'Опубликовано?', 'entity' => $gallery])--}}
 
                             @submit_btn()
                         </form>

@@ -76,6 +76,7 @@
                             <!-- Main -->
                             <li class="navigation-header"><span>Навигация</span> <i class="icon-menu" title="Main pages"></i></li>
                             <li><a href="{{ route('admin.pages.index') }}"><i class="icon-compose"></i> <span>Страницы</span></a></li>
+                            <li><a href="{{ route('admin.services.index') }}"><i class="icon-list"></i> <span>Туры</span></a></li>
                             <li><a href="{{ route('admin.articles.index') }}"><i class="icon-magazine"></i> <span>Статьи</span></a></li>
                             <li><a href="{{ route('admin.guestbooks.index') }}"><i class="icon-bubble2"></i> <span>Отзывы</span></a></li>
                             <li><a href="{{ route('admin.sliders.index') }}"><i class="icon-images2"></i> <span>Слайдер</span></a></li>
@@ -91,7 +92,7 @@
                 <!-- /main navigation -->
                 
                 <div class="info_btn">
-                    <button type="button" data-toggle="modal" data-target="#modal_info" class="btn btn-primary btn-labeled btn-xlg"><b><i class="icon-info3"></i></b> Информация</button>
+                    <button type="button" data-toggle="modal" data-target="#modal_info-bar" class="btn btn-primary btn-labeled btn-xlg"><b><i class="icon-info3"></i></b> Информация</button>
                 </div>
 
             </div>
@@ -141,7 +142,7 @@
 <!-- /page container -->
 
 <!-- Basic modal -->
-<div id="modal_info" class="modal fade">
+<div id="modal_info-bar" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-primary">

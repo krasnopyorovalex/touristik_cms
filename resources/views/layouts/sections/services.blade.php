@@ -1,36 +1,27 @@
-<section class="services">
+<section class="travels">
     <div class="container">
         <div class="row">
-            <div class="col-10">
-                <div class="step">02</div>
-                <h2 class="as__h1">Наши услуги</h2>
-
-                <div class="services__list">
-                    @foreach ($services as $service)
-                    <div class="services__list-item{{ $loop->index == 0 ? ' is__open' : '' }}">
-                        <a href="{{ route('service.show', $service->alias) }}" class="name">{{ $service->getMenuName() }}</a>
-                        <svg class="icon arrow_down">
-                            <use xlink:href="{{ asset('img/symbols.svg#arrow_down') }}"></use>
-                        </svg>
-                        <div class="body">
-                            <div class="desc">
-                                {!! strip_tags($service->preview) !!}
-                            </div>
-                            @if ($service->services->count())
-                            <ul>
-                                @foreach ($service->services as $subService)
-                                <li><a href="{{ route('service.show', $subService->alias) }}">{{ $subService->getMenuName() }}</a></li>
-                                @endforeach
-                            </ul>
-                            @endif
-                            <div class="btn__more">
-                                <a href="{{ route('service.show', $service->alias) }}" class="btn green">ПОДРОБНЕЕ</a>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
+            <div class="col-12">
+                <div class="title">
+                    Какие путешествия тебе нужны?
+                </div>
+                <div class="sub__title">
+                    Наши услуги
                 </div>
             </div>
+        </div>
+        <div class="row">
+            @foreach ($services as $service)
+                <div class="col-4">
+                    <div class="travel__item">
+                        <img src="{{ $service->image->path }}" alt="{{ $service->image->alt }}" title="{{ $service->image->title }}">
+                        <div class="travel__item-name">
+                            <a href="{{ $service->url }}">{{ $service->name }}</a>
+                        </div>
+                        <a href="{{ $service->url }}" class="btn__more">&nbsp;</a>
+                    </div>
+                </div>
+            @endforeach
         </div>
     </div>
 </section>

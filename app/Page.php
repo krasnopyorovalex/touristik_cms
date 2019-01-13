@@ -23,9 +23,29 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \App\Image $image
  * @property string $is_published
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Page whereIsPublished($value)
+ * @property int|null $slider_id
+ * @property int|null $gallery_id
+ * @property-read \App\Gallery|null $gallery
+ * @property-read string $url
+ * @property-read \App\Slider|null $slider
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Page newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Page newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Page query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Page whereAlias($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Page whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Page whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Page whereGalleryId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Page whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Page whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Page whereSliderId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Page whereTemplate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Page whereText($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Page whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Page whereUpdatedAt($value)
  */
 class Page extends Model
 {
+    use AutoAliasTrait;
 
     private $templates = [
         'page.index' => 'Главная',
@@ -38,7 +58,7 @@ class Page extends Model
     /**
      * @var array
      */
-    protected $fillable = ['template', 'name', 'slogan', 'title', 'description', 'text', 'alias', 'is_published'];
+    protected $fillable = ['slider_id', 'gallery_id', 'template', 'name', 'title', 'description', 'text', 'alias', 'is_published'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphOne
@@ -46,6 +66,22 @@ class Page extends Model
     public function image()
     {
         return $this->morphOne('App\Image', 'imageable');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function slider()
+    {
+        return $this->belongsTo('App\Slider');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function gallery()
+    {
+        return $this->belongsTo('App\Gallery');
     }
 
     /**

@@ -22,17 +22,10 @@ class TextParserService
     {
         return preg_replace_callback_array(
             [
-                '#(<p(.*)>)?{services}(<\/p>)?#' => function () use ($entity) {
-                    $services = $this->dispatch(new GetAllServicesQuery());
-                    $service = $services->firstWhere('id', '=', $entity->id);
+                '#(<p(.*)>)?{tyri}(<\/p>)?#' => function () use ($entity) {
+                    $tyri = $this->dispatch(new GetAllServicesQuery());
 
-                    return view('layouts.shortcodes.sub_services', ['service' => $service]);
-                },
-                '#(<p(.*)>)?{faq}(<\/p>)?#' => function () use ($entity) {
-                    return view('layouts.shortcodes.faqs', ['faqs' => $entity->relatedFaqs]);
-                },
-                '#(<p(.*)>)?{service_portfolios}(<\/p>)?#' => function () use ($entity) {
-                    return view('layouts.shortcodes.service_portfolios', ['portfolios' => $entity->relatedPortfolios]);
+                    return view('layouts.shortcodes.tyri', ['tyri' => $tyri]);
                 }
             ],
             $entity->text

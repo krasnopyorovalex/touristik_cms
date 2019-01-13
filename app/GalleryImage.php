@@ -18,6 +18,18 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $pos
  * @mixin \Eloquent
  * @property-read \App\Gallery $gallery
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\GalleryImage newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\GalleryImage newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\GalleryImage query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\GalleryImage whereAlt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\GalleryImage whereBasename($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\GalleryImage whereExt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\GalleryImage whereGalleryId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\GalleryImage whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\GalleryImage whereIsPublished($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\GalleryImage whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\GalleryImage wherePos($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\GalleryImage whereTitle($value)
  */
 class GalleryImage extends Model
 {
@@ -43,5 +55,13 @@ class GalleryImage extends Model
     public function getThumb(): string
     {
         return asset('storage/gallery/' . $this->gallery_id . '/' . $this->basename . '_thumb.' . $this->ext);
+    }
+
+    /**
+     * @return string
+     */
+    public function getPath(): string
+    {
+        return asset('storage/gallery/' . $this->gallery_id . '/' . $this->basename . '.' . $this->ext);
     }
 }

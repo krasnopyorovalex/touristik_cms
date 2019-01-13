@@ -15,111 +15,187 @@
 </head>
 <body>
     <header>
-        <div class="sticky__menu{{ is_main_page() ? '' : ' sticky__menu-always' }}">
+        <div class="top__line">
             <div class="container">
-                <div class="top__line">
-                    <svg class="icon menu">
-                        <use xlink:href="{{ asset('img/symbols.svg#menu') }}"></use>
-                    </svg>
-                    <div class="logo">
-                        <a href="{{ route('page.show') }}">
-                            <img class="desktop__logo" src="{{ is_main_page() ? asset('img/logo_white.svg') : asset('img/logo_green.svg') }}" data-green-logo="{{ is_main_page() ? asset('img/logo_green.svg'): '' }}" alt="Создание сайта в веб-студии Красбер" title="Веб-студия Красбер" />
-                            <img class="mobile__logo" src="{{ asset('img/logo_green.svg') }}" alt="Создание сайта в веб-студии Красбер" title="Веб-студия Красбер" />
-                        </a>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="phone">
+                            <svg class="icon">
+                                <use xlink:href="{{ asset('img/symbols.svg#phone') }}"></use>
+                            </svg>
+                            <a href="#">+7 (495) 664-94-42</a>
+                        </div>
                     </div>
-                    <!-- /.logo -->
-                    @includeWhen($menu->get('menu_header'), 'layouts.menus.header', ['menu' => $menu, 'services' => $services])
-                    <a href="tel:89787547499" class="phone__svg">
-                        <svg class="phone">
-                            <use xlink:href="{{ asset('img/symbols.svg#phone') }}"></use>
-                        </svg>
-                    </a>
-                    <div class="phone__email">
-                        <a href="tel:89787547499" title="Позвонить" class="phone__link">
-                            <span>8 (978) 754-74-99</span>
-                        </a>
-                        <a href="mailto:info@krasber.ru" title="Написать на почту">info@krasber.ru</a>
+                    <div class="col-4">
+                        <div class="address">
+                            <svg class="icon">
+                                <use xlink:href="{{ asset('img/symbols.svg#map') }}"></use>
+                            </svg>
+                            Москва, Варшавское шоссе 16, офис 135
+                        </div>
                     </div>
-                    <!-- /.phone__email -->
+                    <div class="col-5">
+                        <div class="search__socials-icons">
+                            <div class="btn call__popup" data-target="popup__recall">Перезвонить нам</div>
+                            <div class="delimiter"></div>
+                            <a href="#">
+                                <svg class="icon vk">
+                                    <use xlink:href="{{ asset('img/symbols.svg#vk') }}"></use>
+                                </svg>
+                            </a>
+                            <a href="#">
+                                <svg class="icon fb">
+                                    <use xlink:href="{{ asset('img/symbols.svg#fb') }}"></use>
+                                </svg>
+                            </a>
+                            <a href="#">
+                                <svg class="icon ok">
+                                    <use xlink:href="{{ asset('img/symbols.svg#ok') }}"></use>
+                                </svg>
+                            </a>
+                            <a href="#">
+                                <svg class="icon twitter">
+                                    <use xlink:href="{{ asset('img/symbols.svg#twitter') }}"></use>
+                                </svg>
+                            </a>
+                            <a href="#">
+                                <svg class="icon insta">
+                                    <use xlink:href="{{ asset('img/symbols.svg#insta') }}"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <!-- /.top__line -->
             </div>
         </div>
-        @section('slogan')
-        @show
+        <nav id="sticker" itemscope="" itemtype="http://schema.org/SiteNavigationElement">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        @includeWhen($menu->get('menu_header'), 'layouts.menus.header', ['menu' => $menu])
+                        <div class="call__popup call__btn visible__sm"></div>
+                        <div class="burger-mob visible__sm">
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
     </header>
 
     @yield('content')
 
-
-
     <footer itemtype="http://schema.org/WPFooter" itemscope="">
         <div class="container">
             <div class="row">
-                <div class="col-10">
-                    <div class="line"></div>
-                    <div class="row list__columns">
-                        <div class="col__logo">
-                            <a href="{{ route('page.show') }}">
-                                <img src="{{ asset('img/logo_green.svg') }}" class="logo__green" alt="Создание сайта в веб-студии Красбер" title="Веб-студия Красбер">
-                            </a>
-                            <div class="copyright">
-                                <span itemprop="copyrightYear">2017</span> - {{ date('Y') }} © Создание и продвижение сайтов. ООО «Красбер», ИНН 9106013479
-                                <p>Вся информация, представленная на сайте, носит информационный характер и ни при каких условиях не является публичной офертой.</p>
-                            </div>
-                        </div>
-                        @foreach ($services as $service)
-                            <div class="col__service">
-                                <div class="title">{{ $service->getMenuName() }}</div>
-                                @if ($service->services->count())
-                                    <ul>
-                                        @foreach ($service->services as $subService)
-                                            <li><a href="{{ route('service.show', $subService->alias) }}">{{ $subService->getMenuName() }}</a></li>
-                                        @endforeach
-                                    </ul>
-                                @endif
-                            </div>
-                        @endforeach
-                        <div class="col__nav">
-                            @includeWhen($menu->get('menu_footer'), 'layouts.menus.footer', ['menu' => $menu])
-                        </div>
+                <div class="col-2">
+                    <ul>
+                        <li><a href="#">Главная</a></li>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Каталог товаров</a></li>
+                    </ul>
+                </div>
+                <div class="col-2">
+                    <ul>
+                        <li><a href="#">Отзывы</a></li>
+                        <li><a href="#">Блог</a></li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="col-4">
+                    <div class="contact">
+                        <svg class="icon map">
+                            <use xlink:href="{{ asset('img/symbols.svg#map') }}"></use>
+                        </svg>
+                        Москва, Варшавское шоссе 16, офис 135
                     </div>
+                    <div class="contact">
+                        <svg class="icon">
+                            <use xlink:href="{{ asset('img/symbols.svg#phone') }}"></use>
+                        </svg>
+                        <a href="tel:+74956649442">+7 (495) 664-94-42</a>
+                    </div>
+                    <div class="contact">
+                        <svg class="icon">
+                            <use xlink:href="{{ asset('img/symbols.svg#phone') }}"></use>
+                        </svg>
+                        <a href="tel:+74956649442">+7 (495) 664-94-42</a>
+                    </div>
+                </div>
+                <div class="col-4 right">
+                    <div class="btn call__popup" data-target="popup__recall">Перезвонить нам</div>
+                    <div class="socials">
+                        <a href="#">
+                            <svg class="icon vk">
+                                <use xlink:href="{{ asset('img/symbols.svg#vk') }}"></use>
+                            </svg>
+                        </a>
+                        <a href="#">
+                            <svg class="icon fb">
+                                <use xlink:href="{{ asset('img/symbols.svg#fb') }}"></use>
+                            </svg>
+                        </a>
+                        <a href="#">
+                            <svg class="icon ok">
+                                <use xlink:href="{{ asset('img/symbols.svg#ok') }}"></use>
+                            </svg>
+                        </a>
+                        <a href="#">
+                            <svg class="icon twitter">
+                                <use xlink:href="{{ asset('img/symbols.svg#twitter') }}"></use>
+                            </svg>
+                        </a>
+                        <a href="#">
+                            <svg class="icon insta">
+                                <use xlink:href="{{ asset('img/symbols.svg#insta') }}"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>. Бравый Турист. Все права защищены.</div>
                 </div>
             </div>
         </div>
     </footer>
-    
-    <div class="notify"></div>
 
-    <script type="text/javascript" >
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-        ym(45495162, "init", {id:45495162,clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true,trackHash:true});
-    </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107358703-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments)};
-        gtag('js', new Date());
-        gtag('config', 'UA-107358703-1');
-    </script>
-    <script type="text/javascript">(window.Image ? (new Image()) : document.createElement('img')).src = 'https://vk.com/rtrg?p=VK-RTRG-224888-EpCh';</script>
-    <!-- Facebook Pixel Code -->
-    <script>
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '235500477021452');
-        fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" alt="facebook" style="display:none" src="https://www.facebook.com/tr?id=235500477021452&ev=PageView&noscript=1"/></noscript>
-    <!-- End Facebook Pixel Code -->
+    <div class="mobile__menu">
+        @includeWhen($menu->get('menu_header'), 'layouts.menus.footer_mobile', ['menu' => $menu])
+        <div class="socials">
+            <a href="#">
+                <svg class="icon vk">
+                    <use xlink:href="{{ asset('img/symbols.svg#vk') }}"></use>
+                </svg>
+            </a>
+            <a href="#">
+                <svg class="icon fb">
+                    <use xlink:href="{{ asset('img/symbols.svg#fb') }}"></use>
+                </svg>
+            </a>
+            <a href="#">
+                <svg class="icon ok">
+                    <use xlink:href="{{ asset('img/symbols.svg#ok') }}"></use>
+                </svg>
+            </a>
+            <a href="#">
+                <svg class="icon twitter">
+                    <use xlink:href="{{ asset('img/symbols.svg#twitter') }}"></use>
+                </svg>
+            </a>
+            <a href="#">
+                <svg class="icon insta">
+                    <use xlink:href="{{ asset('img/symbols.svg#insta') }}"></use>
+                </svg>
+            </a>
+        </div>
+        <div class="close-menu-btn"></div>
+        <div class="menu-overlay-mob"></div>
+    </div>
+
+    @include('layouts.forms.recall')
+    <div class="notify"></div>
     <script src="{{ asset('js/app.min.js') }}" defer></script>
 </body>
 </html>

@@ -3,9 +3,12 @@
 namespace App\Providers;
 
 use Blade;
-use Illuminate\Support\Carbon;
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Class AppServiceProvider
+ * @package App\Providers
+ */
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -22,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::include('includes.imageInput', 'imageInput');
         Blade::include('includes.dateInput', 'dateInput');
         Blade::include('includes.selectLink', 'selectLink');
+        Blade::include('includes.select', 'select');
 
         setlocale(LC_TIME, 'ru_RU.UTF-8');
     }

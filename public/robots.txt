@@ -1,3 +1,2 @@
 User-agent: *
-Host: https://krasber.ru
-Sitemap: https://krasber.ru/sitemap.xml
+Disallow: /

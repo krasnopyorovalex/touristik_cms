@@ -130,6 +130,7 @@
     </div>
 
     @include('layouts.forms.recall')
+    <script src="{{ asset('js/jquery.3.3.1.min.js') }}" defer></script>
     <script src="{{ asset('js/app.min.js') }}" defer></script>
 </body>
 </html>

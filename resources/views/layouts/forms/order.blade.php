@@ -1,4 +1,6 @@
-<form action="{{ route('order.check.send') }}" class="form__order" id="{{ $id ?? 'check__order' }}">
+<form action="{{ route('order.check.send') }}" class="form__order" id="{{ $id ?? 'check__order' }}" method="post">
+    @csrf
+    <input type="hidden" name="service" value="{{ $service ? $service->name : '' }}">
     @if(isset($title))
         <div class="close__box" title="Закрыть форму">
             <div class="close"></div>
@@ -10,11 +12,11 @@
         </div>
     @endif
     <div class="single__block name">
-        <input type="text" name="name" placeholder="Имя*" autocomplete="off">
+        <input type="text" name="name" placeholder="Имя*" autocomplete="off" required>
         <i class="icon human"></i>
     </div>
     <div class="single__block phone">
-        <input type="text" name="name" placeholder="Телефон*" autocomplete="off">
+        <input type="text" name="phone" placeholder="Телефон*" autocomplete="off" required>
         <i class="icon phone"></i>
     </div>
     <div class="single__block email">

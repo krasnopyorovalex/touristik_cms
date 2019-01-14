@@ -7,10 +7,10 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
 /**
- * Class OrderSent
+ * Class RecallSent
  * @package App\Mail
  */
-class OrderSent extends Mailable
+class RecallSent extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -26,13 +26,13 @@ class OrderSent extends Mailable
     }
 
     /**
-     * @return OrderSent
+     * @return RecallSent
      */
     public function build()
     {
         return $this->from('bravyi-turist@ya.ru')
-            ->subject('Форма: заказ тура')
-            ->view('emails.order', [
+            ->subject('Форма: заказ обратного звонка')
+            ->view('emails.recall', [
                 'data' => $this->data
             ]);
     }

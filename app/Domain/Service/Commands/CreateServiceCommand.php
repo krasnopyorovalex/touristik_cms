@@ -5,6 +5,7 @@ namespace App\Domain\Service\Commands;
 use App\Domain\Image\Commands\UploadImageCommand;
 use App\Http\Requests\Request;
 use App\Service;
+use App\ServiceTab;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
@@ -39,7 +40,28 @@ class CreateServiceCommand
             return $this->dispatch(new UploadImageCommand($this->request, $service->id, Service::class));
         }
 
+        $service->relativeServices()->attach($this->request->post('services'));
+        $this->attachTabs($service);
+
         return true;
+    }
+
+    /**
+     * @param $service
+     */
+    private function attachTabs($service): void
+    {
+        if ($this->request->post('tabs')) {
+            foreach ($this->request->post('tabs') as $key => $value) {
+                if ($value) {
+                    ServiceTab::create([
+                        'service_id' => $service->id,
+                        'tab_id' => intval($key),
+                        'value' => (string)$value
+                    ]);
+                }
+            }
+        }
     }
 
 }

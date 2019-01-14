@@ -8,6 +8,7 @@ use App\Domain\Service\Queries\GetServiceByIdQuery;
 use App\Events\RedirectDetected;
 use App\Http\Requests\Request;
 use App\Service;
+use App\ServiceTab;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
@@ -52,7 +53,26 @@ class UpdateServiceCommand
             $this->dispatch(new UploadImageCommand($this->request, $service->id, Service::class));
         }
 
+        $service->relativeServices()->sync($this->request->post('services'));
+        $this->syncTabs();
+
         return $service->update($this->request->all());
+    }
+
+    private function syncTabs(): void
+    {
+        if ($this->request->post('tabs')) {
+            ServiceTab::where('service_id', $this->id)->delete();
+            foreach ($this->request->post('tabs') as $key => $value) {
+                if ($value) {
+                    ServiceTab::create([
+                        'service_id' => $this->id,
+                        'tab_id' => intval($key),
+                        'value' => (string)$value
+                    ]);
+                }
+            }
+        }
     }
 
 }

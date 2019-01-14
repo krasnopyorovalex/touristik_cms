@@ -14,6 +14,12 @@
     <link rel="canonical" href="@yield('canonical', request()->url())"/>
 </head>
 <body>
+    <div class="loader">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+    <div class="loader__bg"></div>
     <header>
         <div class="top__line">
             <div class="container">
@@ -23,7 +29,7 @@
                             <svg class="icon">
                                 <use xlink:href="{{ asset('img/symbols.svg#phone') }}"></use>
                             </svg>
-                            <a href="#">+7 (495) 664-94-42</a>
+                            <a href="tel:+79787157355" title="Позвонить">+7 (978) 715-73-55</a>
                         </div>
                     </div>
                     <div class="col-4">
@@ -31,38 +37,14 @@
                             <svg class="icon">
                                 <use xlink:href="{{ asset('img/symbols.svg#map') }}"></use>
                             </svg>
-                            Москва, Варшавское шоссе 16, офис 135
+                            Республика Крым, Симферополь
                         </div>
                     </div>
                     <div class="col-5">
                         <div class="search__socials-icons">
                             <div class="btn call__popup" data-target="popup__recall">Перезвонить нам</div>
                             <div class="delimiter"></div>
-                            <a href="#">
-                                <svg class="icon vk">
-                                    <use xlink:href="{{ asset('img/symbols.svg#vk') }}"></use>
-                                </svg>
-                            </a>
-                            <a href="#">
-                                <svg class="icon fb">
-                                    <use xlink:href="{{ asset('img/symbols.svg#fb') }}"></use>
-                                </svg>
-                            </a>
-                            <a href="#">
-                                <svg class="icon ok">
-                                    <use xlink:href="{{ asset('img/symbols.svg#ok') }}"></use>
-                                </svg>
-                            </a>
-                            <a href="#">
-                                <svg class="icon twitter">
-                                    <use xlink:href="{{ asset('img/symbols.svg#twitter') }}"></use>
-                                </svg>
-                            </a>
-                            <a href="#">
-                                <svg class="icon insta">
-                                    <use xlink:href="{{ asset('img/symbols.svg#insta') }}"></use>
-                                </svg>
-                            </a>
+                            @include('layouts.partials.socials')
                         </div>
                     </div>
                 </div>
@@ -107,49 +89,25 @@
                         <svg class="icon map">
                             <use xlink:href="{{ asset('img/symbols.svg#map') }}"></use>
                         </svg>
-                        Москва, Варшавское шоссе 16, офис 135
+                        Республика Крым, Симферополь
                     </div>
                     <div class="contact">
                         <svg class="icon">
                             <use xlink:href="{{ asset('img/symbols.svg#phone') }}"></use>
                         </svg>
-                        <a href="tel:+74956649442">+7 (495) 664-94-42</a>
+                        <a href="tel:+79787157355" title="Позвонить">+7 (978) 715-73-55</a>
                     </div>
                     <div class="contact">
                         <svg class="icon">
                             <use xlink:href="{{ asset('img/symbols.svg#phone') }}"></use>
                         </svg>
-                        <a href="tel:+74956649442">+7 (495) 664-94-42</a>
+                        <a href="tel:+79787971006" title="Позвонить">+7 (978) 797-10-06</a>
                     </div>
                 </div>
                 <div class="col-4 right">
                     <div class="btn call__popup" data-target="popup__recall">Перезвонить нам</div>
                     <div class="socials">
-                        <a href="#">
-                            <svg class="icon vk">
-                                <use xlink:href="{{ asset('img/symbols.svg#vk') }}"></use>
-                            </svg>
-                        </a>
-                        <a href="#">
-                            <svg class="icon fb">
-                                <use xlink:href="{{ asset('img/symbols.svg#fb') }}"></use>
-                            </svg>
-                        </a>
-                        <a href="#">
-                            <svg class="icon ok">
-                                <use xlink:href="{{ asset('img/symbols.svg#ok') }}"></use>
-                            </svg>
-                        </a>
-                        <a href="#">
-                            <svg class="icon twitter">
-                                <use xlink:href="{{ asset('img/symbols.svg#twitter') }}"></use>
-                            </svg>
-                        </a>
-                        <a href="#">
-                            <svg class="icon insta">
-                                <use xlink:href="{{ asset('img/symbols.svg#insta') }}"></use>
-                            </svg>
-                        </a>
+                        @include('layouts.partials.socials')
                     </div>
                 </div>
             </div>
@@ -164,38 +122,13 @@
     <div class="mobile__menu">
         @includeWhen($menu->get('menu_header'), 'layouts.menus.footer_mobile', ['menu' => $menu])
         <div class="socials">
-            <a href="#">
-                <svg class="icon vk">
-                    <use xlink:href="{{ asset('img/symbols.svg#vk') }}"></use>
-                </svg>
-            </a>
-            <a href="#">
-                <svg class="icon fb">
-                    <use xlink:href="{{ asset('img/symbols.svg#fb') }}"></use>
-                </svg>
-            </a>
-            <a href="#">
-                <svg class="icon ok">
-                    <use xlink:href="{{ asset('img/symbols.svg#ok') }}"></use>
-                </svg>
-            </a>
-            <a href="#">
-                <svg class="icon twitter">
-                    <use xlink:href="{{ asset('img/symbols.svg#twitter') }}"></use>
-                </svg>
-            </a>
-            <a href="#">
-                <svg class="icon insta">
-                    <use xlink:href="{{ asset('img/symbols.svg#insta') }}"></use>
-                </svg>
-            </a>
+            @include('layouts.partials.socials')
         </div>
         <div class="close-menu-btn"></div>
         <div class="menu-overlay-mob"></div>
     </div>
 
     @include('layouts.forms.recall')
-    <div class="notify"></div>
     <script src="{{ asset('js/app.min.js') }}" defer></script>
 </body>
 </html>

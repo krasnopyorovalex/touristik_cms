@@ -127,6 +127,16 @@ $(function() {
         CKEDITOR.replace( 'editor-full');
     }
 
+    var tabsEditors = $("textarea.tabs__editor");
+    if(tabsEditors) {
+        tabsEditors.each(function(){
+            var txt = $(this).attr('name');
+            CKEDITOR.replace(txt , {
+                height :'120'
+            });
+        });
+    }
+
     if($('#editor-full2').length) {
         CKEDITOR.replace( 'editor-full2', {
             height: '120px',

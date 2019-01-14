@@ -29,6 +29,10 @@ class GetServiceByAliasQuery
      */
     public function handle()
     {
-        return Service::where('alias', $this->alias)->firstOrFail();
+        return Service::where('alias', $this->alias)->with(['tabs','originTabs', 'relativeServices', 'gallery' => function($query) {
+            return $query->with(['images']);
+        }, 'services' => function($query){
+            return $query->with(['image']);
+        }])->firstOrFail();
     }
 }

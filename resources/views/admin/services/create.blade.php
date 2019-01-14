@@ -17,27 +17,68 @@
             <form action="{{ route('admin.services.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
 
-                <div class="form-group">
-                    <label for="parent_id">Родительская услуга</label>
-                    <select class="form-control border-blue border-xs select-search" id="parent_id" name="parent_id" data-width="100%">
-                        <option value="">Не выбрано</option>
-                        @foreach($services as $service)
-                            <option value="{{ $service->id }}">{{ $service->name }}</option>
-                        @endforeach
-                    </select>
+                <div class="tabbable">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#main" data-toggle="tab">Основное</a></li>
+                        <li><a href="#related" data-toggle="tab">Сопутствующие туры</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="main">
+                            <div class="form-group">
+                                <label for="parent_id">Родительская услуга</label>
+                                <select class="form-control border-blue border-xs select-search" id="parent_id" name="parent_id" data-width="100%">
+                                    <option value="">Не выбрано</option>
+                                    @foreach($services as $service)
+                                        <option value="{{ $service->id }}">{{ $service->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            @select(['name' => 'gallery_id', 'label' => 'Галерея', 'items' => $galleries])
+
+                            @input(['name' => 'name', 'label' => 'Название'])
+                            @input(['name' => 'title', 'label' => 'Title'])
+                            @input(['name' => 'description', 'label' => 'Description'])
+                            @input(['name' => 'alias', 'label' => 'Alias'])
+
+                            @imageInput(['name' => 'image', 'type' => 'file', 'label' => 'Выберите изображение на компьютере'])
+
+                            @textarea(['name' => 'short_text', 'label' => 'Краткое описание', 'id' => 'editor-full2'])
+                            @textarea(['name' => 'text', 'label' => 'Текст'])
+                            @checkbox(['name' => 'is_published', 'label' => 'Опубликовано?', 'isChecked' => true])
+
+                            <hr>
+                            <h3>Вкладки</h3>
+
+                            @foreach ($tabs as $tab)
+                                <div class="form-group">
+                                    <label for="editor-full-tab-{{ $tab->id }}">{{ $tab->name }}:</label>
+                                    <textarea class="form-control border-blue border-xs tabs__editor" rows="" id="editor-full-tab-{{ $tab->id }}" name="tabs[{{ $tab->id }}]"></textarea>
+                                </div>
+                            @endforeach
+
+                            @submit_btn()
+                        </div>
+                        <div class="tab-pane" id="related">
+                            <div class="form-group">
+                                <label for="services">Выберите сопутствующие туры</label>
+                                <select class="form-control border-blue border-xs select-search" multiple="multiple" id="services" name="services[]" data-width="100%">
+                                    @foreach($services as $s)
+                                        @if ($s->services)
+                                        <optgroup label="{{ $s->name }}">
+                                            @foreach ($s->services as $subService)
+                                                <option value="{{ $subService->id }}">{{ $subService->name }}</option>
+                                            @endforeach
+                                        </optgroup>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
+                            @submit_btn()
+                        </div>
+                    </div>
                 </div>
-
-                @input(['name' => 'name', 'label' => 'Название'])
-                @input(['name' => 'title', 'label' => 'Title'])
-                @input(['name' => 'description', 'label' => 'Description'])
-                @input(['name' => 'alias', 'label' => 'Alias'])
-
-                @imageInput(['name' => 'image', 'type' => 'file', 'label' => 'Выберите изображение на компьютере'])
-
-                @textarea(['name' => 'text', 'label' => 'Текст'])
-                @checkbox(['name' => 'is_published', 'label' => 'Опубликовано?', 'isChecked' => true])
-
-                @submit_btn()
             </form>
 
         </div>

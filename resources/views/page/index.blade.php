@@ -35,7 +35,7 @@
                 </div>
                 <div class="col-6">
                     <div class="img__bg">
-                        <img src="./img/info_text-bg.jpg" alt="alt">
+                        <img src="{{ asset('img/info_text-bg.jpg') }}" alt="alt">
                     </div>
                 </div>
             </div>

@@ -18,9 +18,11 @@ class CreateServiceRequest extends Request
             'title' => 'required|max:512|string',
             'description' => 'required|string|max:512',
             'text' => 'required|string',
+            'short_text' => 'string|nullable',
             'alias' => 'required|max:64|unique:services',
             'is_published' => 'digits_between:0,1',
             'pos' => 'integer|min:0|max:255',
+            'gallery_id' => 'integer|exists:galleries,id|nullable',
             'image' => 'image'
         ];
     }

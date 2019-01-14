@@ -7,4 +7,3 @@
         </div>
     </div>
 </div>
-<div class="popup__show-bg"></div>

@@ -15,7 +15,8 @@ class OrderCheckRequest extends Request
         return [
             'name' => 'required|string|min:3',
             'phone' => 'required|string|min:5',
-            'email' => 'required|email',
+            'email' => 'email|nullable',
+            'service' => 'string|nullable',
             'info' => 'string|nullable'
         ];
     }

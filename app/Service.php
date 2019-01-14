@@ -25,7 +25,7 @@ class Service extends Model
     /**
      * @var array
      */
-    protected $fillable = ['parent_id', 'name', 'title', 'description', 'text', 'alias', 'is_published', 'pos'];
+    protected $fillable = ['parent_id', 'gallery_id', 'name', 'title', 'description', 'text', 'short_text', 'alias', 'is_published', 'pos'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -33,6 +33,14 @@ class Service extends Model
     public function services()
     {
         return $this->hasMany('App\Service', 'parent_id', 'id')->orderBy('pos');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function gallery()
+    {
+        return $this->belongsTo('App\Gallery');
     }
 
     /**
@@ -52,10 +60,42 @@ class Service extends Model
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function tabs()
+    {
+        return $this->hasMany(ServiceTab::class, 'service_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function originTabs()
+    {
+        return $this->belongsToMany(Tab::class, 'service_tabs', 'service_id', 'tab_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function relativeServices()
+    {
+        return $this->belongsToMany(Service::class, 'service_relatives', 'service_id', 'service_relative_id');
+    }
+
+    /**
      * @return string
      */
     public function getUrlAttribute(): string
     {
         return route("service.show", $this->alias);
+    }
+
+    /**
+     * @return string
+     */
+    public function getTemplate(): string
+    {
+        return $this->parent_id ? 'service.single' : 'service.index';
     }
 }

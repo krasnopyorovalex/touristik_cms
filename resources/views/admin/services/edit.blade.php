@@ -22,6 +22,7 @@
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#main" data-toggle="tab">Основное</a></li>
                         <li><a href="#image" data-toggle="tab">Изображение</a></li>
+                        <li><a href="#related" data-toggle="tab">Сопутствующие туры</a></li>
                     </ul>
 
                     <div class="tab-content">
@@ -37,13 +38,29 @@
                                 </select>
                             </div>
 
+                            @select(['name' => 'gallery_id', 'label' => 'Галерея', 'items' => $galleries, 'entity' => $service])
+
                             @input(['name' => 'name', 'label' => 'Название', 'entity' => $service])
                             @input(['name' => 'title', 'label' => 'Title', 'entity' => $service])
                             @input(['name' => 'description', 'label' => 'Description', 'entity' => $service])
 
                             @input(['name' => 'alias', 'label' => 'Alias', 'entity' => $service])
+
+                            @textarea(['name' => 'short_text', 'label' => 'Краткое описание', 'entity' => $service, 'id' => 'editor-full2'])
                             @textarea(['name' => 'text', 'label' => 'Текст', 'entity' => $service])
                             @checkbox(['name' => 'is_published', 'label' => 'Опубликовано?', 'entity' => $service])
+
+                            @if(count($tabs))
+                                <hr>
+                                <h3>Вкладки</h3>
+
+                                @foreach ($tabs as $tab)
+                                    <div class="form-group">
+                                        <label for="editor-full-tab-{{ $tab->id }}">{{ $tab->name }}:</label>
+                                        <textarea class="form-control border-blue border-xs tabs__editor" rows="" id="editor-full-tab-{{ $tab->id }}" name="tabs[{{ $tab->id }}]">{{ $service->tabs[$tab->id] ?? '' }}</textarea>
+                                    </div>
+                                @endforeach
+                            @endif
 
                             @submit_btn()
                         </div>
@@ -62,6 +79,25 @@
                                 </div>
                             @endif
                             @imageInput(['name' => 'image', 'type' => 'file', 'entity' => $service, 'label' => 'Выберите изображение на компьютере'])
+                            @submit_btn()
+                        </div>
+                        <div class="tab-pane" id="related">
+                            <div class="form-group">
+                                <label for="services">Выберите сопутствующие туры</label>
+                                <select class="form-control border-blue border-xs select-search" multiple="multiple" id="services" name="services[]" data-width="100%">
+                                    @foreach($services as $s)
+                                        @if ($s->services)
+                                            <optgroup label="{{ $s->name }}">
+                                                @foreach ($s->services as $subService)
+                                                    @if ($subService->id !== $service->id)
+                                                    <option value="{{ $subService->id }}" {{ in_array($subService->id, $serviceRelatives) ? 'selected' : '' }}>{{ $subService->name }}</option>
+                                                    @endif
+                                                @endforeach
+                                            </optgroup>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
                             @submit_btn()
                         </div>
                     </div>

@@ -5,7 +5,7 @@
                 <a href="{{ route('page.show', ['alias' => $page->alias]) }}">{{ $page->name }}</a>
                 @if ($page->template == 'page.blog' && count($articles))
                     <ul>
-                        @foreach($blogs as $blog)
+                        @foreach($articles as $blog)
                             <li>
                                 <a href="{{ route('blog.show', ['alias' => $blog->alias]) }}">{{ $blog->name }}</a>
                             </li>

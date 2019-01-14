@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Domain\Service\Queries\GetServiceByAliasQuery;
 use App\Service;
-use App\Services\TextParserService;
 
 /**
  * Class ServiceController
@@ -12,20 +11,6 @@ use App\Services\TextParserService;
  */
 class ServiceController extends PageController
 {
-    /**
-     * @var TextParserService
-     */
-    private $parserService;
-
-    /**
-     * ServiceController constructor.
-     * @param TextParserService $parserService
-     */
-    public function __construct(TextParserService $parserService)
-    {
-        $this->parserService = $parserService;
-    }
-
     /**
      * @param string $alias
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -36,10 +21,13 @@ class ServiceController extends PageController
             /** @var $service Service*/
             $service = $this->dispatch(new GetServiceByAliasQuery($alias));
             $service->text = $this->parserService->parse($service);
+            $service->tabs = $service->tabs->mapWithKeys(function ($item) {
+                return [$item->tab_id => $item->value];
+            });
         } catch (\Exception $exception) {
             return parent::show($alias);
         }
 
-        return view('service.index', ['service' => $service]);
+        return view($service->getTemplate(), ['service' => $service]);
     }
 }

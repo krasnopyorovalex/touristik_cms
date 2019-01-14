@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Domain\Gallery\Queries\GetAllGalleriesQuery;
 use App\Domain\Service\Commands\CreateServiceCommand;
 use App\Domain\Service\Commands\DeleteServiceCommand;
 use App\Domain\Service\Commands\UpdateServiceCommand;
 use App\Domain\Service\Queries\GetAllServicesQuery;
 use App\Domain\Service\Queries\GetServiceByIdQuery;
+use App\Domain\Tab\Queries\GetAllTabsQuery;
 use App\Http\Controllers\Controller;
 use App\Service;
 use Domain\Service\Requests\CreateServiceRequest;
@@ -40,10 +42,14 @@ class ServiceController extends Controller
     public function create()
     {
         $services = $this->dispatch(new GetAllServicesQuery());
+        $galleries = $this->dispatch(new GetAllGalleriesQuery());
+        $tabs = $this->dispatch(new GetAllTabsQuery());
 
         return view('admin.services.create', [
             'services' => $services,
-            'service' => new Service
+            'service' => new Service,
+            'galleries' => $galleries,
+            'tabs' => $tabs
         ]);
     }
 
@@ -70,10 +76,20 @@ class ServiceController extends Controller
     {
         $service = $this->dispatch(new GetServiceByIdQuery($id));
         $services = $this->dispatch(new GetAllServicesQuery($service));
+        $galleries = $this->dispatch(new GetAllGalleriesQuery());
+        $tabs = $this->dispatch(new GetAllTabsQuery());
+        $serviceRelatives = get_ids_from_array($service->relativeServices->toArray());
+
+        $service->tabs = $service->tabs->mapWithKeys(function ($item) {
+            return [$item->tab_id => $item->value];
+        });
 
         return view('admin.services.edit', [
             'service' => $service,
-            'services' => $services
+            'services' => $services,
+            'galleries' => $galleries,
+            'tabs' => $tabs,
+            'serviceRelatives' => $serviceRelatives
         ]);
     }
 

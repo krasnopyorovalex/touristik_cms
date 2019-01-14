@@ -29,6 +29,6 @@ class GetServiceByIdQuery
      */
     public function handle()
     {
-        return Service::findOrFail($this->id);
+        return Service::with(['relativeServices', 'tabs'])->findOrFail($this->id);
     }
 }

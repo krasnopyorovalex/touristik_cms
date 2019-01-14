@@ -56,7 +56,7 @@
                 <div class="row">
                     <div class="col-12">
                         @includeWhen($menu->get('menu_header'), 'layouts.menus.header', ['menu' => $menu])
-                        <div class="call__popup call__btn visible__sm"></div>
+                        <a href="tel:+79787157355" class="call__btn visible__sm"></a>
                         <div class="burger-mob visible__sm">
                             <span></span>
                         </div>

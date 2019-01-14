@@ -27,13 +27,17 @@
                 <div class="row">
                     <div class="col-3">
                         <div class="phone">
-
+                            <svg class="icon">
+                                <use xlink:href="{{ asset('img/symbols.svg#phone') }}"></use>
+                            </svg>
                             <a href="tel:+79787157355" title="Позвонить">+7 (978) 715-73-55</a>
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="address">
-
+                            <svg class="icon">
+                                <use xlink:href="{{ asset('img/symbols.svg#map') }}"></use>
+                            </svg>
                             Республика Крым, Симферополь
                         </div>
                     </div>

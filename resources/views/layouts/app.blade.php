@@ -15,12 +15,6 @@
     <meta name="robots" content="noindex, nofollow" />
 </head>
 <body>
-    <div class="loader">
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-    </div>
-    <div class="loader__bg"></div>
     <header>
         <div class="top__line">
             <div class="container">

@@ -32,7 +32,9 @@
             @if (count($service->services))
             <div class="row">
                 <div class="col-9">
-                    {!! $service->short_text !!}
+                    <div class="text">
+                        {!! $service->short_text !!}
+                    </div>
                     <div class="catalog__items">
                         @foreach ($service->services as $subService)
                             <div class="catalog__items-item">

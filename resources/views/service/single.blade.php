@@ -52,7 +52,9 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    {!! $service->text !!}
+                    <div class="text">
+                        {!! $service->text !!}
+                    </div>
                 </div>
             </div>
             @if (count($service->originTabs))

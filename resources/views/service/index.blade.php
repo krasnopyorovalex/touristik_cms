@@ -22,7 +22,7 @@
         </div>
     </section>
 
-    <main class="catalog">
+    <main class="catalog seo page">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -32,7 +32,7 @@
             @if (count($service->services))
             <div class="row">
                 <div class="col-9">
-                    <div class="text">
+                    <div class="text__block">
                         {!! $service->short_text !!}
                     </div>
                     <div class="catalog__items">

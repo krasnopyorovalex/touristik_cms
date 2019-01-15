@@ -22,7 +22,7 @@
         </div>
     </section>
 
-    <main>
+    <main class="seo page single__tour">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -52,7 +52,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <div class="text">
+                    <div class="text__block">
                         {!! $service->text !!}
                     </div>
                 </div>

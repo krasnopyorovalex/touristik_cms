@@ -16,7 +16,7 @@
         <i class="icon human"></i>
     </div>
     <div class="single__block phone">
-        <input type="text" name="phone" class="phone" required>
+        <input type="text" name="phone" class="phone__mask" required>
         <i class="icon phone"></i>
     </div>
     <div class="single__block email">

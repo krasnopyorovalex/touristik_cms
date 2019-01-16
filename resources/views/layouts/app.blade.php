@@ -131,7 +131,7 @@
 
     @include('layouts.forms.recall')
     <div class="popup__show-bg"></div><div class="notify"></div>
-    <script src="{{ asset('js/jquery.3.3.1.min.js') }}" defer></script>
-    <script src="{{ asset('js/app.min.js') }}" defer></script>
+    <script src="{{ asset('js/jquery.3.3.1.min.js') }}"></script>
+    <script src="{{ asset('js/app.min.js') }}"></script>
 </body>
 </html>

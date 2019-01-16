@@ -26,7 +26,24 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    @include('layouts.partials.breadcrumbs', ['page' => $service, 'parent' => $service->parent])
+                    <ul class="breadcrumbs" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+                        <li itemscope="" itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+                            <a href="{{ route('page.show') }}">Главная</a>
+                            <meta itemprop="position" content="1">
+                        </li>
+                        <li itemscope="" itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+                            <a href="{{ route('page.show', ['alias' => 'turi']) }}">Туры</a>
+                            <meta itemprop="position" content="2">
+                        </li>
+                        <li itemscope="" itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+                            <a href="{{ route('page.show', ['alias' => $service->parent->alias]) }}">{{ $service->parent->name }}</a>
+                            <meta itemprop="position" content="3">
+                        </li>
+                        <li itemscope="" itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+                            {{ $service->name }}
+                            <meta itemprop="position" content="4">
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div class="row">

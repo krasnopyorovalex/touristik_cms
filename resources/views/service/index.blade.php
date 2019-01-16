@@ -38,11 +38,13 @@
                     <div class="catalog__items">
                         @foreach ($service->services as $subService)
                             <div class="catalog__items-item">
+                                @if ($subService->image)
                                 <figure>
                                     <a href="{{ $subService->url }}">
                                         <img src="{{ $subService->image->path }}" alt="{{ $subService->image->alt }}" title="{{ $subService->image->title }}">
                                     </a>
                                 </figure>
+                                @endif
                                 <div class="catalog__items-info">
                                     <div class="name">
                                         <a href="{{ $subService->url }}">{{ $subService->name }}</a>

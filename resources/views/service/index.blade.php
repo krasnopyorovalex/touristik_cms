@@ -22,7 +22,7 @@
         </div>
     </section>
 
-    <main class="catalog seo page">
+    <main class="catalog page">
         <div class="container">
             <div class="row">
                 <div class="col-12">

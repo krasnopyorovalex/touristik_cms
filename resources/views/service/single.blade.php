@@ -88,9 +88,6 @@
             <div class="row">
                 <div class="col-12">
                     <div class="title">Туры, которые могут Вас заинтересовать</div>
-                    <div class="sub__title">
-                        Другие товары
-                    </div>
 
                     <div class="catalog__items owl-carousel owl-theme">
                         @foreach ($service->relativeServices as $subService)

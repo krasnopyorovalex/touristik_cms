@@ -31,18 +31,20 @@
             </div>
             <div class="row">
                 <div class="col-7">
-                    @if ($service->gallery && count($service->gallery->images))
-                    <div class="product__carousel owl-theme owl-carousel">
-                        @foreach ($service->gallery->images as $image)
-                            <img src="{{ $image->getPath() }}" alt="{{ $image->alt }}" title="{{ $image->title }}">
-                        @endforeach
+                    <div class="carousel__box">
+                        @if ($service->gallery && count($service->gallery->images))
+                        <div class="product__carousel owl-theme owl-carousel">
+                            @foreach ($service->gallery->images as $image)
+                                <img src="{{ $image->getPath() }}" alt="{{ $image->alt }}" title="{{ $image->title }}">
+                            @endforeach
+                        </div>
+                        <div class="product__carousel-thumbs owl-theme owl-carousel">
+                            @foreach ($service->gallery->images as $image)
+                                <img src="{{ $image->getThumb() }}" alt="{{ $image->alt }}" title="{{ $image->title }}" data-index="{{ $loop->index }}">
+                            @endforeach
+                        </div>
+                        @endif
                     </div>
-                    <div class="product__carousel-thumbs owl-theme owl-carousel">
-                        @foreach ($service->gallery->images as $image)
-                            <img src="{{ $image->getThumb() }}" alt="{{ $image->alt }}" title="{{ $image->title }}" data-index="{{ $loop->index }}">
-                        @endforeach
-                    </div>
-                    @endif
                 </div>
                 <div class="col-5">
                     <div class="product__text">

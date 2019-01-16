@@ -18,6 +18,11 @@ class UploadImagesService
     private $widthThumb = 192;
 
     /**
+     * @var int
+     */
+    private $heightThumb = null;
+
+    /**
      * @var \Illuminate\Http\UploadedFile
      */
     private $image;
@@ -50,7 +55,6 @@ class UploadImagesService
         return $this;
     }
 
-
     /**
      * @param int $widthThumb
      * @return UploadImagesService
@@ -58,7 +62,16 @@ class UploadImagesService
     public function setWidthThumb(int $widthThumb): self
     {
         $this->widthThumb = $widthThumb;
+        return $this;
+    }
 
+    /**
+     * @param int $heightThumb
+     * @return UploadImagesService
+     */
+    public function setHeightThumb(int $heightThumb): UploadImagesService
+    {
+        $this->heightThumb = $heightThumb;
         return $this;
     }
 
@@ -98,7 +111,7 @@ class UploadImagesService
 
     private function createThumb(): void
     {
-        (new ImageManager())->make($this->image)->resize($this->widthThumb, null, function ($constraint) {
+        (new ImageManager())->make($this->image)->resize($this->widthThumb, $this->heightThumb, function ($constraint) {
             $constraint->aspectRatio();
         })->save(public_path('storage/' . $this->entity . '/' . $this->entityId .'/' . $this->getImageHashName() . '_thumb.' . $this->getExt()));
     }

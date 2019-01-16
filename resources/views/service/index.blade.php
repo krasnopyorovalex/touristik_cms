@@ -68,7 +68,7 @@
 
     @includeWhen($service->gallery, 'layouts.sections.gallery', ['gallery' => $service->gallery])
 
-    <section class="seo">
+    <section class="seo text__block">
         <div class="container">
             <div class="row">
                 <div class="col-12">

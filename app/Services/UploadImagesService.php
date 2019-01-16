@@ -111,8 +111,9 @@ class UploadImagesService
 
     private function createThumb(): void
     {
-        (new ImageManager())->make($this->image)->resize($this->widthThumb, $this->heightThumb, function ($constraint) {
-            $constraint->aspectRatio();
-        })->save(public_path('storage/' . $this->entity . '/' . $this->entityId .'/' . $this->getImageHashName() . '_thumb.' . $this->getExt()));
+        (new ImageManager())
+            ->make($this->image)
+            ->resize($this->widthThumb, $this->heightThumb)
+            ->save(public_path('storage/' . $this->entity . '/' . $this->entityId .'/' . $this->getImageHashName() . '_thumb.' . $this->getExt()));
     }
 }

@@ -47,6 +47,26 @@
                 </div>
             </div>
         </div>
+        <div class="navigation">
+            <div class="container">
+                <div class="row">
+                    <div class="col-only-6 center">
+                        @if ($prev)
+                            <a href="{{ route('blog.show', $prev->alias) }}" class="prev__item">
+                                {{ $prev->name }} <span data-text="Следующая статья"></span>
+                            </a>
+                        @endif
+                    </div>
+                    <div class="col-only-6 center">
+                        @if ($next)
+                            <a href="{{ route('blog.show', $next->alias) }}" class="next__item">
+                                {{ $next->name }} <span data-text="Предыдущая статья"></span>
+                            </a>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     @include('layouts.partials.begin_travel')

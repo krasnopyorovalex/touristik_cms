@@ -18,12 +18,12 @@ class BlogController extends Controller
     public function show(string $alias)
     {
         $article = $this->dispatch(new GetArticleByAliasQuery($alias));
-        //$adjoiningArticles = $this->dispatch(new GetAdjoiningArticleQuery());
+        $adjoiningArticles = $this->dispatch(new GetAdjoiningArticleQuery());
 
         return view('article.index', [
             'article' => $article,
-            //'next' => $adjoiningArticles->nextOrFirst($article),
-            //'prev' => $adjoiningArticles->prevOrLast($article)
+            'next' => $adjoiningArticles->nextOrFirst($article),
+            'prev' => $adjoiningArticles->prevOrLast($article)
         ]);
     }
 }

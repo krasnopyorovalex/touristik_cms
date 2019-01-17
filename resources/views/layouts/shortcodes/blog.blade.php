@@ -15,6 +15,7 @@
             @endif
             <div class="desc">
                 <div class="date">
+                    <div class="icon__calendar"></div>
                     <time itemprop="datePublished" datetime="{{ $article->published_at->format('c') }}">
                         {{ $article->published_at->formatLocalized('%d %b %Y') }}
                     </time>

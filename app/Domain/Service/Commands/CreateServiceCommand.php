@@ -37,7 +37,7 @@ class CreateServiceCommand
         $service->save();
 
         if($this->request->has('image')) {
-            return $this->dispatch(new UploadImageCommand($this->request, $service->id, Service::class));
+            $this->dispatch(new UploadImageCommand($this->request, $service->id, Service::class));
         }
 
         $service->relativeServices()->attach($this->request->post('services'));
@@ -47,9 +47,9 @@ class CreateServiceCommand
     }
 
     /**
-     * @param $service
+     * @param Service $service
      */
-    private function attachTabs($service): void
+    private function attachTabs(Service $service): void
     {
         if ($this->request->post('tabs')) {
             foreach ($this->request->post('tabs') as $key => $value) {

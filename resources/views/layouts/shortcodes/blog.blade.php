@@ -25,7 +25,7 @@
                     {!! $article->preview !!}
                 </div>
                 <div class="btn__box">
-                    <a href="{{ $article->url }}" class="btn">Подробнее</a>
+                    <a href="{{ $article->url }}" class="btn">Дальше интереснее</a>
                 </div>
             </div>
         </article>

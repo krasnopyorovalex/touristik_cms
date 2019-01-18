@@ -31,6 +31,9 @@ class AdjoiningResult
      */
     public function nextOrFirst(Article $article)
     {
+        if ($this->collection->count() < 3) {
+            return false;
+        }
         return $this->collection->first(function ($value, $key) use ($article) {
             return $value->published_at < $article->published_at;
         }) ?: $this->collection->first();
@@ -42,6 +45,9 @@ class AdjoiningResult
      */
     public function prevOrLast(Article $article)
     {
+        if ($this->collection->count() < 3) {
+            return false;
+        }
         return $this->collection->last(function ($value, $key) use ($article) {
             return $value->published_at > $article->published_at;
         }) ?: $this->collection->last();

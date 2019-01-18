@@ -97,7 +97,7 @@ if (! function_exists('add_css_class')) {
     function add_css_class($item)
     {
         $classes = [];
-        if ($item->is_service) {
+        if (count($item->menuItems)) {
             array_push($classes, 'has__child');
         }
         if (trim($item->link,'/') == request()->path() || request()->path() == $item->link) {

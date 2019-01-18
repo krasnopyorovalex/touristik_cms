@@ -73,7 +73,7 @@
             <div class="row">
                 <div class="col-2">
                     <ul>
-                        <li><a href="#">Главная</a></li>
+                        <li><a href="{{ route('page.show') }}">Главная</a></li>
                         <li><a href="#">О нас</a></li>
                         <li><a href="#">Каталог товаров</a></li>
                     </ul>

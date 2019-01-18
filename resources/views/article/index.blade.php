@@ -42,6 +42,7 @@
                         </li>
                     </ul>
                     <div class="seo__text">
+                        <time itemprop="datePublished" datetime="{{ $article->published_at->format('c') }}"></time>
                         {!! $article->text !!}
                     </div>
                 </div>

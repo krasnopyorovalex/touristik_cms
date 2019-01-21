@@ -82,7 +82,7 @@
                     <ul>
                         <li><a href="#">Отзывы</a></li>
                         <li><a href="#">Блог</a></li>
-                        <li><a href="#">Контакты</a></li>
+                        <li><a href="{{ route('page.show',['alias' => 'sitemap']) }}">Карта сайта</a></li>
                     </ul>
                 </div>
                 <div class="col-4">

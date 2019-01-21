@@ -94,36 +94,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-3">
-                    <div class="guide__item">
-                        <a href="#">
-                            <div class="ava">
-                                <img src="./img/guide-01.jpg" alt="alt">
-                            </div>
-                        </a>
-                        <div class="info">
-                            <a href="#" class="name">Игорь бунев</a>
-                            <div class="text">
-                                <p>Пешие туры, поднятие в горы. Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="guide__item">
-                        <a href="#">
-                            <div class="ava">
-                                <img src="./img/guide-04.jpeg" alt="alt">
-                            </div>
-                        </a>
-                        <div class="info">
-                            <a href="#" class="name">Ольга Лесова</a>
-                            <div class="text">
-                                <p>Пешие туры, поднятие в горы. Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>

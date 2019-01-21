@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use App\Domain\Article\Queries\GetAllArticlesQuery;
 use App\Domain\Page\Queries\GetAllPagesQuery;
+use App\Domain\Service\Queries\GetAllServicesQuery;
 use Closure;
 use Illuminate\Http\Response;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -33,10 +34,12 @@ class ShortCodeMiddleware
                 '#(<p(.*)>)?{sitemap}(<\/p>)?#' => function () {
                     $pages = $this->dispatch(new GetAllPagesQuery());
                     $articles = $this->dispatch(new GetAllArticlesQuery(true));
+                    $services = $this->dispatch(new GetAllServicesQuery());
 
                     return view('layouts.shortcodes.sitemap', [
                         'pages' => $pages,
-                        'articles' => $articles
+                        'articles' => $articles,
+                        'services' => $services
                     ]);
                 }
             ],

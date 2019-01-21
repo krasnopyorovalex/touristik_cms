@@ -30,16 +30,6 @@
                 @endif
         @endforeach
     @endif
-    @if (count($portfolios))
-        @foreach($portfolios as $portfolio)
-            <url>
-                <loc>{{ route('portfolio.show', ['alias' => $portfolio->alias]) }}</loc>
-                <lastmod>{{ Illuminate\Support\Carbon::now()->format("Y-m-d\\TH:i:sP") }}</lastmod>
-                <changefreq>daily</changefreq>
-                <priority>0.7</priority>
-            </url>
-        @endforeach
-    @endif
     @if (count($articles))
         @foreach($articles as $article)
             <url>

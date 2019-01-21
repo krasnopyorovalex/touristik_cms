@@ -12,6 +12,24 @@
                         @endforeach
                     </ul>
                 @endif
+                @if ($page->alias == 'turi' && count($services))
+                    <ul>
+                        @foreach($services as $service)
+                            <li>
+                                <a href="{{ route('page.show', ['alias' => $service->alias]) }}">{{ $service->name }}</a>
+                                @if (count($service->services))
+                                   <ul>
+                                       @foreach($service->services as $subService)
+                                           <li>
+                                               <a href="{{ route('page.show', ['alias' => $subService->alias]) }}">{{ $subService->name }}</a>
+                                           </li>
+                                       @endforeach
+                                   </ul>
+                                @endif
+                            </li>
+                        @endforeach
+                    </ul>
+                @endif
             </li>
         @endforeach
     @endif

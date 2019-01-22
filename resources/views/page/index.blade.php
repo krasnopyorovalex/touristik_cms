@@ -66,30 +66,26 @@
             <div class="row">
                 <div class="col-3">
                     <div class="guide__item">
-                        <a href="#">
-                            <div class="ava">
-                                <img src="./img/guide-02.jpg" alt="alt">
-                            </div>
-                        </a>
+                        <div class="ava">
+                            <img src="{{ asset('img/dima.jpg') }}" alt="Гид Дима" title="">
+                        </div>
                         <div class="info">
-                            <a href="#" class="name">Ольга Лесова</a>
+                            <div class="name">Дмитрий Васильченко</div>
                             <div class="text">
-                                <p>Пешие туры, поднятие в горы. Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                                <p>гид-проводник</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-3">
                     <div class="guide__item">
-                        <a href="#">
-                            <div class="ava">
-                                <img src="./img/guide-03.jpg" alt="alt">
-                            </div>
-                        </a>
+                        <div class="ava">
+                            <img src="{{ asset('img/sveta.jpg') }}" alt="Гид Света">
+                        </div>
                         <div class="info">
-                            <div class="name">Игорь бунев</div>
+                            <div class="name">Светлана Демченко</div>
                             <div class="text">
-                                <p>Пешие туры, поднятие в горы. Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                                <p>идейный вдохновитель</p>
                             </div>
                         </div>
                     </div>

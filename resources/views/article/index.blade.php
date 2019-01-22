@@ -43,6 +43,11 @@
                     </ul>
                     <div class="seo__text">
                         <time itemprop="datePublished" datetime="{{ $article->published_at->format('c') }}"></time>
+                        @if ($article->image)
+                            <figure>
+                                <img src="{{ $article->image->path }}" alt="{{ $article->image->alt }}" title="{{ $article->image->title }}" class="responsive" />
+                            </figure>
+                        @endif
                         {!! $article->text !!}
                     </div>
                 </div>

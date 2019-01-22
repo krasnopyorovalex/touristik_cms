@@ -29,7 +29,7 @@
     <div class="single__block i__agree">
         <input type="checkbox" name="agree" id="agree" checked="checked">
         <label for="agree">
-            Согласие на обработку персональных данных
+            Согласие на <a href="{{ route('page.show', ['alias' => 'personalnye-dannye']) }}" target="_blank">обработку персональных данных</a>
         </label>
         <p class="error">Согласитесь на обработку персональных данных</p>
     </div>

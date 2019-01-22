@@ -78,7 +78,7 @@
                                     </div>
                                 </div>
                             @endif
-                            @imageInput(['name' => 'image', 'type' => 'file', 'entity' => $service, 'label' => 'Выберите изображение на компьютере'])
+                            @imageInput(['name' => 'image', 'type' => 'file', 'entity' => $service, 'label' => 'Выберите изображение на компьютере(300x230px)'])
                             @submit_btn()
                         </div>
                         <div class="tab-pane" id="related">

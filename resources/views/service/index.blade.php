@@ -78,7 +78,7 @@
                         <!-- VK Widget -->
                         <div id="vk_groups"></div>
                         <script type="text/javascript">
-                            VK.Widgets.Group("vk_groups", {mode: 3}, 150179830);
+                            VK.Widgets.Group("vk_groups", {mode: 3, width: "auto"}, 150179830);
                         </script>
                     </div>
                 </div>

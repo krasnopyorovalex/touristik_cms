@@ -75,13 +75,13 @@
                     <ul>
                         <li><a href="{{ route('page.show') }}">Главная</a></li>
                         <li><a href="#">О нас</a></li>
-                        <li><a href="#">Каталог товаров</a></li>
+                        <li><a href="{{ route('page.show', ['alias' => 'turi']) }}">Наши туры</a></li>
                     </ul>
                 </div>
                 <div class="col-2">
                     <ul>
                         <li><a href="#">Отзывы</a></li>
-                        <li><a href="#">Блог</a></li>
+                        <li><a href="{{ route('page.show',['alias' => 'blog']) }}">Блог</a></li>
                         <li><a href="{{ route('page.show',['alias' => 'sitemap']) }}">Карта сайта</a></li>
                     </ul>
                 </div>

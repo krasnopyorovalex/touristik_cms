@@ -75,6 +75,4 @@
         </div>
     </main>
 
-    @include('layouts.partials.begin_travel')
-
 @endsection

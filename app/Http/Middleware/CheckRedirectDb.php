@@ -33,13 +33,20 @@ class CheckRedirectDb
            return redirect($existedInDb->url_new, 301);
         }
 
-        if (strpos($request->getPathInfo(), '//') !== false) {
+        if ((strpos($request->getPathInfo(), '//') !== false) || (substr($request->getPathInfo(), -1) == '/' && $request->getPathInfo() != '/')) {
+
             $actualUrl = preg_replace("/\/+/","/", $request->getPathInfo());
+
+            if( substr($actualUrl, -1) == '/' ){
+                while( substr($actualUrl, -1) == '/' ){
+                    $actualUrl = substr($actualUrl, 0, -1);
+                }
+            }
             return redirect($actualUrl, 301);
         }
 
-        if (strpos($request->fullUrl(), 'index.php') !== false) {
-            $actualUrl = str_replace('/index.php', '', $request->fullUrl());
+        if (strstr($request->fullUrl(), 'index.')) {
+            $actualUrl = preg_replace('#index\.(\w)*(\/)?#', '', $request->fullUrl());
             return redirect($actualUrl, 301);
         }
 

@@ -15,7 +15,8 @@ class UpdateGuestbookRequest extends Request
         return [
             'name' => 'bail|required|max:512',
             'text' => 'required|string',
-            'image' => 'image',
+            //'image' => 'image',
+            'is_published' => 'digits_between:0,1',
             'published_at' => 'date'
         ];
     }

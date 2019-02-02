@@ -28,9 +28,18 @@ class Guestbook extends Model
     public $timestamps = false;
 
     /**
+     * The attributes that should be mutated to dates.
+     *
      * @var array
      */
-    protected $fillable = ['name', 'text', 'city', 'pos', 'published_at'];
+    protected $dates = [
+        'published_at'
+    ];
+
+    /**
+     * @var array
+     */
+    protected $fillable = ['name', 'text', 'city', 'is_published', 'published_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphOne

@@ -79,6 +79,7 @@
                             <li><a href="{{ route('admin.services.index') }}"><i class="icon-list"></i> <span>Туры</span></a></li>
                             <li><a href="{{ route('admin.articles.index') }}"><i class="icon-magazine"></i> <span>Статьи</span></a></li>
                             <li><a href="{{ route('admin.guestbooks.index') }}"><i class="icon-bubble2"></i> <span>Отзывы</span></a></li>
+                            <li><a href="{{ route('admin.schedules.index') }}"><i class="icon-calendar52"></i> <span>Расписание</span></a></li>
                             <li><a href="{{ route('admin.sliders.index') }}"><i class="icon-images2"></i> <span>Слайдер</span></a></li>
                             <li><a href="{{ route('admin.galleries.index') }}"><i class="icon-stack-picture"></i> <span>Галерея</span></a></li>
                             <li><a href="{{ route('admin.tabs.index') }}"><i class="icon-stack"></i> <span>Вкладки</span></a></li>
@@ -90,7 +91,7 @@
                     </div>
                 </div>
                 <!-- /main navigation -->
-                
+
                 <div class="info_btn">
                     <button type="button" data-toggle="modal" data-target="#modal_info-bar" class="btn btn-primary btn-labeled btn-xlg"><b><i class="icon-info3"></i></b> Информация</button>
                 </div>
@@ -155,6 +156,7 @@
                 <ul>
                     <li>Карта сайта - {sitemap}</li>
                     <li>Блог - {blog}</li>
+                    <li>Расписание туров - {schedule}</li>
                 </ul>
             </div>
 

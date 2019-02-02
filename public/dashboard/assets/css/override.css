@@ -315,3 +315,6 @@ li.mjs-nestedSortable-collapsed.mjs-nestedSortable-hovering div {
     width: 50px;
     height: 50px;
 }
+.table p {
+    margin: 0;
+}

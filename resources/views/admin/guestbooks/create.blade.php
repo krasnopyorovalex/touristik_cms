@@ -18,10 +18,10 @@
                 @csrf
 
                 @input(['name' => 'name', 'label' => 'Название'])
-
-                @imageInput(['name' => 'image', 'type' => 'file', 'label' => 'Выберите изображение на компьютере'])
+                @dateInput(['name' => 'published_at', 'label' => 'Дата публикации'])
 
                 @textarea(['name' => 'text', 'label' => 'Текст'])
+                @checkbox(['name' => 'is_published', 'label' => 'Опубликовано?', 'isChecked' => true])
 
                 @submit_btn()
             </form>
@@ -29,6 +29,9 @@
         </div>
     </div>
 @push('scripts')
-<script src="{{ asset('dashboard/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('dashboard/assets/js/plugins/ui/moment/moment.min.js') }}" defer></script>
+    <script src="{{ asset('dashboard/assets/js/plugins/pickers/daterangepicker.js') }}" defer></script>
+    <script src="{{ asset('dashboard/assets/js/pages/picker_date.js') }}" defer></script>
+    <script src="{{ asset('dashboard/ckeditor/ckeditor.js') }}"></script>
 @endpush
 @endsection

@@ -1,20 +1,20 @@
 @extends('layouts.admin')
 
 @section('breadcrumb')
-    <li><a href="{{ route('admin.guestbooks.index') }}">Отзывы</a></li>
-    <li class="active">Форма редактирования отзыва</li>
+    <li><a href="{{ route('admin.schedules.index') }}">Расписание</a></li>
+    <li class="active">Форма редактирования расписания тура</li>
 @endsection
 
 @section('content')
 
     <div class="panel panel-default">
-        <div class="panel-heading">Форма редактирования отзыва</div>
+        <div class="panel-heading">Форма редактирования расписания тура</div>
 
         <div class="panel-body">
 
             @include('layouts.partials.errors')
 
-            <form action="{{ route('admin.guestbooks.update', ['id' => $guestbook->id]) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('admin.schedules.update', ['id' => $schedule->id]) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('put')
 
@@ -26,30 +26,25 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="main">
                             <div class="row">
-                                <div class="col-md-9">
-                                    @input(['name' => 'name', 'label' => 'Название', 'entity' => $guestbook])
-                                </div>
-                                <div class="col-md-3">
-                                    @dateInput(['name' => 'published_at', 'label' => 'Дата публикации', 'entity' => $guestbook])
-                                </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-md-12">
-                                    @textarea(['name' => 'text', 'label' => 'Текст', 'entity' => $guestbook])
-                                    @checkbox(['name' => 'is_published', 'label' => 'Опубликовано?', 'entity' => $guestbook])
+
+                                    @dateInput(['name' => 'date', 'label' => 'Дата для хронологии', 'entity' => $schedule])
+                                    @input(['name' => 'date_string', 'label' => 'Дата', 'entity' => $schedule])
+                                    @input(['name' => 'price', 'label' => 'Цена', 'entity' => $schedule])
+
+                                    @textarea(['name' => 'body', 'label' => 'Описание тура', 'entity' => $schedule])
+
                                     @submit_btn()
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </form>
 
         </div>
     </div>
-    @if ($guestbook->image)
-        @include('layouts.partials._image_attributes_popup', ['image' => $guestbook->image])
-    @endif
 
 @push('scripts')
 <script src="{{ asset('dashboard/assets/js/plugins/ui/moment/moment.min.js') }}" defer></script>

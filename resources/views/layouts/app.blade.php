@@ -30,6 +30,12 @@
                             <svg class="icon">
                                 <use xlink:href="{{ asset('img/symbols.svg#phone') }}"></use>
                             </svg>
+                            <a href="tel:+79787971006" title="Позвонить">+7 (978) 797-10-06 </a>
+                        </div>
+                        <div class="phone">
+                            <svg class="icon">
+                                <use xlink:href="{{ asset('img/symbols.svg#phone') }}"></use>
+                            </svg>
                             <a href="tel:+79787157355" title="Позвонить">+7 (978) 715-73-55</a>
                         </div>
                     </div>

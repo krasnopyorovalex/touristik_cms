@@ -1,12 +1,12 @@
 @extends('layouts.admin')
 
 @section('breadcrumb')
-    <li class="active">Отзывы</li>
+    <li class="active">Расписание</li>
 @endsection
 
 @section('content')
 
-    <a href="{{ route('admin.guestbooks.create') }}" type="button" class="btn bg-primary">
+    <a href="{{ route('admin.schedules.create') }}" type="button" class="btn bg-primary">
         Добавить
         <i class="icon-stack-plus position-right"></i>
     </a>
@@ -16,23 +16,23 @@
             <thead>
             <tr class="border-solid">
                 <th>#</th>
-                <th>Название</th>
-                <th>Изображение</th>
+                <th>Описание</th>
+                <th>Цена</th>
                 <th>Создана</th>
                 <th></th>
             </tr>
             </thead>
             <tbody>
-            @foreach($guestbooks as $guestbook)
+            @foreach($schedules as $schedule)
                 <tr>
                     <td><span class="label label-primary">{{ $loop->iteration }}</span></td>
-                    <td>{{ $guestbook->name }}</td>
-                    <td>@if ($guestbook->image)<img src="{{ asset($guestbook->image->path) }}" alt="" class="icon_small">@endif</td>
-                    <td><span class="label label-primary">{{ $guestbook->published_at->formatLocalized('%d %b %Y') }}</span></td>
+                    <td>{!! $schedule->body !!}</td>
+                    <td>{{ $schedule->price }}</td>
+                    <td><span class="label label-primary">{{ $schedule->date->formatLocalized('%d %b %Y') }}</span></td>
                     <td>
                         <div>
-                            <a href="{{ route('admin.guestbooks.edit', $guestbook) }}"><i class="icon-pencil7"></i></a>
-                            <form method="POST" action="{{ route('admin.guestbooks.destroy', $guestbook) }}" class="form__delete">
+                            <a href="{{ route('admin.schedules.edit', $schedule) }}"><i class="icon-pencil7"></i></a>
+                            <form method="POST" action="{{ route('admin.schedules.destroy', $schedule) }}" class="form__delete">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
                                 <button type="submit" class="last__btn">

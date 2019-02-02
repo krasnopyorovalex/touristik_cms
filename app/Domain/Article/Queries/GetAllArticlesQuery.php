@@ -25,7 +25,7 @@ class GetAllArticlesQuery
      * @param bool $isPublished
      * @param int $limit
      */
-    public function __construct($isPublished = false, int $limit = 0)
+    public function __construct(bool $isPublished = false, int $limit = 0)
     {
         $this->isPublished = $isPublished;
         $this->limit = $limit;

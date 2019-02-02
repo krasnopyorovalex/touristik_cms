@@ -51,6 +51,7 @@ class Page extends Model
         'page.page' => 'Информационная',
         'page.index' => 'Главная',
         'page.blog' => 'Блог',
+        'page.guestbook' => 'Отызвы',
         'page.contacts' => 'Контакты',
     ];
 

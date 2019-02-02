@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Domain\Article\Queries\GetAllArticlesQuery;
+use App\Domain\Schedule\Queries\GetAllSchedulesQuery;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
@@ -31,6 +32,11 @@ class TextParserService
                     $articles = $this->dispatch(new GetAllArticlesQuery(self::PAGINATE_LIMIT));
 
                     return view('layouts.shortcodes.blog', ['articles' => $articles]);
+                },
+                '#(<p(.*)>)?{schedule}(<\/p>)?#' => function () use ($entity) {
+                    $schedules = $this->dispatch(new GetAllSchedulesQuery(true));
+
+                    return view('layouts.shortcodes.schedule', ['schedules' => $schedules]);
                 }
             ],
             $entity->text

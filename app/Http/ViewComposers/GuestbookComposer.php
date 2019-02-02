@@ -15,7 +15,7 @@ class GuestbookComposer
      */
     public function compose(View $view)
     {
-        $guestbook = $this->dispatch(new GetAllGuestbookQuery());
+        $guestbook = $this->dispatch(new GetAllGuestbookQuery(true));
 
         $view->with('guestbook', $guestbook);
     }

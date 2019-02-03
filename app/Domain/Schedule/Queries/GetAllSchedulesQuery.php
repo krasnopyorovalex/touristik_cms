@@ -25,12 +25,12 @@ class GetAllSchedulesQuery
      */
     public function handle()
     {
-        $schedule = new Schedule();
+        $schedule = Schedule::orderBy('date', 'asc');
 
         if($this->actualTours){
             $schedule->where('date','>=', date('Y-m-d'));
         }
 
-        return $schedule->orderBy('date', 'asc')->get();
+        return $schedule->get();
     }
 }

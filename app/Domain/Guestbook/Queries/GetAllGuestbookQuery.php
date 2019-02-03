@@ -21,7 +21,7 @@ class GetAllGuestbookQuery
      */
     private $limit;
 
-    public function __construct(bool $isPublished = false, int $limit = 1)
+    public function __construct(bool $isPublished = false, int $limit = 0)
     {
         $this->isPublished = $isPublished;
         $this->limit = $limit;

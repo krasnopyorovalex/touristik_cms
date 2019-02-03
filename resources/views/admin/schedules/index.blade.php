@@ -15,20 +15,18 @@
         <table class="table">
             <thead>
             <tr class="border-solid">
-                <th>#</th>
+                <th>Дата похода</th>
                 <th>Описание</th>
                 <th>Цена</th>
-                <th>Дата похода</th>
                 <th></th>
             </tr>
             </thead>
             <tbody>
             @foreach($schedules as $schedule)
                 <tr>
-                    <td><span class="label label-primary">{{ $loop->iteration }}</span></td>
+                    <td><span class="label label-primary">{{ $schedule->date->formatLocalized('%d %b %Y') }}</span></td>
                     <td>{!! $schedule->body !!}</td>
                     <td>{{ $schedule->price }}</td>
-                    <td><span class="label label-primary">{{ $schedule->date->formatLocalized('%d %b %Y') }}</span></td>
                     <td>
                         <div>
                             <a href="{{ route('admin.schedules.edit', $schedule) }}"><i class="icon-pencil7"></i></a>

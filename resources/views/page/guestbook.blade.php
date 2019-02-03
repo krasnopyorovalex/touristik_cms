@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('canonical', route('page.show', ['alias' => request('alias')]))
 @section('title', $page->title)
 @section('description', $page->description)
 @push('og')
@@ -55,6 +56,9 @@
                                 </div>
                             </div>
                         @endforeach
+                    </div>
+                    <div class="pagination">
+                        {{ $guestbook->links() }}
                     </div>
                     @endif
                 </div>

@@ -3,6 +3,7 @@
 namespace App\Domain\Guestbook\Queries;
 
 use App\Guestbook;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class GetAllGuestbookQuery
@@ -15,9 +16,15 @@ class GetAllGuestbookQuery
      */
     private $isPublished;
 
-    public function __construct(bool $isPublished = false)
+    /**
+     * @var int
+     */
+    private $limit;
+
+    public function __construct(bool $isPublished = false, int $limit = 1)
     {
         $this->isPublished = $isPublished;
+        $this->limit = $limit;
     }
 
     /**
@@ -29,6 +36,16 @@ class GetAllGuestbookQuery
 
         if ($this->isPublished) {
             $guestbooks->where('is_published', '1');
+        }
+
+        if ($this->limit) {
+            $result = $guestbooks->paginate($this->limit, array('*'), 'page', intval(request('page')));
+
+            if (! $result->count()) {
+                throw new NotFoundHttpException();
+            }
+
+            return $result;
         }
 
         return $guestbooks->get();

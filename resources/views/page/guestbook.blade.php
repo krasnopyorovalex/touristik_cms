@@ -65,10 +65,6 @@
         </div>
     </main>
 
-    @include('layouts.partials.counts', ['css' => ' without__margin'])
-
-    @include('layouts.partials.begin_travel')
-
     @includeWhen($page->gallery, 'layouts.sections.gallery', ['gallery' => $page->gallery])
 
 @endsection

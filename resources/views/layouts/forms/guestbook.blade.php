@@ -2,7 +2,7 @@
     @csrf
     <div class="single__block">
         <div class="title">Уже путешествовали с нами? Поделитесь своими впечатлениями</div>
-        <div class="sub__title">Мы работаем для Вас и нам очень приятно слышать Вами отзывы о походах</div>
+        <div class="sub__title">Мы работаем для Вас и нам очень приятно слышать Ваши отзывы о походах</div>
     </div>
     <div class="single__block name">
         <input type="text" name="name" placeholder="Имя*" autocomplete="off" required>

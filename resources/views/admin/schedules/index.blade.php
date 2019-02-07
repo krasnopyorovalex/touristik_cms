@@ -25,7 +25,7 @@
             @foreach($schedules as $schedule)
                 <tr>
                     <td><span class="label label-primary">{{ $schedule->date->formatLocalized('%d %b %Y') }}</span></td>
-                    <td>{!! $schedule->body !!}</td>
+                    <td>{!! strip_tags($schedule->body) !!}</td>
                     <td>{{ $schedule->price }}</td>
                     <td>
                         <div>

@@ -42,12 +42,12 @@
                     </ul>
                 </div>
             </div>
-            @if (count($service->services))
             <div class="row">
                 <div class="col-9">
                     <div class="text__block">
                         {!! $service->short_text !!}
                     </div>
+                    @if (count($service->services))
                     <div class="catalog__items">
                         @foreach ($service->services as $subService)
                             <div class="catalog__items-item">
@@ -70,6 +70,7 @@
                             </div>
                         @endforeach
                     </div>
+                    @endif
                 </div>
                 <div class="col-3">
                     <div class="sidebar">
@@ -83,7 +84,6 @@
                     </div>
                 </div>
             </div>
-            @endif
         </div>
     </main>
 

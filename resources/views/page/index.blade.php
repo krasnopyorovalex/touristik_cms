@@ -101,7 +101,7 @@
             <div class="row">
                 <div class="col-12">
                     <h1 class="title">{{ $page->name }}</h1>
-                    <div class="sub__title">СЕО Текст</div>
+                    {{--<div class="sub__title">СЕО Текст</div>--}}
                 </div>
             </div>
             <div class="row">

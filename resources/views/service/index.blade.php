@@ -63,7 +63,7 @@
                                         <a href="{{ $subService->url }}">{{ $subService->name }}</a>
                                     </div>
                                     <div class="buttons">
-                                        <div class="btn__go call__popup" data-target="popup__order" data-service="{{ $subService->name }}">Заказать</div>
+                                        <div class="btn__go call__popup" data-target="popup__order" data-service="{{ $subService->name }}">Записаться</div>
                                         <a href="{{ $subService->url }}" class="btn__go">Подробнее</a>
                                     </div>
                                 </div>

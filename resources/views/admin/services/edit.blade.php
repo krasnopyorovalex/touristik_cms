@@ -32,8 +32,11 @@
                                 <label for="parent_id">Выберите родительский пункт меню</label>
                                 <select class="form-control border-blue border-xs select-search" id="parent_id" name="parent_id" data-width="100%">
                                     <option value="">Не выбрано</option>
-                                    @foreach($services as $s)
+                                    @foreach($services->where('is_category', '1') as $s)
                                         <option value="{{ $s->id }}"  @if ( $s->id == old('parent_id', $service->parent_id))selected="selected"@endif>{{ $s->name }}</option>
+                                        @foreach($s->services->where('is_category', '1') as $sChild)
+                                            <option value="{{ $sChild->id }}"  @if ( $sChild->id == old('parent_id', $service->parent_id))selected="selected"@endif>***{{ $sChild->name }}</option>
+                                        @endforeach
                                     @endforeach
                                 </select>
                             </div>
@@ -49,6 +52,7 @@
                             @textarea(['name' => 'short_text', 'label' => 'Краткое описание', 'entity' => $service, 'id' => 'editor-full2'])
                             @textarea(['name' => 'text', 'label' => 'Текст', 'entity' => $service])
                             @checkbox(['name' => 'is_published', 'label' => 'Опубликовано?', 'entity' => $service])
+                            @checkbox(['name' => 'is_category', 'label' => 'Категория?', 'entity' => $service])
 
                             @if(count($tabs))
                                 <hr>

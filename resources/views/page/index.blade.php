@@ -52,46 +52,39 @@
 
     @includeWhen($page->gallery, 'layouts.sections.gallery', ['gallery' => $page->gallery])
 
-    <section class="guides">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="title">
-                        Профессионалы своего дела
-                    </div>
-                    <div class="sub__title">Наши гиды</div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-3">
-                    <div class="guide__item">
-                        <div class="ava">
-                            <img src="{{ asset('img/dima.jpg') }}" alt="Гид Дима" title="">
+    @if($guids->count())
+        <section class="guides">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="title">
+                            Профессионалы своего дела
                         </div>
-                        <div class="info">
-                            <div class="name">Дмитрий Васильченко</div>
-                            <div class="text">
-                                <p>гид-проводник</p>
+                        <div class="sub__title">Наши гиды</div>
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach($guids as $guid)
+                        <div class="col-3">
+                            <div class="guide__item" data-target="guid-{{ $guid->id }}">
+                                @if($guid->image)
+                                <div class="ava">
+                                    <img src="{{ asset($guid->image->path) }}" alt="{{ $guid->name }}" title="">
+                                </div>
+                                @endif
+                                <div class="info">
+                                    <div class="name">{{ $guid->name }}</div>
+                                    <div class="text">
+                                        <p>{{ $guid->post }}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="guide__item">
-                        <div class="ava">
-                            <img src="{{ asset('img/sveta.jpg') }}" alt="Гид Света">
-                        </div>
-                        <div class="info">
-                            <div class="name">Светлана Демченко</div>
-                            <div class="text">
-                                <p>идейный вдохновитель</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 
     @include('layouts.partials.counts')
 
@@ -112,4 +105,23 @@
             </div>
         </div>
     </main>
+
+    @if($guids->count())
+        @foreach($guids as $guid)
+            <div class="popup" id="guid-{{ $guid->id }}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="guid-text">
+                                <div class="close__box" title="Закрыть форму">
+                                    <div class="close"></div>
+                                </div>
+                                {!! $guid->text !!}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    @endif
 @endsection

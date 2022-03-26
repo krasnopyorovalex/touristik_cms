@@ -1,14 +1,33 @@
-
-// Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-
-// Variables
-@import "variables";
-
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
-
-.navbar-laravel {
+.form__order {
+  .single__block {
+    .title {
+      margin: 0 0 .5rem 0;
+    }
+  }
+  .tour-name {
+    text-align: center;
+    margin: .5rem 0 1rem 0;
+    &:empty {
+      display: none;
+    }
+  }
+}
+header .top__line .search__socials-icons .tg {
+  width: 20px;
+  height: 17px;
+  margin-top: 5px;
+}
+.guid-text {
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  padding: 2.5rem 1rem .5rem 1rem;
+  position: relative;
+  p {
+    line-height: 24px;
+  }
+  .close__box {
+    .close {
+      right: 0;
+      top: -1.5rem;
+    }
+  }
 }

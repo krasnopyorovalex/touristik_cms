@@ -9,6 +9,7 @@
             <div class="title">
                 {{ $title }}
             </div>
+            <div class="tour-name"></div>
         </div>
     @endif
     <div class="single__block name">

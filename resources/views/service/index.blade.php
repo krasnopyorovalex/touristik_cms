@@ -35,9 +35,19 @@
                             <a href="{{ route('page.show', ['alias' => 'turi']) }}">Туры</a>
                             <meta itemprop="position" content="2">
                         </li>
+                        @if($service->parent)
+                            <li itemscope="" itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+                                <a href="{{ $service->parent->url }}">{{ $service->parent->name }}</a>
+                                <meta itemprop="position" content="3">
+                            </li>
+                        @endif
                         <li itemscope="" itemprop="itemListElement" itemtype="http://schema.org/ListItem">
                             {{ $service->name }}
-                            <meta itemprop="position" content="3">
+                            @if($service->parent)
+                                <meta itemprop="position" content="4">
+                            @else
+                                <meta itemprop="position" content="3">
+                            @endif
                         </li>
                     </ul>
                 </div>
@@ -47,7 +57,24 @@
                     <div class="text__block">
                         {!! $service->short_text !!}
                     </div>
-                    @if (count($service->services))
+
+                    @if($service->services->where('is_category', '1')->count())
+                        <div class="row">
+                            @foreach($service->services->where('is_category', '1') as $subService)
+                                <div class="col-4">
+                                    <div class="travel__item">
+                                        @if ($subService->image)
+                                            <img src="{{ $subService->image->path }}" alt="{{ $subService->image->alt }}" title="{{ $subService->image->title }}">
+                                        @endif
+                                        <div class="travel__item-name">
+                                            <a href="{{ $subService->url }}" class="show__tour">{{ $subService->name }}</a>
+                                        </div>
+                                        <a href="{{ $subService->url }}" class="btn__more">&nbsp;</a>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    @elseif (count($service->services))
                     <div class="catalog__items">
                         @foreach ($service->services as $subService)
                             <div class="catalog__items-item">

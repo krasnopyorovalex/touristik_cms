@@ -29,7 +29,7 @@
                                 <label for="parent_id">Родительская услуга</label>
                                 <select class="form-control border-blue border-xs select-search" id="parent_id" name="parent_id" data-width="100%">
                                     <option value="">Не выбрано</option>
-                                    @foreach($services as $service)
+                                    @foreach($services->where('is_category', true) as $service)
                                         <option value="{{ $service->id }}">{{ $service->name }}</option>
                                     @endforeach
                                 </select>
@@ -47,6 +47,7 @@
                             @textarea(['name' => 'short_text', 'label' => 'Краткое описание', 'id' => 'editor-full2'])
                             @textarea(['name' => 'text', 'label' => 'Текст'])
                             @checkbox(['name' => 'is_published', 'label' => 'Опубликовано?', 'isChecked' => true])
+                            @checkbox(['name' => 'is_category', 'label' => 'Категория?'])
 
                             <hr>
                             <h3>Вкладки</h3>

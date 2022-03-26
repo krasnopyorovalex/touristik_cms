@@ -25,7 +25,7 @@ class Service extends Model
     /**
      * @var array
      */
-    protected $fillable = ['parent_id', 'gallery_id', 'name', 'title', 'description', 'text', 'short_text', 'alias', 'is_published', 'pos'];
+    protected $fillable = ['parent_id', 'gallery_id', 'name', 'title', 'description', 'text', 'short_text', 'alias', 'is_published', 'pos', 'is_category'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -96,6 +96,6 @@ class Service extends Model
      */
     public function getTemplate(): string
     {
-        return $this->parent_id ? 'service.single' : 'service.index';
+        return !$this->services->count() && $this->parent_id ? 'service.single' : 'service.index';
     }
 }

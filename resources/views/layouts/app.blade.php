@@ -10,16 +10,11 @@
     <meta name="theme-color" content="#eee">
     @stack('og')
     <link href="{{ asset('css/app.min.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('favicon.ico') }}" rel="shortcut icon" type="image/x-icon" />
     <link rel="canonical" href="@yield('canonical', request()->url())"/>
 </head>
 <body>
-    <div class="loader">
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-    </div>
-    <div class="loader__bg"></div>
     <header>
         <div class="top__line">
             <div class="container">
@@ -119,7 +114,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>. Бравый Турист. Все права защищены.</div>
+                    <div class="copyright">&copy; <span itemprop="copyrightYear">2019 - {{ date('Y') }}</span>. Бравый Турист. Все права защищены.</div>
                 </div>
             </div>
         </div>
@@ -153,6 +148,7 @@
     <!-- /Yandex.Metrika counter -->
     <div class="popup__show-bg"></div><div class="notify"></div>
     <script src="{{ asset('js/jquery.3.3.1.min.js') }}"></script>
-    <script src="{{ asset('js/app.min.js') }}" async></script>
+    <script src="{{ asset('js/app.min.js') }}"></script>
+    <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>

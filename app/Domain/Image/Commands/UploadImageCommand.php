@@ -4,6 +4,8 @@ namespace App\Domain\Image\Commands;
 
 use App\Http\Requests\Request;
 use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManager;
 
 /**
  * Class UploadImageCommand
@@ -27,6 +29,10 @@ class UploadImageCommand
      * @var string
      */
     private $imageableType;
+    /**
+     * @var bool
+     */
+    private $optimize;
 
     /**
      * UploadImageCommand constructor.
@@ -34,11 +40,12 @@ class UploadImageCommand
      * @param int $imageableId
      * @param string $imageableType
      */
-    public function __construct(Request $request, int $imageableId, string $imageableType)
+    public function __construct(Request $request, int $imageableId, string $imageableType, bool $optimize = false)
     {
         $this->request = $request;
         $this->imageableId = $imageableId;
         $this->imageableType = $imageableType;
+        $this->optimize = $optimize;
     }
 
     /**
@@ -48,8 +55,14 @@ class UploadImageCommand
     {
         $path = $this->request->file('image')->store('public/images');
 
+        if ($this->optimize) {
+            $img = (new ImageManager())->make(Storage::path($path));
+            $img->fit(390, 390);
+            $img->save(Storage::path($path));
+        }
+
         return $this->dispatch(new CreateImageCommand([
-            'path' => \Storage::url($path),
+            'path' => Storage::url($path),
             'imageable_id' => $this->imageableId,
             'imageable_type' => $this->imageableType
         ]));

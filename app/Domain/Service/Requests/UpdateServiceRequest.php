@@ -21,6 +21,7 @@ class UpdateServiceRequest extends Request
             'text' => 'string|nullable',
             'short_text' => 'string|nullable',
             'is_published' => 'digits_between:0,1',
+            'is_category' => 'digits_between:0,1',
             'pos' => 'integer|min:0|max:255',
             'gallery_id' => 'integer|exists:galleries,id|nullable',
             'image' => 'image',

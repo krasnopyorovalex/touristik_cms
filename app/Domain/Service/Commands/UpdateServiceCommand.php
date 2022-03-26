@@ -50,7 +50,7 @@ class UpdateServiceCommand
             if ($service->image) {
                 $this->dispatch(new DeleteImageCommand($service->image));
             }
-            $this->dispatch(new UploadImageCommand($this->request, $service->id, Service::class));
+            $this->dispatch(new UploadImageCommand($this->request, $service->id, Service::class, true));
         }
 
         $service->relativeServices()->sync($this->request->post('services'));

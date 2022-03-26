@@ -35,13 +35,27 @@
                             <a href="{{ route('page.show', ['alias' => 'turi']) }}">Туры</a>
                             <meta itemprop="position" content="2">
                         </li>
+                        @if($service->parent->parent)
+                            <li itemscope="" itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+                                <a href="{{ route('page.show', ['alias' => $service->parent->parent->alias]) }}">{{ $service->parent->parent->name }}</a>
+                                <meta itemprop="position" content="3">
+                            </li>
+                        @endif
                         <li itemscope="" itemprop="itemListElement" itemtype="http://schema.org/ListItem">
                             <a href="{{ route('page.show', ['alias' => $service->parent->alias]) }}">{{ $service->parent->name }}</a>
-                            <meta itemprop="position" content="3">
+                            @if($service->parent->parent)
+                                <meta itemprop="position" content="4">
+                            @else
+                                <meta itemprop="position" content="3">
+                            @endif
                         </li>
                         <li itemscope="" itemprop="itemListElement" itemtype="http://schema.org/ListItem">
                             {{ $service->name }}
-                            <meta itemprop="position" content="4">
+                            @if($service->parent->parent)
+                                <meta itemprop="position" content="5">
+                            @else
+                                <meta itemprop="position" content="4">
+                            @endif
                         </li>
                     </ul>
                 </div>

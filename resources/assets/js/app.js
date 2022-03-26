@@ -1,22 +1,30 @@
+const callPopup = jQuery(".call__popup");
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+if(callPopup.length) {
+    callPopup.on("click", function (e) {
+        e.preventDefault();
+        const _this = jQuery(this),
+            popup = jQuery("#" + _this.attr("data-target")),
+            service = _this.attr("data-service");
 
-require('./bootstrap');
+        if(typeof service !== 'undefined' && service.length){
+            popup.find('.tour-name').text(service);
+        }
+    });
+}
+const guideItems = $('.guide__item');
+if(guideItems.length) {
+    const popupBg = jQuery(".popup__show-bg");
+    guideItems.on("click", function (e) {
+        e.preventDefault();
+        const _this = jQuery(this),
+            popup = jQuery("#" + _this.attr("data-target"))
 
-window.Vue = require('vue');
+        console.log(popup);
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
-
-const app = new Vue({
-    el: '#app'
-});
+        return popup.fadeIn() && popupBg.show();
+    });
+    jQuery(".popup").on("click", ".close", function () {
+        return jQuery(this).closest(".popup").fadeOut("slow") && popupBg.fadeOut();
+    });
+}

@@ -77,6 +77,7 @@
                             <li class="navigation-header"><span>Навигация</span> <i class="icon-menu" title="Main pages"></i></li>
                             <li><a href="{{ route('admin.pages.index') }}"><i class="icon-compose"></i> <span>Страницы</span></a></li>
                             <li><a href="{{ route('admin.services.index') }}"><i class="icon-list"></i> <span>Туры</span></a></li>
+                            <li><a href="{{ route('admin.guids.index') }}"><i class="icon-list"></i> <span>Гиды</span></a></li>
                             <li><a href="{{ route('admin.articles.index') }}"><i class="icon-magazine"></i> <span>Статьи</span></a></li>
                             <li><a href="{{ route('admin.guestbooks.index') }}"><i class="icon-bubble2"></i> <span>Отзывы</span></a></li>
                             <li><a href="{{ route('admin.schedules.index') }}"><i class="icon-calendar52"></i> <span>Расписание</span></a></li>

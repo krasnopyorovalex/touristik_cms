@@ -27,6 +27,11 @@
                 @if ($service->services)
                     @foreach($service->services as $service)
                         @include('admin.services._tr', ['service' => $service, 'prefix' => '***', 'child' => true])
+                        @if ($service->services)
+                            @foreach($service->services as $service)
+                                @include('admin.services._tr', ['service' => $service, 'prefix' => '******', 'child' => true])
+                            @endforeach
+                        @endif
                     @endforeach
                 @endif
             @endforeach

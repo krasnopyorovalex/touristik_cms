@@ -29,8 +29,11 @@
                                 <label for="parent_id">Родительская услуга</label>
                                 <select class="form-control border-blue border-xs select-search" id="parent_id" name="parent_id" data-width="100%">
                                     <option value="">Не выбрано</option>
-                                    @foreach($services->where('is_category', true) as $service)
+                                    @foreach($services->where('is_category', '1') as $service)
                                         <option value="{{ $service->id }}">{{ $service->name }}</option>
+                                        @foreach($service->services->where('is_category', '1') as $subService)
+                                            <option value="{{ $subService->id }}">***{{ $subService->name }}</option>
+                                        @endforeach
                                     @endforeach
                                 </select>
                             </div>

@@ -17,6 +17,7 @@
             <tr class="border-solid">
                 <th>#</th>
                 <th>Название</th>
+                <th>Должность</th>
                 <th></th>
             </tr>
             </thead>
@@ -25,6 +26,7 @@
                 <tr>
                     <td><span class="label label-primary">{{ $loop->iteration }}</span></td>
                     <td>{{ $article->name }}</td>
+                    <td>{{ $article->post }}</td>
                     <td>
                         <div>
                             <a href="{{ route('admin.guids.edit', $article) }}"><i class="icon-pencil7"></i></a>

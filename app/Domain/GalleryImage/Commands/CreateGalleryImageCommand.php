@@ -35,7 +35,7 @@ class CreateGalleryImageCommand
         $galleryImage->ext = $this->uploadImage->getExt();
         $galleryImage->gallery_id = $this->uploadImage->getEntityId();
 
-        $path = Storage::path('public/gallery/'. $galleryImage->gallery_id .'/'.$galleryImage->basename.'.'.$galleryImage->ext);
+        $path = public_path('public/gallery/'. $galleryImage->gallery_id .'/'.$galleryImage->basename.'.'.$galleryImage->ext);
 
         $img = (new ImageManager())->make(Storage::path($path));
         $img->fit(700);

@@ -38,7 +38,7 @@ class CreateGalleryImageCommand
         $path = Storage::path('public/gallery/'. $galleryImage->gallery_id .'/'.$galleryImage->basename.'.'.$galleryImage->ext);
 
         $img = (new ImageManager())->make($path);
-        $img->fit(700);
+        $img->widen(700);
         $img->save($path);
 
         return $galleryImage->save();

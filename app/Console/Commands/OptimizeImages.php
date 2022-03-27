@@ -37,24 +37,24 @@ class OptimizeImages extends Command
             $this->info($file->getPath());
             $img = (new ImageManager())->make(Storage::path('public/gallery/'. $file->gallery_id .'/'.$file->basename.'.'.$file->ext));
 
-            $img->fit(700);
+            $img->widen(700);
             $img->save(Storage::path('public/gallery/'. $file->gallery_id .'/'.$file->basename.'.'.$file->ext));
         }
 
-        $services = Service::all();
-
-        foreach ($services as $service) {
-            if ($service->image) {
-                $path = str_replace('/storage/', 'public/', $service->image->path);
-                if (file_exists(Storage::path($path))) {
-                    $this->info($service->image->path);
-
-                    $img = (new ImageManager())->make(Storage::path($path));
-                    $img->fit(390, 390);
-                    $img->save(Storage::path($path));
-                }
-            }
-        }
+//        $services = Service::all();
+//
+//        foreach ($services as $service) {
+//            if ($service->image) {
+//                $path = str_replace('/storage/', 'public/', $service->image->path);
+//                if (file_exists(Storage::path($path))) {
+//                    $this->info($service->image->path);
+//
+//                    $img = (new ImageManager())->make(Storage::path($path));
+//                    $img->fit(390, 390);
+//                    $img->save(Storage::path($path));
+//                }
+//            }
+//        }
 
         $this->info('Well done!');
     }

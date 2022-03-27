@@ -37,7 +37,7 @@ class OptimizeImages extends Command
             $this->info($file->getPath());
             $img = (new ImageManager())->make(Storage::path('public/gallery/'. $file->gallery_id .'/'.$file->basename.'.'.$file->ext));
 
-            $img->widen(700);
+            $img->widen(710);
             $img->save(Storage::path('public/gallery/'. $file->gallery_id .'/'.$file->basename.'.'.$file->ext));
         }
 

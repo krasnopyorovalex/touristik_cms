@@ -57,7 +57,7 @@ class UploadImageCommand
 
         if ($this->optimize) {
             $img = (new ImageManager())->make(Storage::path($path));
-            $img->fit(390, 390);
+            $img->widen(390);
             $img->save(Storage::path($path));
         }
 

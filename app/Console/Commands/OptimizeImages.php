@@ -31,30 +31,30 @@ class OptimizeImages extends Command
      */
     public function handle()
     {
-        $galleryImages = GalleryImage::all();
-
-        foreach ($galleryImages as $file) {
-            $this->info($file->getPath());
-            $img = (new ImageManager())->make(Storage::path('public/gallery/'. $file->gallery_id .'/'.$file->basename.'.'.$file->ext));
-
-            $img->widen(710);
-            $img->save(Storage::path('public/gallery/'. $file->gallery_id .'/'.$file->basename.'.'.$file->ext));
-        }
-
-//        $services = Service::all();
+//        $galleryImages = GalleryImage::all();
 //
-//        foreach ($services as $service) {
-//            if ($service->image) {
-//                $path = str_replace('/storage/', 'public/', $service->image->path);
-//                if (file_exists(Storage::path($path))) {
-//                    $this->info($service->image->path);
+//        foreach ($galleryImages as $file) {
+//            $this->info($file->getPath());
+//            $img = (new ImageManager())->make(Storage::path('public/gallery/'. $file->gallery_id .'/'.$file->basename.'.'.$file->ext));
 //
-//                    $img = (new ImageManager())->make(Storage::path($path));
-//                    $img->fit(390, 390);
-//                    $img->save(Storage::path($path));
-//                }
-//            }
+//            $img->widen(710);
+//            $img->save(Storage::path('public/gallery/'. $file->gallery_id .'/'.$file->basename.'.'.$file->ext));
 //        }
+
+        $services = Service::all();
+
+        foreach ($services as $service) {
+            if ($service->image) {
+                $path = str_replace('/storage/', 'public/', $service->image->path);
+                if (file_exists(Storage::path($path))) {
+                    $this->info($service->image->path);
+
+                    $img = (new ImageManager())->make(Storage::path($path));
+                    $img->widen(390);
+                    $img->save(Storage::path($path));
+                }
+            }
+        }
 
         $this->info('Well done!');
     }

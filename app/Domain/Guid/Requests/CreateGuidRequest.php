@@ -13,6 +13,8 @@ class CreateGuidRequest extends Request
     public function rules(): array
     {
         return [
+            'title' => 'required|string|max:512',
+            'description' => 'required|string|max:512',
             'name' => 'bail|required|max:512',
             'post' => 'required|max:512',
             'pos' => 'integer|min:0|max:255',

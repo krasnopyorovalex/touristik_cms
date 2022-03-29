@@ -17,4 +17,12 @@ class Guid extends Model
     {
         return $this->morphOne(Image::class, 'imageable');
     }
+
+    /**
+     * @return string
+     */
+    public function getUrlAttribute(): string
+    {
+        return route("guid.show", $this->id);
+    }
 }

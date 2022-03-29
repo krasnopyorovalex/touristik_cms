@@ -12,7 +12,7 @@
     }
   }
 }
-header .top__line .search__socials-icons .tg, footer .socials .tg {
+header .top__line .search__socials-icons .tg, footer .socials .tg, .mobile__menu .socials .vk {
   width: 20px;
   height: 17px;
   margin-top: 5px;
@@ -33,4 +33,7 @@ header .top__line .search__socials-icons .tg, footer .socials .tg {
 }
 .catalog__items-item figure {
   max-height: 290px;
+}
+.sub__title.post {
+  margin: 1rem 0;
 }

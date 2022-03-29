@@ -28,6 +28,9 @@
                         <div class="tab-pane active" id="main">
                             <div class="row">
                                 <div class="col-md-12">
+                                    @input(['name' => 'title', 'label' => 'Title', 'entity' => $guid])
+                                    @input(['name' => 'description', 'label' => 'Description', 'entity' => $guid])
+
                                     @input(['name' => 'name', 'label' => 'Название', 'entity' => $guid])
                                     @input(['name' => 'post', 'label' => 'Должность', 'entity' => $guid])
                                     @input(['name' => 'pos', 'label' => 'Позиция', 'entity' => $guid])

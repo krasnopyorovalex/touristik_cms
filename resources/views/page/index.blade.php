@@ -68,12 +68,12 @@
                         <div class="col-3">
                             <div class="guide__item" data-target="guid-{{ $guid->id }}">
                                 @if($guid->image)
-                                <div class="ava">
+                                <a class="ava" href="{{ route('guid.show', ['id' => $guid->id]) }}">
                                     <img src="{{ asset($guid->image->path) }}" alt="{{ $guid->name }}" title="">
-                                </div>
+                                </a>
                                 @endif
                                 <div class="info">
-                                    <div class="name">{{ $guid->name }}</div>
+                                    <a href="{{ route('guid.show', ['id' => $guid->id]) }}" class="name">{{ $guid->name }}</a>
                                     <div class="text">
                                         <p>{{ $guid->post }}</p>
                                     </div>
@@ -105,23 +105,4 @@
             </div>
         </div>
     </main>
-
-    @if($guids->count())
-        @foreach($guids as $guid)
-            <div class="popup" id="guid-{{ $guid->id }}">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="guid-text">
-                                <div class="close__box" title="Закрыть форму">
-                                    <div class="close"></div>
-                                </div>
-                                {!! $guid->text !!}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endforeach
-    @endif
 @endsection

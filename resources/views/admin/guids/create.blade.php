@@ -17,6 +17,9 @@
             <form action="{{ route('admin.guids.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
 
+                @input(['name' => 'title', 'label' => 'Title'])
+                @input(['name' => 'description', 'label' => 'Description'])
+
                 @input(['name' => 'name', 'label' => 'Название'])
                 @input(['name' => 'post', 'label' => 'Должность'])
                 @input(['name' => 'pos', 'label' => 'Позиция'])

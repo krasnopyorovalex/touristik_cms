@@ -68,12 +68,12 @@
                         <div class="col-3">
                             <div class="guide__item" data-target="guid-{{ $guid->id }}">
                                 @if($guid->image)
-                                <a class="ava" href="#">
+                                <a class="ava" href="{{ route('guid.show', ['id' => $guid->id]) }}">
                                     <img src="{{ asset($guid->image->path) }}" alt="{{ $guid->name }}" title="">
                                 </a>
                                 @endif
                                 <div class="info">
-                                    <a href="#" class="name">{{ $guid->name }}</a>
+                                    <a href="{{ route('guid.show', ['id' => $guid->id]) }}" class="name">{{ $guid->name }}</a>
                                     <div class="text">
                                         <p>{{ $guid->post }}</p>
                                     </div>

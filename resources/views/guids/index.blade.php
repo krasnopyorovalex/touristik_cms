@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', $guid->title)
+@section('title', $guid->title ?: $guid->name . ' - Бравый турист')
 @section('description', $guid->description)
 @push('og')
-    <meta property="og:title" content="{{ $guid->title ?: $guid->name . ' - Бравый турист'  }}">
+    <meta property="og:title" content="{{ $guid->title ?: $guid->name . ' - Бравый турист' }}">
     <meta property="og:type" content="article">
     <meta property="og:url" content="{{ request()->getUri() }}">
     <meta property="og:image" content="{{ asset($guid->image ? $guid->image->path : 'img/logo.png') }}">

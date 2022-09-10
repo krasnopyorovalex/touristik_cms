@@ -18,6 +18,8 @@
                 <th>Дата похода</th>
                 <th>Описание</th>
                 <th>Цена</th>
+                <th>Ссылка доступна до</th>
+                <th>Ссылка на yandex.disk</th>
                 <th></th>
             </tr>
             </thead>
@@ -27,6 +29,8 @@
                     <td><span class="label label-primary">{{ $schedule->date->formatLocalized('%d %b %Y') }}</span></td>
                     <td>{!! strip_tags($schedule->body) !!}</td>
                     <td>{{ $schedule->price }}</td>
+                    <td>{{ $schedule->finished_at }}</td>
+                    <td>{{ $schedule->link_to_yandex_disk }}</td>
                     <td>
                         <div>
                             <a href="{{ route('admin.schedules.edit', $schedule) }}"><i class="icon-pencil7"></i></a>

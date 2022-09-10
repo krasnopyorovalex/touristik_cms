@@ -14,7 +14,8 @@ class Schedule extends Model
      * @var array
      */
     protected $dates = [
-        'date'
+        'date',
+        'finished_at'
     ];
 
     /**

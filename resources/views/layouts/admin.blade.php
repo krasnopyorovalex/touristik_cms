@@ -158,6 +158,7 @@
                     <li>Карта сайта - {sitemap}</li>
                     <li>Блог - {blog}</li>
                     <li>Расписание туров - {schedule}</li>
+                    <li>Расписание туров с фото для скачивания - {schedule_yandex}</li>
                 </ul>
             </div>
 

@@ -28,9 +28,12 @@
                             <div class="row">
                                 <div class="col-md-12">
 
-                                    @dateInput(['name' => 'date', 'label' => 'Дата для хронологии', 'entity' => $schedule])
                                     @input(['name' => 'date_string', 'label' => 'Дата', 'entity' => $schedule])
                                     @input(['name' => 'price', 'label' => 'Цена', 'entity' => $schedule])
+                                    @dateInput(['name' => 'date', 'label' => 'Дата для хронологии', 'entity' => $schedule])
+                                    <hr/>
+                                    @dateInput(['name' => 'finished_at', 'label' => 'Дата окончания действия ссылки на yandex.disk', 'entity' => $schedule])
+                                    @input(['name' => 'link_to_yandex_disk', 'label' => 'Ссылка на yandex.disk', 'entity' => $schedule])
 
                                     @textarea(['name' => 'body', 'label' => 'Описание тура', 'entity' => $schedule])
 

@@ -20,5 +20,5 @@ class Schedule extends Model
     /**
      * @var array
      */
-    protected $fillable = ['date_string', 'date', 'body', 'price'];
+    protected $fillable = ['date_string', 'date', 'body', 'price', 'finished_at', 'link_to_yandex_disk'];
 }

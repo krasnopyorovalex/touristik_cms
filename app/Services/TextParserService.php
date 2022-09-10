@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Domain\Article\Queries\GetAllArticlesQuery;
 use App\Domain\Schedule\Queries\GetAllSchedulesQuery;
+use App\Domain\Schedule\Queries\GetYandexScheduleByIdQuery;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
@@ -37,6 +38,11 @@ class TextParserService
                     $schedules = $this->dispatch(new GetAllSchedulesQuery(true));
 
                     return view('layouts.shortcodes.schedule', ['schedules' => $schedules]);
+                },
+                '#(<p(.*)>)?{schedule_yandex}(<\/p>)?#' => function () {
+                    $schedules = $this->dispatch(new GetYandexScheduleByIdQuery());
+
+                    return view('layouts.shortcodes.schedule_yandex', ['schedules' => $schedules]);
                 }
             ],
             $entity->text

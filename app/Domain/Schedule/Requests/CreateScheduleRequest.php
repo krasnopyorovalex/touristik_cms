@@ -16,7 +16,9 @@ class CreateScheduleRequest extends Request
             'date_string' => 'string|max:255|nullable',
             'date' => 'required|date',
             'body' => 'required|string',
-            'price' => 'string|max:255'
+            'price' => 'string|max:255',
+            'finished_at' => 'date|nullable',
+            'link_to_yandex_disk' => 'string|nullable'
         ];
     }
 

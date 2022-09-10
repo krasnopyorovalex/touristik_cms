@@ -20,6 +20,9 @@
                 @input(['name' => 'price', 'label' => 'Цена'])
                 @input(['name' => 'date_string', 'label' => 'Дата'])
                 @dateInput(['name' => 'date', 'label' => 'Дата для хронологии'])
+                <hr/>
+                @dateInput(['name' => 'finished_at', 'label' => 'Дата окончания действия ссылки на yandex.disk'])
+                @input(['name' => 'link_to_yandex_disk', 'label' => 'Ссылка на yandex.disk'])
 
                 @textarea(['name' => 'body', 'label' => 'Описание тура'])
 

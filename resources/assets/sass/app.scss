@@ -37,3 +37,17 @@ header .top__line .search__socials-icons .tg, footer .socials .tg, .mobile__menu
 .sub__title.post {
   margin: 1rem 0;
 }
+
+.schedule_yandex {
+  .schedule__row {
+    .name {
+      width: 50%;
+    }
+    .date {
+      width: 25%;
+    }
+    .order {
+      width: 15%;
+    }
+  }
+}

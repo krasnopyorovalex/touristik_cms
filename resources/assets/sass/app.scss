@@ -4,26 +4,32 @@
       margin: 0 0 .5rem 0;
     }
   }
+
   .tour-name {
     text-align: center;
     margin: .5rem 0 1rem 0;
+
     &:empty {
       display: none;
     }
   }
 }
+
 header .top__line .search__socials-icons .tg, footer .socials .tg, .mobile__menu .socials .tg {
   width: 20px;
   height: 17px;
   margin-top: 5px;
 }
+
 .guid-text {
   background-color: #fff;
   padding: 2.5rem 1rem .5rem 1rem;
   position: relative;
+
   p {
     line-height: 24px;
   }
+
   .close__box {
     .close {
       right: 0;
@@ -31,9 +37,11 @@ header .top__line .search__socials-icons .tg, footer .socials .tg, .mobile__menu
     }
   }
 }
+
 .catalog__items-item figure {
   max-height: 290px;
 }
+
 .sub__title.post {
   margin: 1rem 0;
 }
@@ -43,11 +51,47 @@ header .top__line .search__socials-icons .tg, footer .socials .tg, .mobile__menu
     .name {
       width: 50%;
     }
+
     .date {
       width: 25%;
     }
+
     .order {
       width: 15%;
+    }
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .schedule_yandex {
+    .schedule__row .date {
+      text-align: center;
+    }
+
+    .schedule__row .date,
+    .schedule__row .name,
+    .schedule__row .order,
+    .schedule__row .price {
+      padding:.4em 0
+    }
+    .schedule__row .date {
+      width:98%
+    }
+    .schedule__row .date {
+      text-align:center
+    }
+    .schedule__row .name {
+      width:98%
+    }
+    .schedule__row .name {
+      text-align:center;
+      padding:.2em 0
+    }
+    .schedule__row .price {
+      width:98%
+    }
+    .schedule__row .order {
+      width:98%
     }
   }
 }

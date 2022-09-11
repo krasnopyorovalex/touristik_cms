@@ -64,6 +64,11 @@ header .top__line .search__socials-icons .tg, footer .socials .tg, .mobile__menu
 
 @media screen and (max-width: 720px) {
   .schedule_yandex {
+    .schedule__row {
+      &:first-child {
+        display: none;
+      }
+    }
     .schedule__row .date {
       text-align: center;
     }
